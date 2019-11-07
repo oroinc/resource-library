@@ -1,0 +1,38 @@
+{
+    "name": "oro/resource-library-bundle",
+    "description": "Customization example, which includes the content variant types, layouts, templates and sample data for the Resource Library section of a generic eCommerce website",
+    "type": "symfony-bundle",
+    "keywords": ["Resource", "Library"],
+    "homepage": "https://github.com/oroinc/resource-library-bundle",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Oro, Inc",
+            "homepage": "http://www.oroinc.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Oro\\Bundle\\ResourceLibraryBundle\\": "src/Oro/Bundle/ResourceLibraryBundle"},
+        "exclude-from-classmap": ["/Tests/"]
+    },
+    "require": {
+        "oro/commerce": "4.0.*"
+    },
+    "repositories": {
+        "oro": {
+            "type": "composer",
+            "url": "https://packagist.orocrm.com"
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.orocrm.com"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.0-dev"
+        }
+    }
+}
