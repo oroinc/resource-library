@@ -16,9 +16,9 @@ use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogD
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\LoadWebCatalogDemoData as BaseLoadWebCatalogDemoData;
 
 /**
- * Web catalog demo data
+ * Videos demo data
  */
-class LoadWebCatalogDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
+class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
     use UserUtilityTrait;
 
@@ -43,7 +43,7 @@ class LoadWebCatalogDemoData extends AbstractLoadWebCatalogDemoData implements D
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
-                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/web_catalog_data.yml'
+                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/videos_data.yml'
             ),
             $this->getRootNode($manager)
         );
