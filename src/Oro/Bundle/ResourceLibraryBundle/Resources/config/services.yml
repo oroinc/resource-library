@@ -1,0 +1,23 @@
+services:
+    oro_resource_library.content_variant_type.video_list:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.video_list_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.video_list_section_item:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.event_listener.datagrid.video_list_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\EventListener\VideoListSectionDatagridEventListener'
+        arguments:
+            - '@oro_web_catalog.content_node_provider'
+            - '@oro_entity.doctrine_helper'
+        tags:
+            - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.video-section-grid, method: onPreBuild }
