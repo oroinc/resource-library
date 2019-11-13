@@ -1,0 +1,14 @@
+{% set node = record.getRootEntity().getNode() %}
+
+<h3>
+    {{ node.titles|localized_value }}
+</h3>
+<p>
+    {{ node.createdAt|oro_format_datetime }}
+</p>
+<p>
+    {{ record.getValue('shortDescription')|oro_html_sanitize }}
+</p>
+<a href="{{ app.request.uriForPath(node.localizedUrls|localized_value) }}">
+    {{ 'Watch Video'|trans }}
+</a>

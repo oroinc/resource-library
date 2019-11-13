@@ -1,0 +1,43 @@
+datagrids:
+    video-section-grid:
+        extended_entity_name: 'Oro\\Bundle\\WebCatalogBundle\\Entity\\ContentNode'
+        options:
+            frontend: true
+            entity_pagination: true
+            toolbarOptions:
+                pageSize:
+                    items: [10]
+                    default_per_page: 10
+        source:
+            type: orm
+            query:
+                select:
+                    - partial variant.{ id, node }
+                    - video.shortDescription
+                    - video.link
+                from:
+                    - { table: Oro\Bundle\WebCatalogBundle\Entity\ContentVariant, alias: variant }
+                join:
+                    left:
+                        - { join: variant.video, alias: video }
+                        - { join: variant.node, alias: node }
+                where:
+                    and:
+                        - variant.type = 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType::TYPE'
+                        - video.id IS NOT NULL
+                        - IDENTITY(node.parentNode) = :contentNodeId
+                        - variant.id IN (:variantIds)
+            bind_parameters:
+                -
+                    name: contentNodeId
+                -
+                    name: variantIds
+        columns:
+            video:
+                type: twig
+                frontend_type: html
+                template: OroResourceLibraryBundle:Video:Datagrid/Property/video.html.twig
+            data:
+                type: twig
+                frontend_type: html
+                template: OroResourceLibraryBundle:Video:Datagrid/Property/data.html.twig
