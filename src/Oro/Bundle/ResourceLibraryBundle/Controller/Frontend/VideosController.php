@@ -36,7 +36,9 @@ class VideosController extends AbstractController
         $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if ($contentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE) {
+        if (!$contentNode ||
+            $contentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
+        ) {
             throw new NotFoundHttpException();
         }
 
@@ -64,7 +66,9 @@ class VideosController extends AbstractController
         $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if ($contentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE) {
+        if (!$contentNode ||
+            $contentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
+        ) {
             throw new NotFoundHttpException();
         }
 
@@ -89,16 +93,28 @@ class VideosController extends AbstractController
             throw new NotFoundHttpException();
         }
 
-        $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $itemContentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if ($contentNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE) {
+        if (!$itemContentNode ||
+            $itemContentNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE
+        ) {
+            throw new NotFoundHttpException();
+        }
+
+        $parentContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+            ->getResolvedContentNode($contentNode->getParentNode(), $scope);
+
+        if (!$parentContentNode ||
+            $parentContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
+        ) {
             throw new NotFoundHttpException();
         }
 
         return [
             'data' => [
-                'contentNode' => $contentNode,
+                'contentNode' => $itemContentNode,
+                'parentContentNode' => $parentContentNode,
             ]
         ];
     }

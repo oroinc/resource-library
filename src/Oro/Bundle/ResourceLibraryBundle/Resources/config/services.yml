@@ -30,6 +30,7 @@ services:
                 -
                     -
                         items: {required: true}
+                        exclude_item: ~
             - [setName, ['section_list']]
         tags:
             - { name: layout.block_type, alias: section_list }

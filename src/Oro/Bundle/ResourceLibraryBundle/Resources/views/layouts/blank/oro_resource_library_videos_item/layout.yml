@@ -1,0 +1,131 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@addTree':
+            items:
+                video_list_section_item:
+                    blockType: container
+                video_list_section_item_video:
+                    blockType: link
+                    options:
+                        path: '=data["contentNode"].getResolvedContentVariant().video.getLink()'
+                        attr:
+                            width: 480
+                            height: 320
+                            frameborder: 0
+                            allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                video_list_section_item_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+                video_list_section_item_date:
+                    blockType: date
+                    options:
+                        date: '=data["contentNode"].getResolvedContentVariant().video.getCreatedAt()'
+                video_list_section_item_description:
+                    blockType: text
+                    options:
+                        text: '=data["contentNode"].getResolvedContentVariant().video.getDescription()'
+                        escape: false
+                video_list_section_other_items_container:
+                    blockType: container
+                video_list_section_other_items_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["parentContentNode"].getTitles())'
+                video_list_section_other_items:
+                    blockType: section_list
+                    options:
+                        items: '=data["parentContentNode"].getChildNodes()'
+                        exclude_item: '=data["contentNode"]'
+                video_list_section_other_item:
+                    blockType: container
+                video_list_section_other_item_video:
+                    blockType: block
+                    options:
+                        attr:
+                            width: 480
+                            height: 320
+                            frameborder: 0
+                            allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                video_list_section_other_item_title:
+                    blockType: block
+                video_list_section_other_item_date:
+                    blockType: block
+                video_list_section_other_item_description:
+                    blockType: block
+                video_list_section_other_item_link:
+                    blockType: block
+
+
+
+
+
+#                  video_list_container:
+#                      blockType: container
+#                  video_list_title:
+#                      blockType: text
+#                      options:
+#                          text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+#                  video_list_description:
+#                      blockType: text
+#                      options:
+#                          text: '=data["contentNode"].getResolvedContentVariant().description'
+#                          escape: false
+#                  video_list_sections:
+#                      blockType: section_list
+#                      options:
+#                          items: '=data["contentNode"].getChildNodes()'
+#                  video_list_section:
+#                      blockType: container
+#                  video_list_section_title:
+#                      blockType: block
+#                  video_list_section_items:
+#                      blockType: container
+#                  video_list_section_item:
+#                      blockType: container
+#                  video_list_section_item_video:
+#                      blockType: block
+#                      options:
+#                          attr:
+#                              width: 480
+#                              height: 320
+#                              frameborder: 0
+#                              allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+#                  video_list_section_item_title:
+#                      blockType: block
+#                  video_list_section_item_date:
+#                      blockType: block
+#                  video_list_section_item_description:
+#                      blockType: block
+#                  video_list_section_item_link:
+#                      blockType: block
+#                  video_list_section_link:
+#                      blockType: block
+            tree:
+                page_content:
+                    video_list_section_item:
+                        video_list_section_item_video: ~
+                        video_list_section_item_title: ~
+                        video_list_section_item_date: ~
+                        video_list_section_item_description: ~
+                    video_list_section_other_items_container:
+                        video_list_section_other_items_title: ~
+                        video_list_section_other_items:
+                            video_list_section_other_item:
+                                video_list_section_other_item_video: ~
+                                video_list_section_other_item_title: ~
+                                video_list_section_other_item_date: ~
+                                video_list_section_other_item_description: ~
+                                video_list_section_other_item_link: ~
