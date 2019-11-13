@@ -21,3 +21,15 @@ services:
             - '@oro_entity.doctrine_helper'
         tags:
             - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.video-section-grid, method: onPreBuild }
+
+    oro_resource_library.block_type.section_list:
+        parent: oro_layout.block_type.abstract_configurable_container
+        calls:
+            -
+                - setOptionsConfig
+                -
+                    -
+                        items: {required: true}
+            - [setName, ['section_list']]
+        tags:
+            - { name: layout.block_type, alias: section_list }

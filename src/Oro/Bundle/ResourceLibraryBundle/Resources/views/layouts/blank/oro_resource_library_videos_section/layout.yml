@@ -10,7 +10,7 @@ layout:
         - '@setOption':
             id: title
             optionName: value
-            optionValue: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
         - '@setOption':
             id: video_list_section_items_datagrid
             optionName: grid_name
@@ -19,7 +19,7 @@ layout:
             id: video_list_section_items_datagrid
             optionName: grid_parameters
             optionValue:
-                contentNodeId: '=data["contentVariant"].getNode().getId()'
+                contentNodeId: '=data["contentNode"].getId()'
         - '@addTree':
             items:
                 video_list_section:
@@ -27,7 +27,7 @@ layout:
                 video_list_section_title:
                     blockType: text
                     options:
-                        text: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
                 video_list_section_items:
                     blockType: container
             tree:

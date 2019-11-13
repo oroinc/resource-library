@@ -83,7 +83,6 @@ class LoadWebCatalogDemoData extends AbstractLoadWebCatalogDemoData implements D
         $variant = new ContentVariant();
         $variant->setType($type);
 
-        $doctrine = $this->container->get('doctrine');
         if ($type === VideoListContentVariantType::TYPE) {
             $variant->setDescription($params['description']);
         } elseif ($type === VideoListSectionContentVariantType::TYPE) {
@@ -92,8 +91,6 @@ class LoadWebCatalogDemoData extends AbstractLoadWebCatalogDemoData implements D
             $video->setShortDescription($params['shortDescription']);
             $video->setDescription($params['description']);
             $video->setLink($params['link']);
-
-            $doctrine->getManagerForClass(Video::class)->persist($video);
 
             $variant->setVideo($video);
         }
