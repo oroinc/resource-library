@@ -1,0 +1,444 @@
+'Video List':
+    defaultTitle: Video List
+    defaultSlugPrototype: video-list
+    parentScopeUsed: false
+    scopes:
+        -
+            localization: null
+            website: null
+            webCatalog: 'Default Web Catalog'
+            customer: null
+            customerGroup: null
+    contentVariants:
+        -
+            type: video_list
+            params:
+                description: Video List Description
+            isDefault: true
+    children:
+        'Section 1':
+            defaultTitle: Section 1
+            defaultSlugPrototype: section-1
+            contentVariants:
+                -
+                    type: video_list_section
+                    params: []
+                    isDefault: true
+            parentScopeUsed: true
+            children:
+                'Item 11':
+                    defaultTitle: 'Item 11'
+                    defaultSlugPrototype: 'item-11'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 11'
+                                description: 'Description of Item 11'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 12':
+                    defaultTitle: 'Item 12'
+                    defaultSlugPrototype: 'item-12'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 12'
+                                description: 'Description of Item 12'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 13':
+                    defaultTitle: 'Item 13'
+                    defaultSlugPrototype: 'item-13'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 13'
+                                description: 'Description of Item 13'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 14':
+                    defaultTitle: 'Item 14'
+                    defaultSlugPrototype: 'item-14'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 14'
+                                description: 'Description of Item 14'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 15':
+                    defaultTitle: 'Item 15'
+                    defaultSlugPrototype: 'item-15'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 15'
+                                description: 'Description of Item 15'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 16':
+                    defaultTitle: 'Item 16'
+                    defaultSlugPrototype: 'item-16'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 16'
+                                description: 'Description of Item 16'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 17':
+                    defaultTitle: 'Item 17'
+                    defaultSlugPrototype: 'item-17'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 17'
+                                description: 'Description of Item 17'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 18':
+                    defaultTitle: 'Item 18'
+                    defaultSlugPrototype: 'item-18'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 18'
+                                description: 'Description of Item 18'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 19':
+                    defaultTitle: 'Item 19'
+                    defaultSlugPrototype: 'item-19'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 19'
+                                description: 'Description of Item 19'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 110':
+                    defaultTitle: 'Item 110'
+                    defaultSlugPrototype: 'item-110'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 110'
+                                description: 'Description of Item 111'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 111':
+                    defaultTitle: 'Item 111'
+                    defaultSlugPrototype: 'item-111'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 111'
+                                description: 'Description of Item 111'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+        'Section 2':
+            defaultTitle: Section 2
+            defaultSlugPrototype: section-2
+            contentVariants:
+                -
+                    type: video_list_section
+                    params: []
+                    isDefault: true
+            parentScopeUsed: true
+            children:
+                'Item 21':
+                    defaultTitle: 'Item 21'
+                    defaultSlugPrototype: 'item-21'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 21'
+                                description: 'Description of Item 21'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 22':
+                    defaultTitle: 'Item 22'
+                    defaultSlugPrototype: 'item-22'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 22'
+                                description: 'Description of Item 22'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 23':
+                    defaultTitle: 'Item 23'
+                    defaultSlugPrototype: 'item-23'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 23'
+                                description: 'Description of Item 23'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 24':
+                    defaultTitle: 'Item 24'
+                    defaultSlugPrototype: 'item-24'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 24'
+                                description: 'Description of Item 24'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 25':
+                    defaultTitle: 'Item 25'
+                    defaultSlugPrototype: 'item-25'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 25'
+                                description: 'Description of Item 25'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 26':
+                    defaultTitle: 'Item 26'
+                    defaultSlugPrototype: 'item-26'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 26'
+                                description: 'Description of Item 26'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 27':
+                    defaultTitle: 'Item 27'
+                    defaultSlugPrototype: 'item-27'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 27'
+                                description: 'Description of Item 27'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 28':
+                    defaultTitle: 'Item 28'
+                    defaultSlugPrototype: 'item-28'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 28'
+                                description: 'Description of Item 28'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 29':
+                    defaultTitle: 'Item 29'
+                    defaultSlugPrototype: 'item-29'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 29'
+                                description: 'Description of Item 29'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 210':
+                    defaultTitle: 'Item 210'
+                    defaultSlugPrototype: 'item-210'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 210'
+                                description: 'Description of Item 211'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 211':
+                    defaultTitle: 'Item 211'
+                    defaultSlugPrototype: 'item-211'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 211'
+                                description: 'Description of Item 211'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+        'Section 3':
+            defaultTitle: Section 3
+            defaultSlugPrototype: section-3
+            contentVariants:
+                -
+                    type: video_list_section
+                    params: []
+                    isDefault: true
+            parentScopeUsed: true
+            children:
+                'Item 31':
+                    defaultTitle: 'Item 31'
+                    defaultSlugPrototype: 'item-31'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 31'
+                                description: 'Description of Item 31'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 32':
+                    defaultTitle: 'Item 32'
+                    defaultSlugPrototype: 'item-32'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 32'
+                                description: 'Description of Item 32'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 33':
+                    defaultTitle: 'Item 33'
+                    defaultSlugPrototype: 'item-33'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 33'
+                                description: 'Description of Item 33'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 34':
+                    defaultTitle: 'Item 34'
+                    defaultSlugPrototype: 'item-34'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 34'
+                                description: 'Description of Item 34'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 35':
+                    defaultTitle: 'Item 35'
+                    defaultSlugPrototype: 'item-35'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 35'
+                                description: 'Description of Item 35'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 36':
+                    defaultTitle: 'Item 36'
+                    defaultSlugPrototype: 'item-36'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 36'
+                                description: 'Description of Item 36'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 37':
+                    defaultTitle: 'Item 37'
+                    defaultSlugPrototype: 'item-37'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 37'
+                                description: 'Description of Item 37'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 38':
+                    defaultTitle: 'Item 38'
+                    defaultSlugPrototype: 'item-38'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 38'
+                                description: 'Description of Item 38'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 39':
+                    defaultTitle: 'Item 39'
+                    defaultSlugPrototype: 'item-39'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 39'
+                                description: 'Description of Item 39'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 310':
+                    defaultTitle: 'Item 310'
+                    defaultSlugPrototype: 'item-310'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 310'
+                                description: 'Description of Item 311'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true
+                'Item 311':
+                    defaultTitle: 'Item 311'
+                    defaultSlugPrototype: 'item-311'
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Short Description of Item 311'
+                                description: 'Description of Item 311'
+                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                            isDefault: true
+                    parentScopeUsed: true

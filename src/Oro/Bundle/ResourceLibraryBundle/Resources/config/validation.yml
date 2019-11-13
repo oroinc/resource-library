@@ -1,0 +1,13 @@
+Oro\Bundle\ResourceLibraryBundle\Entity\Video:
+    properties:
+        shortDescription:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+        link:
+            - NotBlank: ~
+            - Length:
+                  min: 1
+                  max: 255
+            - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
+                  message: oro.resourcelibrary.video.url.not_dangerous_protocol.message

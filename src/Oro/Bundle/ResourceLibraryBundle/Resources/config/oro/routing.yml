@@ -1,0 +1,6 @@
+oro_resource_library_videos:
+    resource: "@OroResourceLibraryBundle/Controller/Frontend/VideosController.php"
+    type: annotation
+    prefix: /videos
+    options:
+        frontend: true

@@ -1,0 +1,17 @@
+oro:
+    resourcelibrary:
+        video:
+            entity_label: Video
+            entity_plural_label: Videos
+            id.label: ID
+            short_description.label: Short Description
+            description.label: Description
+            link.label: Link
+            organization.label: Organization
+
+            content_variant_type:
+                list.label: 'Videos'
+                list_section.label: 'Videos Section'
+                list_section_item.label: 'Videos Section Item'
+
+oro.webcatalog.contentvariant.description.label: Description
