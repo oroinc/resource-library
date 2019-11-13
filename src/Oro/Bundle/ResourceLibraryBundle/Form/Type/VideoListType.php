@@ -24,6 +24,7 @@ class VideoListType extends AbstractType
             OroRichTextType::class,
             [
                 'label' => 'oro.webcatalog.contentvariant.description.label',
+                'required' => false,
             ]
         );
     }
