@@ -20,17 +20,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class VideosController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="oro_resource_library_videos_list", requirements={"id"="\d+"})
+     * @Route("/", name="oro_resource_library_videos_list", requirements={"id"="\d+"})
      * @Layout()
      *
      * @param ContentNode $contentNode
      * @return array
      */
-    public function listAction(ContentNode $contentNode): array
+    public function listAction(ContentNode $contentNode = null): array
     {
+        if (!$contentNode) {
+            throw $this->createNotFoundException();
+        }
+
         $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
         if (!$scope instanceof Scope) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
@@ -39,7 +43,7 @@ class VideosController extends AbstractController
         if (!$contentNode ||
             $contentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
         ) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         return [
@@ -50,17 +54,21 @@ class VideosController extends AbstractController
     }
 
     /**
-     * @Route("/section/{id}", name="oro_resource_library_videos_section", requirements={"id"="\d+"})
+     * @Route("/section", name="oro_resource_library_videos_section", requirements={"id"="\d+"})
      * @Layout()
      *
      * @param ContentNode $contentNode
      * @return array
      */
-    public function sectionAction(ContentNode $contentNode): array
+    public function sectionAction(ContentNode $contentNode = null): array
     {
+        if (!$contentNode) {
+            throw $this->createNotFoundException();
+        }
+
         $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
         if (!$scope instanceof Scope) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
@@ -69,7 +77,7 @@ class VideosController extends AbstractController
         if (!$contentNode ||
             $contentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
         ) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         return [
@@ -80,17 +88,21 @@ class VideosController extends AbstractController
     }
 
     /**
-     * @Route("/item/{id}", name="oro_resource_library_videos_item", requirements={"id"="\d+"})
+     * @Route("/item", name="oro_resource_library_videos_item", requirements={"id"="\d+"})
      * @Layout()
      *
      * @param ContentNode $contentNode
      * @return array
      */
-    public function itemAction(ContentNode $contentNode): array
+    public function itemAction(ContentNode $contentNode = null): array
     {
+        if (!$contentNode) {
+            throw $this->createNotFoundException();
+        }
+
         $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
         if (!$scope instanceof Scope) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         $itemContentNode = $this->get(ContentNodeTreeResolverInterface::class)
@@ -99,7 +111,7 @@ class VideosController extends AbstractController
         if (!$itemContentNode ||
             $itemContentNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE
         ) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         $parentContentNode = $this->get(ContentNodeTreeResolverInterface::class)
@@ -108,7 +120,7 @@ class VideosController extends AbstractController
         if (!$parentContentNode ||
             $parentContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
         ) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
 
         return [
