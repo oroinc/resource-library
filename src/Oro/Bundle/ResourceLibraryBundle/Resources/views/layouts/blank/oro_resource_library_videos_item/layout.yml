@@ -67,52 +67,6 @@ layout:
                     blockType: block
                 video_list_section_other_item_link:
                     blockType: block
-
-
-
-
-
-#                  video_list_container:
-#                      blockType: container
-#                  video_list_title:
-#                      blockType: text
-#                      options:
-#                          text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
-#                  video_list_description:
-#                      blockType: text
-#                      options:
-#                          text: '=data["contentNode"].getResolvedContentVariant().description'
-#                          escape: false
-#                  video_list_sections:
-#                      blockType: section_list
-#                      options:
-#                          items: '=data["contentNode"].getChildNodes()'
-#                  video_list_section:
-#                      blockType: container
-#                  video_list_section_title:
-#                      blockType: block
-#                  video_list_section_items:
-#                      blockType: container
-#                  video_list_section_item:
-#                      blockType: container
-#                  video_list_section_item_video:
-#                      blockType: block
-#                      options:
-#                          attr:
-#                              width: 480
-#                              height: 320
-#                              frameborder: 0
-#                              allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-#                  video_list_section_item_title:
-#                      blockType: block
-#                  video_list_section_item_date:
-#                      blockType: block
-#                  video_list_section_item_description:
-#                      blockType: block
-#                  video_list_section_item_link:
-#                      blockType: block
-#                  video_list_section_link:
-#                      blockType: block
             tree:
                 page_content:
                     video_list_section_item:

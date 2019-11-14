@@ -24,9 +24,9 @@ oro:
             organization.label: Organization
 
             content_variant_type:
-                list.label: 'Videos'
-                list_section.label: 'Videos Section'
-                list_section_item.label: 'Videos Section Item'
+                list.label: 'Video List'
+                list_section.label: 'Video Section'
+                list_section_item.label: 'Video'
 
     webcatalog.contentvariant:
         description.label: 'Description'
