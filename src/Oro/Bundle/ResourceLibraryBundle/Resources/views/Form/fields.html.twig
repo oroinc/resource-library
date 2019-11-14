@@ -5,3 +5,20 @@
 {% block literature_application_note_file_collection_widget %}
     {{ form_row(form.literature_note_files) }}
 {% endblock %}
+
+{% block media_kit_list_widget %}
+    {{ form_row(form.description) }}
+{% endblock %}
+
+{% block media_kit_list_item_widget %}
+    {{ form_widget(form.mediaKit) }}
+    {{ form_errors(form.mediaKit) }}
+{% endblock %}
+
+{% block media_kit_widget %}
+    {{ form_row(form.banner) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.link) }}
+    {{ form_row(form.media_kit_file) }}
+    {{ form_row(form.logo_package_file) }}
+{% endblock %}

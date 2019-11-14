@@ -1,0 +1,4 @@
+oro.resourcelibrary:
+    mediakit:
+        url:
+            not_dangerous_protocol.message: '"{{ protocol }}" pseudo-protocol is not allowed in slide URIs.'

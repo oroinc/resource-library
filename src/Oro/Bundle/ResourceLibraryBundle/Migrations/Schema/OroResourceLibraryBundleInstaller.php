@@ -52,6 +52,7 @@ class OroResourceLibraryBundleInstaller implements
     {
         $this->createLiteratureApplicationNoteTable($schema);
         $this->addLiteratureApplicationNoteForeignKeyConstraints($schema);
+        $this->createMediaKitTable($schema);
 
         $table = $schema->getTable('oro_web_catalog_variant');
         $table->addColumn(
@@ -117,6 +118,29 @@ class OroResourceLibraryBundleInstaller implements
                 'importexport' => ['excluded' => true],
             ]
         );
+
+        $this->extendExtension->addManyToOneRelation(
+            $schema,
+            $table,
+            'media_kit',
+            'oro_rl_media_kit',
+            'id',
+            [
+                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
+                'entity' => ['label' => 'oro.resourcelibrary.mediakit.entity_label'],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist'],
+                    'on_delete' => 'CASCADE',
+                ],
+                'datagrid' => ['is_visible' => false],
+                'form' => ['is_enabled' => false],
+                'view' => ['is_displayable' => false],
+                'merge' => ['display' => false],
+                'dataaudit' => ['auditable' => false]
+            ]
+        );
     }
 
     /**
@@ -157,6 +181,77 @@ class OroResourceLibraryBundleInstaller implements
             ['file_id'],
             ['id'],
             ['onDelete' => 'SET NULL']
+        );
+    }
+
+    /**
+     * @param Schema $schema
+     */
+    private function createMediaKitTable(Schema $schema): void
+    {
+        $table = $schema->createTable('oro_rl_media_kit');
+        $table->addColumn('id', 'integer', ['autoincrement' => true]);
+        $table->addColumn('description', 'text', ['notnull' => true]);
+        $table->addColumn('link', 'string', ['length' => 255, 'notnull' => true]);
+        $table->addColumn('created_at', 'datetime', []);
+        $table->addColumn('updated_at', 'datetime', []);
+        $table->addColumn('organization_id', 'integer', ['notnull' => false]);
+        $table->setPrimaryKey(['id']);
+
+        $table->addForeignKeyConstraint(
+            $schema->getTable('oro_organization'),
+            ['organization_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL', 'onUpdate' => null]
+        );
+
+        $this->attachmentExtension->addImageRelation(
+            $schema,
+            'oro_rl_media_kit',
+            'banner',
+            [
+                'attachment' => ['acl_protected' => false, 'use_dam' => true],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'without_default' => true,
+                    'on_delete' => 'CASCADE',
+                ],
+            ],
+            self::MAX_FILE_SIZE
+        );
+
+        $this->attachmentExtension->addFileRelation(
+            $schema,
+            'oro_rl_media_kit',
+            'media_kit_file',
+            [
+                'attachment' => ['acl_protected' => false, 'use_dam' => true],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'on_delete' => 'CASCADE',
+                ],
+            ],
+            self::MAX_FILE_SIZE
+        );
+
+        $this->attachmentExtension->addFileRelation(
+            $schema,
+            'oro_rl_media_kit',
+            'logo_package_file',
+            [
+                'attachment' => ['acl_protected' => false, 'use_dam' => true],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'on_delete' => 'CASCADE',
+                ],
+            ],
+            self::MAX_FILE_SIZE
         );
     }
 }
