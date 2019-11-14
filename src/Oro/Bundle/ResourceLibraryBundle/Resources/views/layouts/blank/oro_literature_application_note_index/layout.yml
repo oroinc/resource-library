@@ -1,0 +1,51 @@
+layout:
+    actions:
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+        - '@addTree':
+            items:
+                literature_page:
+                    blockType: container
+                literature_page_title:
+                    blockType: block
+                    options:
+                        vars:
+                            contentNode: '=data["contentNode"]'
+                literature_page_description:
+                    blockType: block
+                    options:
+                        vars:
+                            contentVariant: '=data["contentVariant"]'
+                literature_sections:
+                    blockType: container
+                    options:
+                        vars:
+                            fileSections: '=data["fileSections"]'
+                literature_section:
+                    blockType: container
+                literature_section_title:
+                    blockType: block
+                literature_section_files:
+                    blockType: container
+                literature_file:
+                    blockType: block
+            tree:
+                page_content:
+                    literature_page:
+                        literature_page_title: ~
+                        literature_page_description: ~
+                        literature_sections:
+                            literature_section:
+                                literature_section_title: ~
+                                literature_section_files:
+                                    literature_file: ~
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'

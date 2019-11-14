@@ -1,0 +1,18 @@
+oro:
+    resourcelibrary:
+        literature_application_note:
+            content_variant_type.label: 'Literature and Application Notes'
+            files.content_variant_type.label: 'Literature and Application Notes Attachments Collection'
+            form:
+                attachment.label: 'Attachment'
+                attachment.plural_label: 'Attachments'
+                description.label: 'Description'
+        literatureapplicationnotefile:
+            entity_label: 'Application and Note File'
+            entity_plural_label: 'Application and Note Files'
+            id.label: 'ID'
+            content_variant.label: 'Content Variant'
+            file.label: 'File'
+    webcatalog.contentvariant:
+        description.label: 'Description'
+        literature_note_files.label: 'Files'
