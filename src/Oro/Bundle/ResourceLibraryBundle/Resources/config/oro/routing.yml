@@ -1,3 +1,10 @@
+literature_application_note:
+    resource: "@OroResourceLibraryBundle/Controller/Frontend/LiteratureApplicationNoteController.php"
+    type: annotation
+    prefix: /literature_and_application_notes
+    options:
+        frontend: true
+
 oro_resource_library_videos:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/VideosController.php"
     type: annotation

@@ -1,0 +1,53 @@
+{% block _literature_page_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _literature_page_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ contentNode.titles|localized_value }}
+    </h1>
+{% endblock %}
+
+{% block _literature_page_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ contentVariant.description|oro_html_sanitize}}
+    </div>
+{% endblock %}
+
+{% block _literature_sections_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for fileSection in fileSections %}
+                {% set context = {
+                    section: fileSection
+                } %}
+                {% do block|merge_context(context) %}
+                {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _literature_section_title_widget%}
+    <div {{ block('block_attributes') }}>
+        <h3>{{ section.childNode.titles|localized_value }}</h3>
+    </div>
+{% endblock %}
+
+{% block _literature_section_files_widget %}
+    <div {{ block('block_attributes') }}>
+    {% for literatureNoteEntity in section.filesCollection %}
+            {% set context = {
+                file: literatureNoteEntity.file
+            } %}
+            {% do block|merge_context(context) %}
+            {{ block('container_widget') }}
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _literature_file_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ oro_file_view(file) }}
+    </div>
+{% endblock %}

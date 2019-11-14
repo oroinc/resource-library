@@ -1,4 +1,24 @@
 services:
+    oro_resource_library.content_variant_type.literature_application_note:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.literature_application_note_file_collection:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteFileCollectionContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.provider.literature_note_content_provider:
+        class: 'Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider'
+        arguments:
+            - '@oro_web_catalog.content_node_tree_resolver'
+            - '@oro_scope.scope_manager'
+            - '@oro_entity.doctrine_helper'
+
+    Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider:
+        alias: oro_resource_library.provider.literature_note_content_provider
+
     oro_resource_library.content_variant_type.video_list:
         class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType'
         tags:
