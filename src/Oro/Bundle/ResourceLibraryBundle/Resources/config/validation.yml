@@ -11,4 +11,4 @@ Oro\Bundle\ResourceLibraryBundle\Entity\Video:
                 max: 255
             - Url: ~
             - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
-                  message: oro.resourcelibrary.video.url.not_dangerous_protocol.message
+                message: oro.resourcelibrary.video.url.not_dangerous_protocol.message
