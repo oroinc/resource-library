@@ -5,10 +5,11 @@ Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit:
         link:
             - NotBlank: ~
             - Length:
-                  min: 1
-                  max: 255
+                min: 1
+                max: 255
+            - Url: ~
             - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
-                  message: oro.resourcelibrary.mediakit.url.not_dangerous_protocol.message
+                message: oro.resourcelibrary.mediakit.url.not_dangerous_protocol.message
         banner:
             - NotBlank: ~
         media_kit_file:
