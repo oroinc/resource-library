@@ -117,6 +117,8 @@ class OroResourceLibraryBundleInstaller implements
                 'importexport' => ['excluded' => true],
             ]
         );
+
+        $this->addFileRelation($schema);
     }
 
     /**
@@ -157,6 +159,29 @@ class OroResourceLibraryBundleInstaller implements
             ['file_id'],
             ['id'],
             ['onDelete' => 'SET NULL']
+        );
+    }
+
+    /**
+     * @param Schema $schema
+     */
+    private function addFileRelation(Schema $schema)
+    {
+        $this->attachmentExtension->addFileRelation(
+            $schema,
+            'oro_web_catalog_variant',
+            'pdf_file',
+            [
+                'attachment' => ['acl_protected' => false, 'use_dam' => true, 'mimetypes' => 'application/pdf'],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'without_default' => true,
+                    'on_delete' => 'CASCADE',
+                ],
+            ],
+            self::MAX_FILE_SIZE
         );
     }
 }

@@ -9,6 +9,21 @@ services:
         tags:
             - { name: oro_web_catalog.content_variant_type }
 
+    oro_resource_library.content_variant_type.safety_specification_page:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationPageContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.safety_specification_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationSectionContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.safety_specification_file:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationFileContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
     oro_resource_library.provider.literature_note_content_provider:
         class: 'Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider'
         arguments:

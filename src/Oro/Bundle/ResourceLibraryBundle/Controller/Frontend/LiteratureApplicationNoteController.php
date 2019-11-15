@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LiteratureApplicationNoteController extends AbstractController
 {
     /**
-     * @Route("/", name="oro_literature_application_note_index", requirements={"id"="\d+"})
+     * @Route("/", name="oro_resource_library_literature_application_note_index", requirements={"id"="\d+"})
      * @Layout()
      *
      * @param ContentVariant $contentVariant

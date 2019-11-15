@@ -2,17 +2,17 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
-use Oro\Bundle\ResourceLibraryBundle\Form\Type\LiteratureApplicationNoteFileCollectionType;
+use Oro\Bundle\ResourceLibraryBundle\Form\Type\SafetySpecificationSectionType;
 use Oro\Component\Routing\RouteData;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
- * Provides content variant type for literature and application notes file collection
+ * Provides content variant type for Safety Specifications Section Page
  */
-class LiteratureApplicationNoteFileCollectionContentVariantType implements ContentVariantTypeInterface
+class SafetySpecificationSectionContentVariantType implements ContentVariantTypeInterface
 {
-    public const TYPE = 'literature_application_note_file_collection';
+    public const TYPE = 'safety_specification_section';
 
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
      */
     public function getTitle(): string
     {
-        return 'oro.resourcelibrary.literature_application_note.files.content_variant_type.label';
+        return 'oro.resourcelibrary.safety_specification.content_variant_type_section.label';
     }
 
     /**
@@ -35,7 +35,7 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
      */
     public function getFormType(): string
     {
-        return LiteratureApplicationNoteFileCollectionType::class;
+        return SafetySpecificationSectionType::class;
     }
 
     /**
@@ -51,7 +51,7 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
      */
     public function getRouteData(ContentVariantInterface $contentVariant): RouteData
     {
-        return new RouteData('oro_resource_library_literature_application_note_index');
+        return new RouteData('oro_resource_library_safety_specification_index');
     }
 
     /**
