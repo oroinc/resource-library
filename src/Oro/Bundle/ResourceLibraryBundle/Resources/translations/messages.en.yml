@@ -1,5 +1,6 @@
 oro:
     resourcelibrary:
+        download_pdf.label: 'Download PDF'
         literature_application_note:
             content_variant_type.label: 'Literature and Application Notes'
             files.content_variant_type.label: 'Literature and Application Notes Attachments Collection'
@@ -13,7 +14,14 @@ oro:
             id.label: 'ID'
             content_variant.label: 'Content Variant'
             file.label: 'File'
+        safety_specification:
+            content_variant_type_page.label: 'Safety Specifications Page'
+            content_variant_type_section.label: 'Safety Specifications Section'
+            content_variant_type_file.label: 'Safety Specifications File'
 
+            form:
+                description.label: 'Description'
+                pdf_file.label: 'PDF FIle'
         video:
             entity_label: Video
             entity_plural_label: Videos
@@ -33,4 +41,5 @@ oro:
 
     webcatalog.contentvariant:
         description.label: 'Description'
+        pdf_file.label: 'PDF File'
         literature_note_files.label: 'Files'

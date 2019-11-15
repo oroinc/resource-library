@@ -6,6 +6,18 @@
     {{ form_row(form.literature_note_files) }}
 {% endblock %}
 
+{% block safety_specification_page_widget %}
+    {{ form_row(form.description) }}
+{% endblock %}
+
+{% block safety_specification_section_widget %}
+{% endblock %}
+
+{% block safety_specification_file_widget %}
+    {{ form_row(form.description) }}
+    {{ form_row(form.pdf_file) }}
+{% endblock %}
+
 {% block video_list_widget %}
     {{ form_row(form.description) }}
 {% endblock %}

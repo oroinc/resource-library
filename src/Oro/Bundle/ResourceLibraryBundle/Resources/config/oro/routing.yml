@@ -1,7 +1,14 @@
-literature_application_note:
+oro_literature_application_note:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/LiteratureApplicationNoteController.php"
     type: annotation
     prefix: /literature_and_application_notes
+    options:
+        frontend: true
+
+oro_safety_specification:
+    resource: "@OroResourceLibraryBundle/Controller/Frontend/SafetySpecificationController.php"
+    type: annotation
+    prefix: /safety-specifications
     options:
         frontend: true
 
