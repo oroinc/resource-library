@@ -76,6 +76,6 @@
     {% set attr = layout_attr_defaults(attr, {href: app.request.uriForPath(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
 
     <a {{ block('block_attributes') }}>
-        {{ 'Watch Video'|trans }}
+        {{ 'oro.resourcelibrary.video.watch_video.label'|trans }}
     </a>
 {% endblock %}

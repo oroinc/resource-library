@@ -28,6 +28,9 @@ oro:
                 list_section.label: 'Video Section'
                 list_section_item.label: 'Video'
 
+            watch_video.label: Watch Video
+            view_all_videos.label: View All Videos
+
     webcatalog.contentvariant:
         description.label: 'Description'
         literature_note_files.label: 'Files'
