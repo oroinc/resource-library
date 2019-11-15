@@ -7,6 +7,7 @@ use Oro\Component\WebCatalog\Form\PageVariantType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Form type to manage media kit list item page variant type
@@ -24,6 +25,7 @@ class MediaKitListItemType extends AbstractType
             [
                 'label' => 'oro.resourcelibrary.mediakit.entity_label',
                 'required' => true,
+                'constraints' => [new Valid()],
             ]
         );
     }
