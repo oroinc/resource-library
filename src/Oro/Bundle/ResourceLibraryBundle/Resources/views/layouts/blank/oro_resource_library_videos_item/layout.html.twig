@@ -73,7 +73,7 @@
 {% endblock %}
 
 {% block _video_list_section_other_item_link_widget %}
-    {% set attr = layout_attr_defaults(attr, {href: app.request.uriForPath(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+    {% set attr = layout_attr_defaults(attr, {href: item.resolvedContentVariant.localizedUrls|localized_value}) %}
 
     <a {{ block('block_attributes') }}>
         {{ 'oro.resourcelibrary.video.watch_video.label'|trans }}

@@ -7,6 +7,7 @@ use Oro\Component\WebCatalog\Form\PageVariantType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Form type to manage video list section item page variant type
@@ -24,6 +25,7 @@ class VideoListSectionItemType extends AbstractType
             [
                 'label' => 'oro.resourcelibrary.video.entity_label',
                 'required' => true,
+                'constraints' => [new Valid()]
             ]
         );
     }

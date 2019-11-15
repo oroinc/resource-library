@@ -7,7 +7,7 @@ Oro\Bundle\ResourceLibraryBundle\Entity\Video:
         link:
             - NotBlank: ~
             - Length:
-                  min: 1
-                  max: 255
-            - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
-                  message: oro.resourcelibrary.video.url.not_dangerous_protocol.message
+                min: 1
+                max: 255
+            - Url:
+                protocols: ['http', 'https']
