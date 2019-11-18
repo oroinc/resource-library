@@ -1,0 +1,70 @@
+{% block _safety_specifications_page_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _safety_specifications_page_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block)|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _safety_specifications_page_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </h1>
+{% endblock %}
+
+{% block _safety_specifications_sections_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for section in sections if section.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationSectionContentVariantType::TYPE') %}
+            {% do block|merge_context({section: section}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _safety_specifications_section_title_widget %}
+    <hr>
+    <h3 {{ block('block_attributes') }}>
+        {{ section.titles|localized_value }}
+    </h3>
+{% endblock %}
+
+{% block _safety_specifications_files_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for fileSection in section.getChildNodes if fileSection.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationFileContentVariantType::TYPE') %}
+            {% do block|merge_context({fileSection: fileSection}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _safety_specifications_file_title_widget %}
+    <br>
+    <h4 {{ block('block_attributes') }}>
+        {{ fileSection.titles|localized_value }}
+    </h4>
+{% endblock %}
+
+{% block _safety_specifications_file_short_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ fileSection.resolvedContentVariant.description|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _safety_specifications_file_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        href: file_url(
+            fileSection.resolvedContentVariant.pdf_file,
+            constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
+        ),
+        title: 'oro.resourcelibrary.download_pdf.label'|trans
+    }) %}
+
+    <span class="filename">
+        <i class="fa {{ oro_attachment_icon(fileSection.resolvedContentVariant.pdf_file) }}"></i>
+        <a {{ block('block_attributes') }}>{{ 'oro.resourcelibrary.download_pdf.label'|trans }}</a>
+    </span>
+{% endblock %}

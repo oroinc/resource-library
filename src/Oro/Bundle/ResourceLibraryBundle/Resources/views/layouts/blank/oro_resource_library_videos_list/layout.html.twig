@@ -1,0 +1,91 @@
+{% block _video_list_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </h1>
+{% endblock %}
+
+{% block _video_list_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block)|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _video_list_sections_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for item in items if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionContentVariantType::TYPE') %}
+            {% do block|merge_context({item: item}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_widget %}
+    {% if item.childNodes|length > 0 %}
+        <hr>
+            {{ block_widget(block) }}
+        <hr>
+    {% endif %}
+{% endblock %}
+
+{% block _video_list_section_title_widget %}
+    {{ item.titles|localized_value }}
+{% endblock %}
+
+{% block _video_list_section_items_widget %}
+    <div {{ block('block_attributes') }}>
+        {% set displayed = 0 %}
+
+        {% for item in item.childNodes if displayed < 2 and item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
+            {% do block|merge_context({item: item}) %}
+            {{ block('container_widget') }}
+
+            {% set displayed = displayed + 1 %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_item_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block('container_widget') }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_link_widget %}
+    {% set attr = layout_attr_defaults(attr, {href: oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+
+    <a {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.video.view_all_videos.label'|trans }}
+    </a>
+{% endblock %}
+
+{% block _video_list_section_item_video_widget %}
+    {% set attr = layout_attr_defaults(attr, {src: item.resolvedContentVariant.video.link}) %}
+
+    <iframe {{ block('block_attributes') }}></iframe>
+{% endblock %}
+
+{% block _video_list_section_item_title_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.titles|localized_value }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_item_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.resolvedContentVariant.video.createdAt|oro_format_datetime }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_item_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.resolvedContentVariant.video.shortDescription|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_item_link_widget %}
+    {% set attr = layout_attr_defaults(attr, {href: oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+
+    <a {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.video.watch_video.label'|trans }}
+    </a>
+{% endblock %}

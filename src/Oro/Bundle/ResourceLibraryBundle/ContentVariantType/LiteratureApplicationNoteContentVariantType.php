@@ -51,7 +51,10 @@ class LiteratureApplicationNoteContentVariantType implements ContentVariantTypeI
      */
     public function getRouteData(ContentVariantInterface $contentVariant): RouteData
     {
-        return new RouteData('oro_literature_application_note_index', ['id' => $contentVariant->getId()]);
+        return new RouteData(
+            'oro_resource_library_literature_application_note_index',
+            ['id' => $contentVariant->getId()]
+        );
     }
 
     /**

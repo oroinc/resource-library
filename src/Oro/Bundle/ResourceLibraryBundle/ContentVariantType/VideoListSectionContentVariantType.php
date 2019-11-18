@@ -2,17 +2,17 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
-use Oro\Bundle\ResourceLibraryBundle\Form\Type\LiteratureApplicationNoteFileCollectionType;
+use Oro\Bundle\ResourceLibraryBundle\Form\Type\VideoListSectionType;
 use Oro\Component\Routing\RouteData;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
- * Provides content variant type for literature and application notes file collection
+ * Provides content variant type for videos section page.
  */
-class LiteratureApplicationNoteFileCollectionContentVariantType implements ContentVariantTypeInterface
+class VideoListSectionContentVariantType implements ContentVariantTypeInterface
 {
-    public const TYPE = 'literature_application_note_file_collection';
+    public const TYPE = 'video_list_section';
 
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
      */
     public function getTitle(): string
     {
-        return 'oro.resourcelibrary.literature_application_note.files.content_variant_type.label';
+        return 'oro.resourcelibrary.video.content_variant_type.list_section.label';
     }
 
     /**
@@ -35,7 +35,7 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
      */
     public function getFormType(): string
     {
-        return LiteratureApplicationNoteFileCollectionType::class;
+        return VideoListSectionType::class;
     }
 
     /**
@@ -49,9 +49,9 @@ class LiteratureApplicationNoteFileCollectionContentVariantType implements Conte
     /**
      * {@inheritdoc}
      */
-    public function getRouteData(ContentVariantInterface $contentVariant): RouteData
+    public function getRouteData(ContentVariantInterface $contentVariant)
     {
-        return new RouteData('oro_resource_library_literature_application_note_index');
+        return new RouteData('oro_resource_library_videos_section', ['id' => $contentVariant->getNode()->getId()]);
     }
 
     /**

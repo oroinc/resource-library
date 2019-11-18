@@ -1,0 +1,81 @@
+{% block _video_list_section_item_video_widget %}
+    {% set attr = layout_attr_defaults(attr, {src: path}) %}
+
+    <iframe {{ block('block_attributes') }}></iframe>
+{% endblock %}
+
+{% block _video_list_section_item_title_widget %}
+    <p>
+        {{ block_widget(block) }}
+    </p>
+{% endblock %}
+
+{% block _video_list_section_item_date_widget %}
+    <p>
+        {{ date|oro_format_datetime }}
+    </p>
+{% endblock %}
+
+{% block _video_list_section_item_description_widget %}
+    <p>
+        {{ block_widget(block)|oro_html_sanitize }}
+    </p>
+{% endblock %}
+
+{% block _video_list_section_other_items_container_widget %}
+    <hr>
+    {{ block_widget(block) }}
+{% endblock %}
+
+{% block _video_list_section_other_items_widget %}
+    <div {{ block('block_attributes') }}>
+        {% set displayed = 0 %}
+
+        {% for item in items if displayed < 2 and item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
+            {% if exclude_item is not defined or item.id != exclude_item.id %}
+                {% do block|merge_context({item: item}) %}
+                {{ block('container_widget') }}
+
+                {% set displayed = displayed + 1 %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_other_item_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block('container_widget') }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_other_item_video_widget %}
+    {% set attr = layout_attr_defaults(attr, {src: item.resolvedContentVariant.video.link}) %}
+
+    <iframe {{ block('block_attributes') }}></iframe>
+{% endblock %}
+
+{% block _video_list_section_other_item_title_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.titles|localized_value }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_other_item_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.resolvedContentVariant.video.createdAt|oro_format_datetime }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_other_item_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.resolvedContentVariant.video.shortDescription|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_other_item_link_widget %}
+    {% set attr = layout_attr_defaults(attr, {href: oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+
+    <a {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.video.watch_video.label'|trans }}
+    </a>
+{% endblock %}

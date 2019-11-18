@@ -1,5 +1,6 @@
 oro:
     resourcelibrary:
+        download_pdf.label: 'Download PDF'
         literature_application_note:
             content_variant_type.label: 'Literature and Application Notes'
             files.content_variant_type.label: 'Literature and Application Notes Attachments Collection'
@@ -13,26 +14,51 @@ oro:
             id.label: 'ID'
             content_variant.label: 'Content Variant'
             file.label: 'File'
+        safety_specification:
+            content_variant_type_page.label: 'Safety Specifications Page'
+            content_variant_type_section.label: 'Safety Specifications Section'
+            content_variant_type_file.label: 'Safety Specifications File'
 
-        mediakit:
-            entity_label: Media Kit
-            entity_plural_label: Media Kits
+            form:
+                description.label: 'Description'
+                pdf_file.label: 'PDF FIle'
+        video:
+            entity_label: Video
+            entity_plural_label: Videos
             id.label: ID
+            short_description.label: Short Description
             description.label: Description
             link.label: Link
-            banner.label: Banner
-            media_kit_file.label: Media Kit
-            logo_package_file.label: Logo Package
             organization.label: Organization
 
             content_variant_type:
-                list.label: Media Kit List
-                list_item.label: Media Kit Item
+                list.label: 'Video List'
+                list_section.label: 'Video Section'
+                list_section_item.label: 'Video'
 
-            visit_website.label: Visit Website
-            download_media_kit.label: Download Media Kit
-            download_logo_package.label: Download Logo Package
+            watch_video.label: Watch Video
+            view_all_videos.label: View All Videos
+
+        mediakit:
+          entity_label: Media Kit
+          entity_plural_label: Media Kits
+          id.label: ID
+          description.label: Description
+          link.label: Link
+          banner.label: Banner
+          media_kit_file.label: Media Kit
+          logo_package_file.label: Logo Package
+          organization.label: Organization
+
+          content_variant_type:
+            list.label: Media Kit List
+            list_item.label: Media Kit Item
+
+          visit_website.label: Visit Website
+          download_media_kit.label: Download Media Kit
+          download_logo_package.label: Download Logo Package
 
     webcatalog.contentvariant:
         description.label: 'Description'
+        pdf_file.label: 'PDF File'
         literature_note_files.label: 'Files'

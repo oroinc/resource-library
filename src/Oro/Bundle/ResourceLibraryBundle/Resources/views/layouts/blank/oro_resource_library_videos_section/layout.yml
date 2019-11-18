@@ -1,0 +1,43 @@
+layout:
+    imports:
+        -
+            id: datagrid
+            root: video_list_section_items
+            namespace: video_list_section_items
+    actions:
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@setOption':
+            id: video_list_section_items_datagrid
+            optionName: grid_name
+            optionValue: video-section-grid
+        - '@setOption':
+            id: video_list_section_items_datagrid
+            optionName: grid_parameters
+            optionValue:
+                contentNodeId: '=data["contentNode"].getId()'
+        - '@addTree':
+            items:
+                video_list_section:
+                    blockType: container
+                video_list_section_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+                video_list_section_items:
+                    blockType: container
+            tree:
+                page_content:
+                    video_list_section:
+                        video_list_section_title: ~
+                        video_list_section_items: ~

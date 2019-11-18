@@ -1,0 +1,65 @@
+layout:
+    actions:
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+              breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@addTree':
+            items:
+                safety_specifications_page:
+                    blockType: container
+
+                safety_specifications_page_description:
+                    blockType: text
+                    options:
+                        text: '=data["contentNode"].getResolvedContentVariant().description'
+                        escape: false
+
+                safety_specifications_page_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+
+                safety_specifications_sections:
+                    blockType: container
+                    options:
+                        vars:
+                            sections: '=data["contentNode"].getChildNodes()'
+
+                safety_specifications_section:
+                    blockType: container
+
+                safety_specifications_section_title:
+                    blockType: block
+
+                safety_specifications_files:
+                    blockType: container
+
+                safety_specifications_file_title:
+                    blockType: block
+
+                safety_specifications_file_short_description:
+                    blockType: block
+
+                safety_specifications_file:
+                    blockType: block
+            tree:
+                page_content:
+                    safety_specifications_page:
+                        safety_specifications_page_title: ~
+                        safety_specifications_page_description: ~
+                        safety_specifications_sections:
+                            safety_specifications_section:
+                                safety_specifications_section_title: ~
+                                safety_specifications_files:
+                                    safety_specifications_file_title: ~
+                                    safety_specifications_file_short_description: ~
+                                    safety_specifications_file: ~

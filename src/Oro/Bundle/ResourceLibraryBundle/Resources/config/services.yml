@@ -9,12 +9,27 @@ services:
         tags:
             - { name: oro_web_catalog.content_variant_type }
 
+    oro_resource_library.content_variant_type.safety_specification_page:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationPageContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.safety_specification_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationSectionContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.safety_specification_file:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationFileContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
     oro_resource_library.content_variant_type.media_kit_list:
         class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType'
         tags:
             - { name: oro_web_catalog.content_variant_type }
 
-    oro_resource_library.content_variant_type.media_kit_list_item:
+      oro_resource_library.content_variant_type.media_kit_list_item:
         class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListItemContentVariantType'
         tags:
             - { name: oro_web_catalog.content_variant_type }
@@ -28,6 +43,29 @@ services:
 
     Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider:
         alias: oro_resource_library.provider.literature_note_content_provider
+
+    oro_resource_library.content_variant_type.video_list:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.video_list_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.video_list_section_item:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.event_listener.datagrid.video_list_section:
+        class: 'Oro\Bundle\ResourceLibraryBundle\EventListener\VideoListSectionDatagridEventListener'
+        arguments:
+            - '@oro_web_catalog.content_node_provider'
+            - '@oro_entity.doctrine_helper'
+        tags:
+            - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.video-section-grid, method: onPreBuild }
 
     oro_resource_library.block_type.section_list:
         parent: oro_layout.block_type.abstract_configurable_container

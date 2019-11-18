@@ -8,6 +8,18 @@ services:
         tags:
             - { name: container.service_subscriber }
 
+    Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\SafetySpecificationController:
+        calls:
+            - ['setContainer', ['@Psr\Container\ContainerInterface']]
+        tags:
+            - { name: container.service_subscriber }
+
+    Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\VideosController:
+        calls:
+            - ['setContainer', ['@Psr\Container\ContainerInterface']]
+        tags:
+            - { name: container.service_subscriber }
+
     Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\MediaKitController:
         calls:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
