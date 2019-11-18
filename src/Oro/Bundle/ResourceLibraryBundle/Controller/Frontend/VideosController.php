@@ -2,16 +2,17 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Oro\Bundle\LayoutBundle\Annotation\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType;
 use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
+use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -46,11 +47,45 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
+        /** @var ResolvedContentNode $section */
+        foreach ($contentNode->getChildNodes() as $section) {
+            $this->sortChildNodesByVideoDate($section);
+        }
+
         return [
             'data' => [
                 'contentNode' => $contentNode,
             ]
         ];
+    }
+
+    /**
+     * @param ResolvedContentNode $parentNode
+     */
+    private function sortChildNodesByVideoDate(ResolvedContentNode &$parentNode): void
+    {
+        $videoNodes = $parentNode->getChildNodes();
+        $videoNodesSortedByDate = [];
+
+        $counter = 0; //Prevents overwriting nodes with same timestamp
+        /** @var ResolvedContentNode $videoNode */
+        foreach ($videoNodes as $videoNode) {
+            if ($videoNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE) {
+                continue;
+            }
+            /** @var \DateTime $createdAt */
+            $createdAt = $videoNode->getResolvedContentVariant()->video->getCreatedAt();
+            $timestamp = $createdAt->getTimestamp();
+            if (isset($videoNodesSortedByDate[$timestamp])) {
+                $timestamp += ++$counter;
+            }
+            $videoNodesSortedByDate[$timestamp] = $videoNode;
+        }
+
+        \krsort($videoNodesSortedByDate);
+
+        $videoNodes = new ArrayCollection($videoNodesSortedByDate);
+        $parentNode->setChildNodes($videoNodes);
     }
 
     /**
@@ -116,6 +151,8 @@ class VideosController extends AbstractController
 
         $parentContentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode->getParentNode(), $scope);
+
+        $this->sortChildNodesByVideoDate($parentContentNode);
 
         if (!$parentContentNode ||
             $parentContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE

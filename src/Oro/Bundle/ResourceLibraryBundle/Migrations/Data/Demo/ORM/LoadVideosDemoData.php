@@ -85,7 +85,6 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
 
         if ($type === VideoListContentVariantType::TYPE) {
             $variant->setDescription($params['description']);
-        } elseif ($type === VideoListSectionContentVariantType::TYPE) {
         } elseif ($type === VideoListSectionItemContentVariantType::TYPE) {
             $video = new Video();
             $video->setShortDescription($params['shortDescription']);

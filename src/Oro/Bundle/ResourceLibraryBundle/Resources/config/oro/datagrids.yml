@@ -27,6 +27,9 @@ datagrids:
                         - video.id IS NOT NULL
                         - IDENTITY(node.parentNode) = :contentNodeId
                         - variant.id IN (:variantIds)
+                orderBy:
+                      - column: video.createdAt
+                        dir: desc
             bind_parameters:
                 -
                     name: contentNodeId

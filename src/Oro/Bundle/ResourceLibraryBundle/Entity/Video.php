@@ -10,7 +10,7 @@ use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 
 /**
- * Holds video information.
+ * Contains video information.
  *
  * @ORM\Table(name="oro_rl_video")
  * @ORM\Entity
