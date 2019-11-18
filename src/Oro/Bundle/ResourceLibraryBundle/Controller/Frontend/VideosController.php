@@ -75,7 +75,7 @@ class VideosController extends AbstractController
             }
 
             return (
-                $videoNodeB->getResolvedContentVariant()->video->getCreatedAt()->getTimestamp()  <=>
+                $videoNodeB->getResolvedContentVariant()->video->getCreatedAt()->getTimestamp() <=>
                 $videoNodeA->getResolvedContentVariant()->video->getCreatedAt()->getTimestamp()
             );
         });
