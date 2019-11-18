@@ -2,6 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
+use ArrayIterator;
 use Doctrine\Common\Collections\ArrayCollection;
 use Oro\Bundle\LayoutBundle\Annotation\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType;
@@ -64,27 +65,22 @@ class VideosController extends AbstractController
      */
     private function sortChildNodesByVideoDate(ResolvedContentNode &$parentNode): void
     {
-        $videoNodes = $parentNode->getChildNodes();
-        $videoNodesSortedByDate = [];
+        $childNodes = $parentNode->getChildNodes();
 
-        $counter = 0; //Prevents overwriting nodes with same timestamp
-        /** @var ResolvedContentNode $videoNode */
-        foreach ($videoNodes as $videoNode) {
-            if ($videoNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE) {
-                continue;
+        /** @var ArrayIterator $iterator */
+        $iterator = $childNodes->getIterator();
+        $iterator->uasort(function ($videoNodeA, $videoNodeB) {
+            if ($videoNodeA->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE) {
+                return -1;
             }
-            /** @var \DateTime $createdAt */
-            $createdAt = $videoNode->getResolvedContentVariant()->video->getCreatedAt();
-            $timestamp = $createdAt->getTimestamp();
-            if (isset($videoNodesSortedByDate[$timestamp])) {
-                $timestamp += ++$counter;
-            }
-            $videoNodesSortedByDate[$timestamp] = $videoNode;
-        }
 
-        \krsort($videoNodesSortedByDate);
+            return (
+                $videoNodeA->getResolvedContentVariant()->video->getCreatedAt()->getTimestamp() <
+                $videoNodeB->getResolvedContentVariant()->video->getCreatedAt()->getTimestamp() ? 1 : -1
+            );
+        });
 
-        $videoNodes = new ArrayCollection($videoNodesSortedByDate);
+        $videoNodes = new ArrayCollection(iterator_to_array($iterator));
         $parentNode->setChildNodes($videoNodes);
     }
 
