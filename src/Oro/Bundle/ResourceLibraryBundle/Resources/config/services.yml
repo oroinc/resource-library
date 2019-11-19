@@ -24,6 +24,16 @@ services:
         tags:
             - { name: oro_web_catalog.content_variant_type }
 
+    oro_resource_library.content_variant_type.media_kit_list:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.media_kit_list_item:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListItemContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
     oro_resource_library.provider.literature_note_content_provider:
         class: 'Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider'
         arguments:

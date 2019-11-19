@@ -1,0 +1,65 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@addTree':
+            items:
+                media_kit_list_container:
+                    blockType: container
+                media_kit_list_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+                media_kit_list_description:
+                    blockType: text
+                    options:
+                        text: '=data["contentNode"].getResolvedContentVariant().description'
+                        escape: false
+                media_kit_list_items:
+                    blockType: section_list
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                media_kit_list_item:
+                    blockType: container
+                media_kit_list_item_banner:
+                    blockType: block
+                    options:
+                        attr:
+                            width: 480
+                            height: 320
+                media_kit_list_item_title:
+                    blockType: block
+                media_kit_list_item_description:
+                    blockType: block
+                media_kit_list_item_link:
+                    blockType: block
+                media_kit_list_item_files:
+                    blockType: container
+                media_kit_list_item_media_kit_file:
+                    blockType: block
+                media_kit_list_item_logo_package_file:
+                    blockType: block
+            tree:
+                page_content:
+                    media_kit_list_container:
+                        media_kit_list_title: ~
+                        media_kit_list_description: ~
+                        media_kit_list_items:
+                            media_kit_list_item:
+                                media_kit_list_item_banner: ~
+                                media_kit_list_item_title: ~
+                                media_kit_list_item_description: ~
+                                media_kit_list_item_link: ~
+                                media_kit_list_item_files:
+                                    media_kit_list_item_media_kit_file: ~
+                                    media_kit_list_item_logo_package_file: ~

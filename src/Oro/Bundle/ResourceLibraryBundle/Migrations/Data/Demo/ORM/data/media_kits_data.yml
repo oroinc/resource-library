@@ -1,0 +1,11 @@
+'Media Kits':
+    defaultTitle: Media Kits
+    defaultSlugPrototype: media-kits
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: media_kit_list
+            params:
+                description: Media Kits Description
+            isDefault: true
+    children: []
