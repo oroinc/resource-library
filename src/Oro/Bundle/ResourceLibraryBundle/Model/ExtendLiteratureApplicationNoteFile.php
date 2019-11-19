@@ -6,7 +6,7 @@ use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\ResourceLibraryBundle\Entity\LiteratureApplicationNoteFile;
 
 /**
- * Makes LiteratureApplicationNote entity extendable.
+ * Makes LiteratureApplicationNote entity extandable.
  *
  * @method null|File getFile()
  * @method LiteratureApplicationNoteFile setFile(File $image)

@@ -19,9 +19,3 @@ services:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
         tags:
             - { name: container.service_subscriber }
-
-    Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\MediaKitController:
-        calls:
-            - ['setContainer', ['@Psr\Container\ContainerInterface']]
-        tags:
-            - { name: container.service_subscriber }

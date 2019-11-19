@@ -1,14 +1,7 @@
 oro_literature_application_note:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/LiteratureApplicationNoteController.php"
     type: annotation
-    prefix: /literature-application-note
-    options:
-        frontend: true
-
-oro_resource_library_media_kit:
-    resource: "@OroResourceLibraryBundle/Controller/Frontend/MediaKitController.php"
-    type: annotation
-    prefix: /media-kit
+    prefix: /literature_and_application_notes
     options:
         frontend: true
 
