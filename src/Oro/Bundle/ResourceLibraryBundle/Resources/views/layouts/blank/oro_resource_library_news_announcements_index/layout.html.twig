@@ -1,0 +1,69 @@
+{% block _today_container_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.newsannouncementsarticle.today'|trans }}
+    </h1>
+{% endblock %}
+
+{% block _today_list_items_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for index, item in items %}
+            {% do block|merge_context({item: item}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _article_list_container_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.newsannouncementsarticle.latest'|trans }}
+    </h1>
+{% endblock %}
+
+{% block _article_list_item_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block['article_list_item_image']) }}
+        <div>
+            {{ block_widget(block['article_list_item_title']) }}
+            {{ block_widget(block['article_list_item_date']) }}
+        </div>
+        {{ block_widget(block['article_list_item_short_description']) }}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_image_widget %}
+    <div {{ block('block_attributes') }}>
+        {% if item.newsAnnouncementsArticle.image is not empty %}
+            <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_today') }}"
+                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}"
+             />
+        {% else %}
+            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" style="width: 400px; height: 250px"/>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_title_widget %}
+    <h3 {{ block('block_attributes') }}>
+        {{ item.node.titles|localized_value }}
+    </h3>
+{% endblock %}
+
+{% block _article_list_item_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.newsAnnouncementsArticle.createdAt|oro_format_time() }}
+        | {{ item.newsAnnouncementsArticle.createdAt|oro_format_date({'dateType': 2}) }}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_short_description_widget %}
+    <div {{ block('block_attributes') }}>
+        <div>
+            {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
+        </div>
+        <div>
+            <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}">
+                {{ 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

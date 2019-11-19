@@ -1,0 +1,175 @@
+'News & Announcements':
+    defaultTitle: 'News & Announcements'
+    defaultSlugPrototype: 'news'
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: oro_news_announcements
+            isDefault: true
+            params: []
+    children:
+        'News - 1':
+            defaultTitle: 'News - 1'
+            defaultSlugPrototype: news-1
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 1'
+                        description: 'Description of News 1'
+                    isDefault: true
+        'News - 2':
+            defaultTitle: 'News - 2'
+            defaultSlugPrototype: news-2
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 2'
+                        description: 'Description of News 2'
+                    isDefault: true
+        'News - 3':
+            defaultTitle: 'News - 3'
+            defaultSlugPrototype: news-3
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 3'
+                        description: 'Description of News 3'
+                    isDefault: true
+        'News - 4':
+            defaultTitle: 'News - 4'
+            defaultSlugPrototype: news-4
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 4'
+                        description: 'Description of News 4'
+                    isDefault: true
+        'News - 5':
+            defaultTitle: 'News - 5'
+            defaultSlugPrototype: news-5
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 5'
+                        description: 'Description of News 5'
+                    isDefault: true
+        'News - 6':
+            defaultTitle: 'News - 6'
+            defaultSlugPrototype: news-6
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 6'
+                        description: 'Description of News 6'
+                    isDefault: true
+        'News - 7':
+            defaultTitle: 'News - 7'
+            defaultSlugPrototype: news-7
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 7'
+                        description: 'Description of News 7'
+                    isDefault: true
+        'News - 8':
+            defaultTitle: 'News - 8'
+            defaultSlugPrototype: news-8
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 8'
+                        description: 'Description of News 8'
+                    isDefault: true
+        'News - 9':
+            defaultTitle: 'News - 9'
+            defaultSlugPrototype: news-9
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 9'
+                        description: 'Description of News 9'
+                    isDefault: true
+        'News - 10':
+            defaultTitle: 'News - 10'
+            defaultSlugPrototype: news-10
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 10'
+                        description: 'Description of News 10'
+                    isDefault: true
+        'News - 11':
+            defaultTitle: 'News - 11'
+            defaultSlugPrototype: news-11
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 11'
+                        description: 'Description of News 11'
+                    isDefault: true
+        'News - 12':
+            defaultTitle: 'News - 12'
+            defaultSlugPrototype: news-12
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 12'
+                        description: 'Description of News 12'
+                    isDefault: true
+        'News - 13':
+            defaultTitle: 'News - 13'
+            defaultSlugPrototype: news-13
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 13'
+                        description: 'Description of News 13'
+                    isDefault: true
+        'News - 14':
+            defaultTitle: 'News - 14'
+            defaultSlugPrototype: news-14
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 14'
+                        description: 'Description of News 14'
+                    isDefault: true
+        'News - 15':
+            defaultTitle: 'News - 15'
+            defaultSlugPrototype: news-15
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: oro_news_announcements_article
+                    params:
+                        shortDescription: 'Short Description of News 15'
+                        description: 'Description of News 15'
+                    isDefault: true

@@ -54,7 +54,85 @@ class OroResourceLibraryBundleInstaller implements
         $this->addLiteratureApplicationNoteForeignKeyConstraints($schema);
         $this->createVideoTable($schema);
         $this->createMediaKitTable($schema);
+        $this->createNewsAnnouncementsTable($schema);
+        $this->addLiteratureExtension($schema);
 
+        $table = $schema->getTable('oro_web_catalog_variant');
+
+        $this->extendExtension->addManyToOneRelation(
+            $schema,
+            $table,
+            'video',
+            'oro_rl_video',
+            'id',
+            [
+                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
+                'entity' => ['label' => 'oro.resourcelibrary.video.entity_label'],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist'],
+                    'on_delete' => 'CASCADE',
+                ],
+                'datagrid' => ['is_visible' => false],
+                'form' => ['is_enabled' => false],
+                'view' => ['is_displayable' => false],
+                'merge' => ['display' => false],
+                'dataaudit' => ['auditable' => false]
+            ]
+        );
+
+        $this->extendExtension->addManyToOneRelation(
+            $schema,
+            $table,
+            'news_announcements_article',
+            'oro_news_announce_article',
+            'id',
+            [
+                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
+                'entity' => ['label' => 'oro.resourcelibrary.newsannouncementsarticle.entity_label'],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'on_delete' => 'CASCADE',
+                ],
+                'datagrid' => ['is_visible' => false],
+                'form' => ['is_enabled' => false],
+                'view' => ['is_displayable' => false],
+                'merge' => ['display' => false],
+            ]
+        );
+
+        $this->addFileRelation($schema);
+
+        $this->extendExtension->addManyToOneRelation(
+            $schema,
+            $table,
+            'media_kit',
+            'oro_rl_media_kit',
+            'id',
+            [
+                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
+                'entity' => ['label' => 'oro.resourcelibrary.mediakit.entity_label'],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist'],
+                    'on_delete' => 'CASCADE',
+                ],
+                'datagrid' => ['is_visible' => false],
+                'form' => ['is_enabled' => false],
+                'view' => ['is_displayable' => false],
+                'merge' => ['display' => false],
+                'dataaudit' => ['auditable' => false]
+            ]
+        );
+    }
+
+
+    private function addLiteratureExtension(Schema $schema)
+    {
         $table = $schema->getTable('oro_web_catalog_variant');
         $table->addColumn(
             'description',
@@ -119,54 +197,6 @@ class OroResourceLibraryBundleInstaller implements
                 'importexport' => ['excluded' => true],
             ]
         );
-
-        $this->extendExtension->addManyToOneRelation(
-            $schema,
-            $table,
-            'video',
-            'oro_rl_video',
-            'id',
-            [
-                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
-                'entity' => ['label' => 'oro.resourcelibrary.video.entity_label'],
-                'extend' => [
-                    'is_extend' => true,
-                    'owner' => ExtendScope::OWNER_CUSTOM,
-                    'cascade' => ['persist'],
-                    'on_delete' => 'CASCADE',
-                ],
-                'datagrid' => ['is_visible' => false],
-                'form' => ['is_enabled' => false],
-                'view' => ['is_displayable' => false],
-                'merge' => ['display' => false],
-                'dataaudit' => ['auditable' => false]
-            ]
-        );
-
-        $this->addFileRelation($schema);
-
-        $this->extendExtension->addManyToOneRelation(
-            $schema,
-            $table,
-            'media_kit',
-            'oro_rl_media_kit',
-            'id',
-            [
-                ExtendOptionsManager::MODE_OPTION => ConfigModel::MODE_READONLY,
-                'entity' => ['label' => 'oro.resourcelibrary.mediakit.entity_label'],
-                'extend' => [
-                    'is_extend' => true,
-                    'owner' => ExtendScope::OWNER_CUSTOM,
-                    'cascade' => ['persist'],
-                    'on_delete' => 'CASCADE',
-                ],
-                'datagrid' => ['is_visible' => false],
-                'form' => ['is_enabled' => false],
-                'view' => ['is_displayable' => false],
-                'merge' => ['display' => false],
-                'dataaudit' => ['auditable' => false]
-            ]
-        );
     }
 
     /**
@@ -213,7 +243,7 @@ class OroResourceLibraryBundleInstaller implements
     /**
      * @param Schema $schema
      */
-    private function addFileRelation(Schema $schema)
+    private function addFileRelation(Schema $schema): void
     {
         $this->attachmentExtension->addFileRelation(
             $schema,
@@ -230,6 +260,14 @@ class OroResourceLibraryBundleInstaller implements
                 ],
             ],
             self::MAX_FILE_SIZE
+        );
+
+        $table = $schema->getTable('oro_web_catalog_variant');
+        $table->addForeignKeyConstraint(
+            $schema->getTable('oro_attachment_file'),
+            ['pdf_file_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL']
         );
     }
 
@@ -324,6 +362,65 @@ class OroResourceLibraryBundleInstaller implements
                 ],
             ],
             self::MAX_FILE_SIZE
+        );
+
+        $attachmentsTable = $schema->getTable('oro_attachment_file');
+
+        $table->addForeignKeyConstraint(
+            $attachmentsTable,
+            ['banner_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL']
+        );
+
+        $table->addForeignKeyConstraint(
+            $attachmentsTable,
+            ['logo_package_file_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL']
+        );
+
+        $table->addForeignKeyConstraint(
+            $attachmentsTable,
+            ['media_kit_file_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL']
+        );
+    }
+
+    /**
+     * @param Schema $schema
+     */
+    private function createNewsAnnouncementsTable(Schema $schema): void
+    {
+        $table = $schema->createTable('oro_news_announce_article');
+        $table->addColumn('id', 'integer', ['autoincrement' => true]);
+        $table->addColumn('description', 'text');
+        $table->addColumn('short_description', 'text');
+        $table->addColumn('created_at', 'datetime');
+        $table->setPrimaryKey(['id']);
+
+        $this->attachmentExtension->addFileRelation(
+            $schema,
+            'oro_news_announce_article',
+            'image',
+            [
+                'attachment' => ['acl_protected' => false, 'use_dam' => true],
+                'extend' => [
+                    'is_extend' => true,
+                    'owner' => ExtendScope::OWNER_CUSTOM,
+                    'cascade' => ['persist', 'remove'],
+                    'without_default' => true,
+                    'on_delete' => 'CASCADE',
+                ],
+            ]
+        );
+
+        $table->addForeignKeyConstraint(
+            $schema->getTable('oro_attachment_file'),
+            ['image_id'],
+            ['id'],
+            ['onDelete' => 'SET NULL']
         );
     }
 }

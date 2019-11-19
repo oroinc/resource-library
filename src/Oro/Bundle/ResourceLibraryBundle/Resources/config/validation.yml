@@ -28,3 +28,10 @@ Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit:
             - NotBlank: ~
         media_kit_file:
             - NotBlank: ~
+
+Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle:
+    properties:
+        shortDescription:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~

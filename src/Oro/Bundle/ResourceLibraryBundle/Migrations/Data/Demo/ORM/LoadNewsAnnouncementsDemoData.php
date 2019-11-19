@@ -4,9 +4,8 @@ namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\Entity\Video;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
+use Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle;
 use Oro\Bundle\UserBundle\DataFixtures\UserUtilityTrait;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
@@ -15,9 +14,9 @@ use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogD
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\LoadWebCatalogDemoData as BaseLoadWebCatalogDemoData;
 
 /**
- * Videos demo data
+ * Web catalog demo data
  */
-class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
+class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
     use UserUtilityTrait;
 
@@ -42,7 +41,7 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
-                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/videos_data.yml'
+                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/news_announcements_data.yml'
             ),
             $this->getRootNode($manager)
         );
@@ -82,15 +81,16 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
         $variant = new ContentVariant();
         $variant->setType($type);
 
-        if ($type === VideoListContentVariantType::TYPE) {
-            $variant->setDescription($params['description']);
-        } elseif ($type === VideoListSectionItemContentVariantType::TYPE) {
-            $video = new Video();
-            $video->setShortDescription($params['shortDescription']);
-            $video->setDescription($params['description']);
-            $video->setLink($params['link']);
+        if ($variant->getType() === NewsAnnouncementsArticleContentVariantType::TYPE) {
+            $article = new NewsAnnouncementsArticle();
+            $article->setDescription($params['description']);
+            $article->setShortDescription($params['shortDescription']);
 
-            $variant->setVideo($video);
+            if (isset($params['image'])) {
+//                $article->setImage();
+            }
+
+            $variant->setNewsAnnouncementsArticle($article);
         }
 
         return $variant;

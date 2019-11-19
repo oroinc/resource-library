@@ -1,0 +1,25 @@
+liip_imagine:
+    filter_sets:
+        news_announcements_today:
+            quality: 95
+            filters:
+                thumbnail:
+                    size: [400, 250]
+                    mode: outbound
+                strip: ~
+
+        news_announcements_lists:
+            quality: 95
+            filters:
+                thumbnail:
+                    size: [150, 100]
+                    mode: outbound
+                strip: ~
+
+        news_announcements_article:
+            quality: 95
+            filters:
+                thumbnail:
+                    size: [400, 250]
+                    mode: outbound
+                strip: ~

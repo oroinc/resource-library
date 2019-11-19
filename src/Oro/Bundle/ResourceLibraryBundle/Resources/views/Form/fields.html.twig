@@ -45,3 +45,12 @@
     {{ form_row(form.media_kit_file) }}
     {{ form_row(form.logo_package_file) }}
 {% endblock %}
+
+{% block oro_news_announcements_widget %}
+{% endblock %}
+
+{% block oro_news_announcements_article_widget %}
+    {{ form_row(form.news_announcements_article.image) }}
+    {{ form_row(form.news_announcements_article.description) }}
+    {{ form_row(form.news_announcements_article.short_description) }}
+{% endblock %}

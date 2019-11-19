@@ -9,6 +9,7 @@ datagrids:
                     items: [10]
                     default_per_page: 10
         source:
+            skip_acl_apply: true
             type: orm
             query:
                 select:
@@ -44,3 +45,47 @@ datagrids:
                 type: twig
                 frontend_type: html
                 template: OroResourceLibraryBundle:Video:Datagrid/Property/data.html.twig
+
+    news-announcements-article-grid:
+        extended_entity_name: 'Oro\\Bundle\\WebCatalogBundle\\Entity\\ContentVariant'
+        options:
+            frontend: true
+            entity_pagination: true
+            toolbarOptions:
+                pageSize:
+                    items: [10]
+                    default_per_page: 10
+        source:
+            type: orm
+            skip_acl_apply: true
+            query:
+                select:
+                    - node
+                    - variant
+                    - article
+                    - image
+                from:
+                    - { table: Oro\Bundle\WebCatalogBundle\Entity\ContentVariant, alias: variant }
+                join:
+                    inner:
+                        - { join: variant.node, alias: node }
+                        - { join: variant.news_announcements_article, alias: article }
+                    left:
+                        - { join: article.image, alias: image }
+                where:
+                    and:
+                        - variant.id IN (:variantIds)
+                        - article.createdAt < :today
+                orderBy:
+                    - column: article.createdAt
+                      dir: desc
+            bind_parameters:
+                - variantIds
+                - today
+        properties:
+            parentNodeId: ~
+        columns:
+            node:
+                type: twig
+                frontend_type: html
+                template: OroResourceLibraryBundle:NewsAnnouncements:Datagrid/Property/news_announcements_article.html.twig

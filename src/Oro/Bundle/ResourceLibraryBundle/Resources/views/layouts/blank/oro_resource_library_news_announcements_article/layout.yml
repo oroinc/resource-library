@@ -1,0 +1,74 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+              themes: 'layout.html.twig'
+        - '@setOption':
+              id: title
+              optionName: value
+              optionValue: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
+        - '@add':
+              id: breadcrumbs
+              parentId: page_main_header
+              blockType: breadcrumbs
+              options:
+                  breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@addTree':
+            items:
+                article_container:
+                    blockType: container
+                article_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
+                article_date:
+                    blockType: block
+                    options:
+                        vars:
+                            createdAt: '=data["contentVariant"].getNewsAnnouncementsArticle().getCreatedAt()'
+                article_image:
+                    blockType: block
+                    options:
+                        vars:
+                            image: '=data["contentVariant"].getNewsAnnouncementsArticle().getImage()'
+                article_description:
+                    blockType: text
+                    options:
+                        text: '=data["contentVariant"].getNewsAnnouncementsArticle().getDescription()'
+                        escape: false
+                also_interesting_container:
+                    blockType: container
+                    options:
+                        visible: '=data["alsoInteresting"].count()'
+                also_interesting_container_title:
+                    blockType: block
+
+                also_interesting_list_items:
+                    blockType: container
+                    options:
+                        vars:
+                            items: '=data["alsoInteresting"]'
+                article_list_item:
+                    blockType: container
+                article_list_item_title:
+                    blockType: block
+                article_list_item_date:
+                    blockType: block
+                article_list_item_short_description:
+                    blockType: block
+                article_list_item_image:
+                    blockType: block
+            tree:
+                page_content:
+                    article_container:
+                        article_title: ~
+                        article_date: ~
+                        article_image: ~
+                        article_description: ~
+                    also_interesting_container:
+                        also_interesting_container_title: ~
+                        also_interesting_list_items:
+                            article_list_item:
+                                article_list_item_title: ~
+                                article_list_item_date: ~
+                                article_list_item_short_description: ~
+                                article_list_item_image: ~

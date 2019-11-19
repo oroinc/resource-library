@@ -1,0 +1,94 @@
+{% block _article_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </h1>
+{% endblock %}
+
+{% block _article_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ createdAt|oro_format_time() }}
+        | {{ createdAt|oro_format_date({'dateType': 2}) }}
+    </div>
+{% endblock %}
+
+{% block _article_image_widget %}
+    <div {{ block('block_attributes') }}>
+        {% if image is not empty %}
+            <img src="{{ filtered_image_url(image , 'news_announcements_article') }}"
+                 alt="{{ oro_file_title(image) }}"
+            />
+        {% else %}
+            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" style="width: 400px; height: 250px"/>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block _article_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block)|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _also_interesting_container_title_widget %}
+    <h2 {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.newsannouncementsarticle.iteresting'|trans }}
+    </h2>
+{% endblock %}
+
+{% block _also_interesting_list_items_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for index, item in items %}
+            {% do block|merge_context({item: item}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_widget %}
+    <div {{ block('block_attributes') }}>
+        <div>
+            {{ block_widget(block['article_list_item_title']) }}
+            {{ block_widget(block['article_list_item_date']) }}
+        </div>
+        {{ block_widget(block['article_list_item_short_description']) }}
+        {{ block_widget(block['article_list_item_image']) }}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_title_widget %}
+    <h3 {{ block('block_attributes') }}>
+        {{ item.node.titles|localized_value }}
+    </h3>
+{% endblock %}
+
+{% block _article_list_item_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.newsAnnouncementsArticle.createdAt|oro_format_time() }}
+        | {{ item.newsAnnouncementsArticle.createdAt|oro_format_date({'dateType': 2}) }}
+    </div>
+{% endblock %}
+
+{% block _article_list_item_short_description_widget %}
+    <div {{ block('block_attributes') }}>
+        <div>
+            {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
+        </div>
+        <div>
+            <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}">
+                {{ 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _article_list_item_image_widget %}
+    <div {{ block('block_attributes') }}>
+        {% if item.newsAnnouncementsArticle.image is not empty %}
+            <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_lists') }}"
+                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}"
+            />
+        {% else %}
+            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" style="width: 150px; height: 100px"/>
+        {% endif %}
+    </div>
+{% endblock %}

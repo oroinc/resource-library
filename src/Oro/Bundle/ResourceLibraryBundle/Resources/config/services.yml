@@ -34,6 +34,16 @@ services:
         tags:
             - { name: oro_web_catalog.content_variant_type }
 
+    oro_resource_library.content_variant_type.news_announcements:
+      class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType'
+      tags:
+          - { name: oro_web_catalog.content_variant_type }
+
+    oro_resource_library.content_variant_type.news_announcements_article:
+      class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType'
+      tags:
+          - { name: oro_web_catalog.content_variant_type }
+
     oro_resource_library.provider.literature_note_content_provider:
         class: 'Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider'
         arguments:
@@ -79,3 +89,11 @@ services:
             - [setName, ['section_list']]
         tags:
             - { name: layout.block_type, alias: section_list }
+
+    oro_resource_library.event_listener.datagrid.news_announcements_article:
+        class: 'Oro\Bundle\ResourceLibraryBundle\EventListener\NewsAnnouncementsArticleDatagridEventListener'
+        arguments:
+            - '@oro_scope.scope_manager'
+            - '@doctrine'
+        tags:
+            - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.news-announcements-article-grid, method: onPreBuild }

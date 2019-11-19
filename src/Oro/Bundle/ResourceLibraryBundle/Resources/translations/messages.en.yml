@@ -23,21 +23,45 @@ oro:
                 description.label: 'Description'
                 pdf_file.label: 'PDF FIle'
         video:
-            entity_label: Video
-            entity_plural_label: Videos
-            id.label: ID
-            short_description.label: Short Description
-            description.label: Description
-            link.label: Link
-            organization.label: Organization
+            entity_label: 'Video'
+            entity_plural_label: 'Videos'
+            id.label: 'ID'
+            short_description.label: 'Short Description'
+            description.label: 'Description'
+            link.label: 'Link'
+            organization.label: 'Organization'
 
             content_variant_type:
                 list.label: 'Video List'
                 list_section.label: 'Video Section'
                 list_section_item.label: 'Video'
 
-            watch_video.label: Watch Video
-            view_all_videos.label: View All Videos
+            watch_video.label: 'Watch Video'
+            view_all_videos.label: 'View All Videos'
+
+        news_announcements:
+            content_variant_type.label: 'News & Announcements'
+
+        newsannouncementsarticle:
+            entity_label: 'News & Announcements Article'
+            entity_plural_label: 'News & Announcements Articles'
+            id.label: 'ID'
+            short_description:
+                label: 'Short Description'
+                description: 'Short description of the article for showing in the lists'
+            description:
+                label: 'Description'
+                description: 'Article content'
+            image:
+                label: 'Image'
+                description: 'Image for showing in the lists and view page of the article'
+
+            content_variant_type.label: 'News & Announcements Article'
+
+            today: 'Today''s featured'
+            latest: 'The latest'
+            iteresting: 'Also interesting'
+            read_more: 'Read More >'
 
         mediakit:
           entity_label: Media Kit
