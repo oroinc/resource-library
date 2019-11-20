@@ -1,4 +1,11 @@
-oro_literature_application_note:
+oro_resource_library:
+    resource: "@OroResourceLibraryBundle/Controller/Frontend/ResourceLibraryController.php"
+    type: annotation
+    prefix: /rl/resource-library
+    options:
+        frontend: true
+
+oro_resource_library_literature_application_note:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/LiteratureApplicationNoteController.php"
     type: annotation
     prefix: /rl/literature-application-note
@@ -12,7 +19,7 @@ oro_resource_library_media_kit:
     options:
         frontend: true
 
-oro_safety_specification:
+oro_resource_library_safety_specification:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/SafetySpecificationController.php"
     type: annotation
     prefix: /rl/safety-specifications

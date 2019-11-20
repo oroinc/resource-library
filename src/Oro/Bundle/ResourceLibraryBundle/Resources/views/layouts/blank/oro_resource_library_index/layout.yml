@@ -1,0 +1,119 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: 'layout.html.twig'
+
+        - '@setOption':
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+
+        - '@add':
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+
+        - '@addTree':
+            items:
+                resource_library_page:
+                    blockType: container
+
+                resource_library_page_title:
+                    blockType: text
+                    options:
+                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+
+                resource_library_page_description:
+                    blockType: text
+                    options:
+                        text: '=data["contentNode"].getResolvedContentVariant().description'
+                        escape: false
+
+                resource_library_page_categories:
+                    blockType: container
+
+                resource_library_page_category_literature_and_application_notes:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\LiteratureApplicationNoteContentVariantType::TYPE")'
+                        vars:
+                            icon: 'fa-book'
+
+                resource_library_page_category_news_and_announcements:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\NewsAnnouncementsContentVariantType::TYPE")'
+                        vars:
+                            icon: 'fa-list-alt'
+
+                resource_library_page_category_videos:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListContentVariantType::TYPE")'
+                        vars:
+                            icon: 'fa-play-circle'
+
+                resource_library_page_category_safety_specifications:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationPageContentVariantType::TYPE")'
+                        vars:
+                            icon: 'fa-file-text-o'
+
+                resource_library_page_category_media_kits:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListContentVariantType::TYPE")'
+                        vars:
+                            icon: 'fa-archive'
+
+                resource_library_page_news_and_announcements_container:
+                    blockType: container
+                    options:
+                        visible: '=data["latestNews"].count()'
+                resource_library_page_news_and_announcements_container_title:
+                    blockType: content_variant_typed_child
+                    options:
+                        items: '=data["contentNode"].getChildNodes()'
+                        requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\NewsAnnouncementsContentVariantType::TYPE")'
+                resource_library_page_news_and_announcements_list_items:
+                    blockType: container
+                    options:
+                        vars:
+                            items: '=data["latestNews"]'
+                resource_library_page_news_and_announcements_list_item:
+                    blockType: container
+                resource_library_page_news_and_announcements_list_item_title:
+                    blockType: block
+                resource_library_page_news_and_announcements_list_item_date:
+                    blockType: block
+                resource_library_page_news_and_announcements_list_item_short_description:
+                    blockType: block
+                resource_library_page_news_and_announcements_list_item_image:
+                    blockType: block
+            tree:
+                page_content:
+                    resource_library_page:
+                        resource_library_page_title: ~
+                        resource_library_page_description: ~
+                        resource_library_page_categories:
+                            resource_library_page_category_literature_and_application_notes: ~
+                            resource_library_page_category_news_and_announcements: ~
+                            resource_library_page_category_videos: ~
+                            resource_library_page_category_safety_specifications: ~
+                            resource_library_page_category_media_kits: ~
+                        resource_library_page_news_and_announcements_container:
+                            resource_library_page_news_and_announcements_container_title: ~
+                            resource_library_page_news_and_announcements_list_items:
+                                resource_library_page_news_and_announcements_list_item:
+                                    resource_library_page_news_and_announcements_list_item_title: ~
+                                    resource_library_page_news_and_announcements_list_item_date: ~
+                                    resource_library_page_news_and_announcements_list_item_short_description: ~
+                                    resource_library_page_news_and_announcements_list_item_image: ~

@@ -1,0 +1,127 @@
+{% block _resource_library_page_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_title_widget %}
+    <h1 {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </h1>
+{% endblock %}
+
+{% block _resource_library_page_description_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block)|oro_html_sanitize }}
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_categories_widget %}
+    {% set attr = layout_attr_defaults(attr, { '~class': ' featured-menu'}) %}
+
+    <div {{ block('block_attributes') }}>
+        <ul class="featured-menu__grid">
+            {{ block_widget(block) }}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content_variant_typed_child_widget %}
+    {% set rendered = false %}
+    {% for contentNode in items if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
+        {% set attr = layout_attr_defaults(attr, { '~class': ' featured-menu__item', 'style': 'width: 20% !important; margin-top: 0px;' }) %}
+
+        <li {{ block('block_attributes') }}>
+            <div class="featured-menu__content">
+                <div class="featured-menu__img-wrap">
+                    <span class="{{ icon }} featured-menu__icon"></span>
+                </div>
+                <h4 class="featured-menu__title">{{ contentNode.titles|localized_value }}</h4>
+                <div class="featured-menu__description"
+                     data-page-component-module="oroui/js/app/components/viewport-component"
+                     data-page-component-options="{{ {
+                         component: 'oroui/js/app/components/jquery-widget-component',
+                         widgetModule: 'orofrontend/default/js/widgets/line-clamp-widget'
+                     }|json_encode }}"
+                >
+                    {% if contentNode.resolvedContentVariant.description is not empty %}
+                        {{ contentNode.resolvedContentVariant.description|oro_html_sanitize }}
+                    {% endif %}
+                </div>
+                <a class="btn btn--info btn--size-s featured-menu__link" href="{{ contentNode.resolvedContentVariant.localizedUrls|localized_value }}">
+                    {{ 'oro.resourcelibrary.btn.explore.label'|trans|upper }}
+                </a>
+            </div>
+
+            {% set rendered = true %}
+        </li>
+    {% endfor %}
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_container_title_widget %}
+    {% set rendered = false %}
+    {% for contentNode in items if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
+        <h2 {{ block('block_attributes') }}>
+            {{ contentNode.titles|localized_value }}
+        </h2>
+        {% set rendered = true %}
+    {% endfor %}
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_items_widget %}
+    <div {{ block('block_attributes') }}>
+        {% for index, item in items %}
+            {% do block|merge_context({item: item}) %}
+            {{ block('container_widget') }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_item_widget %}
+    <div {{ block('block_attributes') }}>
+        <div>
+            {{ block_widget(block['resource_library_page_news_and_announcements_list_item_title']) }}
+            {{ block_widget(block['resource_library_page_news_and_announcements_list_item_date']) }}
+        </div>
+        {{ block_widget(block['resource_library_page_news_and_announcements_list_item_short_description']) }}
+        {{ block_widget(block['resource_library_page_news_and_announcements_list_item_image']) }}
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_item_title_widget %}
+    <h3 {{ block('block_attributes') }}>
+        {{ item.node.titles|localized_value }}
+    </h3>
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_item_date_widget %}
+    <div {{ block('block_attributes') }}>
+        {{ item.newsAnnouncementsArticle.createdAt|oro_format_time() }}
+        | {{ item.newsAnnouncementsArticle.createdAt|oro_format_date({'dateType': 2}) }}
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_item_short_description_widget %}
+    <div {{ block('block_attributes') }}>
+        <div>
+            {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
+        </div>
+        <div>
+            <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}">
+                {{ 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _resource_library_page_news_and_announcements_list_item_image_widget %}
+    <div {{ block('block_attributes') }}>
+        {% if item.newsAnnouncementsArticle.image is not empty %}
+            <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_lists') }}"
+                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}"
+            />
+        {% else %}
+            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" style="width: 150px; height: 100px"/>
+        {% endif %}
+    </div>
+{% endblock %}

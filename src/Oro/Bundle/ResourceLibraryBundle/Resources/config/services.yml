@@ -1,4 +1,9 @@
 services:
+    oro_resource_library.content_variant_type.resource_library:
+        class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\ResourceLibraryContentVariantType'
+        tags:
+            - { name: oro_web_catalog.content_variant_type }
+
     oro_resource_library.content_variant_type.literature_application_note:
         class: 'Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteContentVariantType'
         tags:
@@ -89,6 +94,19 @@ services:
             - [setName, ['section_list']]
         tags:
             - { name: layout.block_type, alias: section_list }
+
+    oro_resource_library.block_type.content_variant_typed_child:
+        parent: oro_layout.block_type.abstract_configurable_container
+        calls:
+            -
+                - setOptionsConfig
+                -
+                    -
+                        items: {required: true}
+                        requiredType: {required: true}
+            - [setName, ['content_variant_typed_child']]
+        tags:
+            - { name: layout.block_type, alias: content_variant_typed_child }
 
     oro_resource_library.event_listener.datagrid.news_announcements_article:
         class: 'Oro\Bundle\ResourceLibraryBundle\EventListener\NewsAnnouncementsArticleDatagridEventListener'

@@ -60,11 +60,11 @@
             fileSection.resolvedContentVariant.pdf_file,
             constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
         ),
-        title: 'oro.resourcelibrary.download_pdf.label'|trans
+        title: 'oro.resourcelibrary.btn.download_pdf.label'|trans
     }) %}
 
     <span class="filename">
         <i class="fa {{ oro_attachment_icon(fileSection.resolvedContentVariant.pdf_file) }}"></i>
-        <a {{ block('block_attributes') }}>{{ 'oro.resourcelibrary.download_pdf.label'|trans }}</a>
+        <a {{ block('block_attributes') }}>{{ 'oro.resourcelibrary.btn.download_pdf.label'|trans }}</a>
     </span>
 {% endblock %}

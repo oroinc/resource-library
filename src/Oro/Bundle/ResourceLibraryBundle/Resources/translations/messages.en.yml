@@ -1,9 +1,16 @@
 oro:
     resourcelibrary:
-        download_pdf.label: 'Download PDF'
+        content_variant_type.label: 'Resource Library'
+        form:
+            description.label: 'Description'
+
+        btn:
+            download_pdf.label: 'Download PDF'
+            explore.label: 'Explore'
+
         literature_application_note:
-            content_variant_type.label: 'Literature and Application Notes'
-            files.content_variant_type.label: 'Literature and Application Notes Attachments Collection'
+            content_variant_type.label: 'Literature & Application Notes'
+            files.content_variant_type.label: 'Literature & Application Notes (Section)'
             form:
                 attachment.label: 'Attachment'
                 attachment.plural_label: 'Attachments'
@@ -15,9 +22,9 @@ oro:
             content_variant.label: 'Content Variant'
             file.label: 'File'
         safety_specification:
-            content_variant_type_page.label: 'Safety Specifications Page'
-            content_variant_type_section.label: 'Safety Specifications Section'
-            content_variant_type_file.label: 'Safety Specifications File'
+            content_variant_type_page.label: 'Safety Specifications'
+            content_variant_type_section.label: 'Safety Specifications (Section)'
+            content_variant_type_file.label: 'Safety Specifications (File)'
 
             form:
                 description.label: 'Description'

@@ -82,6 +82,36 @@ class NewsAnnouncementsArticleRepository extends EntityRepository
     }
 
     /**
+     * @param int $nodeId
+     * @param ScopeCriteria $criteria
+     *
+     * @return Collection|ContentVariant[]
+     */
+    public function findLatest(int $nodeId, ScopeCriteria $criteria): Collection
+    {
+        $variantIds = $this->getVariantRepository()->findChildrenVariantIds(
+            $nodeId,
+            $criteria,
+            NewsAnnouncementsArticleContentVariantType::TYPE
+        );
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb
+            ->select('content_variant', 'content_node', 'article')
+            ->from(ContentVariant::class, 'content_variant')
+            ->innerJoin('content_variant.news_announcements_article', 'article')
+            ->innerJoin('content_variant.node', 'content_node')
+            ->where(
+                $qb->expr()->in('content_variant.id', ':variantIds')
+            )
+            ->setParameter('variantIds', $variantIds)
+            ->orderBy('article.createdAt', 'DESC')
+            ->setMaxResults(5);
+
+        return new ArrayCollection($qb->getQuery()->getResult());
+    }
+
+    /**
      * @return ContentVariantRepository
      */
     private function getVariantRepository(): ContentVariantRepository

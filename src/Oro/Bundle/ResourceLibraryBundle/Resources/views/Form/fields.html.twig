@@ -1,3 +1,7 @@
+{% block resource_library_widget %}
+    {{ form_row(form.description) }}
+{% endblock %}
+
 {% block literature_application_note_widget %}
     {{ form_row(form.description) }}
 {% endblock %}
@@ -47,6 +51,7 @@
 {% endblock %}
 
 {% block oro_news_announcements_widget %}
+    {{ form_row(form.description) }}
 {% endblock %}
 
 {% block oro_news_announcements_article_widget %}
