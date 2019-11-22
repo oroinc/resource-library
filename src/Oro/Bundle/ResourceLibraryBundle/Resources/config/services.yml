@@ -52,7 +52,7 @@ services:
     oro_resource_library.provider.literature_note_content_provider:
         class: 'Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider'
         arguments:
-            - '@oro_web_catalog.content_node_tree_resolver'
+            - '@oro_resource_library.content_node_tree_resolver_no_cache'
             - '@oro_scope.scope_manager'
             - '@oro_entity.doctrine_helper'
 
@@ -115,3 +115,10 @@ services:
             - '@doctrine'
         tags:
             - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.news-announcements-article-grid, method: onPreBuild }
+
+    oro_resource_library.content_node_tree_resolver_no_cache:
+        class: Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolver
+        arguments:
+            - '@oro_entity.doctrine_helper'
+            - '@oro_web_catalog.content_node_provider'
+            - '@oro_scope.scope_manager'

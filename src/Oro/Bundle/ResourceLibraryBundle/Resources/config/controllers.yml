@@ -7,6 +7,7 @@ services:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
         tags:
             - { name: container.service_subscriber }
+            - { name: 'container.service_subscriber', id: 'oro_resource_library.content_node_tree_resolver_no_cache', key: Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface }
 
     Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\LiteratureApplicationNoteController:
         calls:
@@ -19,18 +20,21 @@ services:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
         tags:
             - { name: container.service_subscriber }
+            - { name: 'container.service_subscriber', id: 'oro_resource_library.content_node_tree_resolver_no_cache', key: Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface }
 
     Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\VideosController:
         calls:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
         tags:
             - { name: container.service_subscriber }
+            - { name: 'container.service_subscriber', id: 'oro_resource_library.content_node_tree_resolver_no_cache', key: Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface }
 
     Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\MediaKitController:
         calls:
             - ['setContainer', ['@Psr\Container\ContainerInterface']]
         tags:
             - { name: container.service_subscriber }
+            - { name: 'container.service_subscriber', id: 'oro_resource_library.content_node_tree_resolver_no_cache', key: Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface }
 
     Oro\Bundle\ResourceLibraryBundle\Controller\Frontend\NewsAnnouncementsController:
         calls:
