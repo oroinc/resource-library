@@ -48,6 +48,8 @@
 
 {% block _literature_file_widget %}
     <div {{ block('block_attributes') }}>
-        {{ oro_file_view(file) }}
+        <a href="{{ file_url(file, 'download') }}" class="{{ oro_attachment_icon(file) }}">
+            {{ oro_file_title(file) }}
+        </a>
     </div>
 {% endblock %}

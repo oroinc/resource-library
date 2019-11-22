@@ -1,0 +1,191 @@
+'Literature & Application Notes':
+    defaultTitle: 'Literature & Application Notes'
+    defaultSlugPrototype: literature-application-notes
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: literature_application_note
+            params:
+                description: 'A collection of downloadable PDF documents organized by topic'
+            isDefault: true
+    children:
+        'English':
+            defaultTitle: 'English'
+            defaultSlugPrototype: english
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: literature_application_note_file_collection
+                    params:
+                        files:
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '220 Lumen Rechargeable Headlamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Women’s Slip-On Clog'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-watt Work Light'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touch Screen Credit Card POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Industrial Steel Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touchscreen POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '90-Watt Bright White LED Light Bulb'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Basic Women’s 4-Pocket Black Scrub Set'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '15- Inch POS Touch Screen Monitor With Card Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-Lumen Portable Suspended Work Lamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Mobile Phone Card Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Steel Storage Shelves, 65 x 55 in.'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Wooden Office Desk, 60 x 29 x 30 in.'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Executive Chair With Headrest'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Women’s 5-Pocket V-neck Fashion Scrub Top'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Men’s 2-Pocket Lab Coat'
+                    isDefault: true
+        'French':
+            defaultTitle: 'French'
+            defaultSlugPrototype: french
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: literature_application_note_file_collection
+                    params:
+                        files:
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '220 Lumen Rechargeable Headlamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Women’s Slip-On Clog'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-watt Work Light'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touch Screen Credit Card POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Industrial Steel Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touchscreen POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '90-Watt Bright White LED Light Bulb'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Basic Women’s 4-Pocket Black Scrub Set'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '15- Inch POS Touch Screen Monitor With Card Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-Lumen Portable Suspended Work Lamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Mobile Phone Card Reader'
+                    isDefault: true
+        'German':
+            defaultTitle: 'German'
+            defaultSlugPrototype: german
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: literature_application_note_file_collection
+                    params:
+                        files:
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '220 Lumen Rechargeable Headlamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Women’s Slip-On Clog'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-watt Work Light'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touch Screen Credit Card POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Industrial Steel Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Touchscreen POS System'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Handheld Flashlight'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '90-Watt Bright White LED Light Bulb'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Basic Women’s 4-Pocket Black Scrub Set'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '15- Inch POS Touch Screen Monitor With Card Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: '500-Lumen Portable Suspended Work Lamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Mobile Phone Card Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Steel Storage Shelves, 65 x 55 in.'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Wooden Office Desk, 60 x 29 x 30 in.'
+                            -
+                                file: '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                                title: 'Executive Chair With Headrest'
+                    isDefault: true

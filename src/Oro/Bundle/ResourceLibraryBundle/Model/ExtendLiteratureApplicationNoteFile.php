@@ -9,7 +9,7 @@ use Oro\Bundle\ResourceLibraryBundle\Entity\LiteratureApplicationNoteFile;
  * Makes LiteratureApplicationNote entity extendable.
  *
  * @method null|File getFile()
- * @method LiteratureApplicationNoteFile setFile(File $image)
+ * @method LiteratureApplicationNoteFile setFile(File $file)
  */
 class ExtendLiteratureApplicationNoteFile
 {

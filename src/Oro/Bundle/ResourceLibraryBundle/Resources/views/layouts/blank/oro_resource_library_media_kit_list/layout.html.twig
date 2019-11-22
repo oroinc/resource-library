@@ -58,12 +58,15 @@
 {% endblock %}
 
 {% block _media_kit_list_item_media_kit_file_widget %}
-    {% set attr = layout_attr_defaults(attr, {
-        href: file_url(
-            item.resolvedContentVariant.media_kit.mediaKitFile,
-            constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
-        )
-    }) %}
+    {% if item.resolvedContentVariant.media_kit.mediaKitFile is defined
+        and item.resolvedContentVariant.media_kit.mediaKitFile is not empty %}
+        {% set attr = layout_attr_defaults(attr, {
+            href: file_url(
+                item.resolvedContentVariant.media_kit.mediaKitFile,
+                constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
+            )
+        }) %}
+    {% endif %}
 
     <a {{ block('block_attributes') }}>
         {{ 'oro.resourcelibrary.mediakit.download_media_kit.label'|trans }}
@@ -71,16 +74,17 @@
 {% endblock %}
 
 {% block _media_kit_list_item_logo_package_file_widget %}
-    {% if item.resolvedContentVariant.media_kit.logoPackageFile is not empty %}
+    {% if item.resolvedContentVariant.media_kit.logoPackageFile is defined
+        and item.resolvedContentVariant.media_kit.logoPackageFile is not empty %}
         {% set attr = layout_attr_defaults(attr, {
             href: file_url(
                 item.resolvedContentVariant.media_kit.logoPackageFile,
                 constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
             )
         }) %}
-
-        <a {{ block('block_attributes') }}>
-            {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
-        </a>
     {% endif %}
+
+    <a {{ block('block_attributes') }}>
+        {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
+    </a>
 {% endblock %}

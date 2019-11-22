@@ -4,17 +4,17 @@ namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListItemContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteContentVariantType;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteFileCollectionContentVariantType;
+use Oro\Bundle\ResourceLibraryBundle\Entity\LiteratureApplicationNoteFile;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogDemoData;
 
 /**
- * Media Kits demo data
+ * Literature & Application Notes demo data
  */
-class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
+class LoadLiteratureApplicationNotesDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
     use LoadDemoFileTrait;
 
@@ -43,7 +43,7 @@ class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements De
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
-                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/media_kits_data.yml'
+                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/literature_application_note_data.yml'
             ),
             ResourceLibraryDemoData::getResourceLibraryNode($manager)
         );
@@ -72,22 +72,22 @@ class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements De
         $variant->setType($type);
 
         switch ($variant->getType()) {
-            case MediaKitListContentVariantType::TYPE:
+            case LiteratureApplicationNoteContentVariantType::TYPE:
                 $variant->setDescription($params['description']);
                 break;
-            case MediaKitListItemContentVariantType::TYPE:
-                $mediaKit = new MediaKit();
-                $mediaKit->setDescription($params['description']);
-                $mediaKit->setLink($params['link']);
-                $mediaKit->setBanner(
-                    $this->createFileFile(
-                        $this->manager,
-                        $this->getFileLocator()->locate($params['banner']),
-                        $params['bannerTitle']
-                    )
-                );
 
-                $variant->setMediaKit($mediaKit);
+            case LiteratureApplicationNoteFileCollectionContentVariantType::TYPE:
+                foreach ($params['files'] as $file) {
+                    $note = new LiteratureApplicationNoteFile();
+                    $note->setFile(
+                        $this->createFileFile(
+                            $this->manager,
+                            $this->getFileLocator()->locate($file['file']),
+                            $file['title']
+                        )
+                    );
+                    $variant->addLiteratureNoteFiles($note);
+                }
                 break;
         }
 

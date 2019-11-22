@@ -4,17 +4,16 @@ namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListItemContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationFileContentVariantType;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\SafetySpecificationPageContentVariantType;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogDemoData;
 
 /**
- * Media Kits demo data
+ * Safety Specifications demo data
  */
-class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
+class LoadSafetySpecificationsDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
     use LoadDemoFileTrait;
 
@@ -43,7 +42,7 @@ class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements De
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
-                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/media_kits_data.yml'
+                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/safety_specification_data.yml'
             ),
             ResourceLibraryDemoData::getResourceLibraryNode($manager)
         );
@@ -72,22 +71,24 @@ class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements De
         $variant->setType($type);
 
         switch ($variant->getType()) {
-            case MediaKitListContentVariantType::TYPE:
+            case SafetySpecificationPageContentVariantType::TYPE:
                 $variant->setDescription($params['description']);
                 break;
-            case MediaKitListItemContentVariantType::TYPE:
-                $mediaKit = new MediaKit();
-                $mediaKit->setDescription($params['description']);
-                $mediaKit->setLink($params['link']);
-                $mediaKit->setBanner(
-                    $this->createFileFile(
-                        $this->manager,
-                        $this->getFileLocator()->locate($params['banner']),
-                        $params['bannerTitle']
-                    )
-                );
 
-                $variant->setMediaKit($mediaKit);
+            case SafetySpecificationFileContentVariantType::TYPE:
+                static $file;
+                if (!$file) {
+                    $file = $this->createFileFile(
+                        $this->manager,
+                        $this->getFileLocator()->locate(
+                            '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/dummy.pdf'
+                        ),
+                        'dummy'
+                    );
+                }
+
+                $variant->setDescription($params['description']);
+                $variant->setPdfFile(clone $file);
                 break;
         }
 

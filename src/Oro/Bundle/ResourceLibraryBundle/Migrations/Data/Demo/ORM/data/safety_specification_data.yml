@@ -1,0 +1,221 @@
+'Safety Specifications':
+    defaultTitle: 'Safety Specifications'
+    defaultSlugPrototype: safety-specifications
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: safety_specification_page
+            params:
+                description: 'A collection of downloadable PDF documents, organized by topic'
+            isDefault: true
+    children:
+        English:
+            defaultTitle: English
+            defaultSlugPrototype: english
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: safety_specification_section
+                    params: []
+                    isDefault: true
+            children:
+                'Aliquam vel commodi quia delectus voluptas veniam animi asperiores.':
+                    defaultTitle: 'Aliquam vel commodi quia delectus voluptas veniam animi asperiores'
+                    defaultSlugPrototype: aliquam-vel-commodi-quia
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Eveniet praesentium corrupti quia fuga itaque rerum. Ut magni aut officiis non odit voluptatem. Ipsum sunt quo aut veritatis delectus vitae dignissimos. Porro animi odit reiciendis occaecati sint quis ea. Unde sunt doloribus enim ut rerum nihil velit.'
+                            isDefault: true
+                'Accusantium reiciendis est eum beatae consequatur numquam deleniti.':
+                    defaultTitle: 'Accusantium reiciendis est eum beatae consequatur numquam deleniti'
+                    defaultSlugPrototype: accusantium-reiciendis-est-eum
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Impedit placeat qui earum. Tempora asperiores sint voluptatem aut eaque numquam. Nesciunt earum et sed quod eligendi.'
+                            isDefault: true
+                'Quas ut sit nisi est laudantium.':
+                    defaultTitle: 'Quas ut sit nisi est laudantium'
+                    defaultSlugPrototype: quas-ut-sit-nisi
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Quaerat sequi labore cumque quia. Odit qui architecto sunt tempora. Earum dolorem earum aliquam est repellat alias voluptate et.'
+                            isDefault: true
+                'Vel eos expedita in nesciunt nihil.':
+                    defaultTitle: 'Vel eos expedita in nesciunt nihil'
+                    defaultSlugPrototype: vel-eos-expedita-in
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Et doloribus quod error aliquid quae. Ut dolorum aut dolor velit. Voluptas ut nesciunt omnis qui. Nihil reiciendis fugit amet.'
+                            isDefault: true
+                'Illo id eaque vel fugit ullam alias.':
+                    defaultTitle: 'Illo id eaque vel fugit ullam alias'
+                    defaultSlugPrototype: illo-id-eaque-vel
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Nam et hic a eos. Quidem rerum reprehenderit quia officia doloribus aut quo. Repellendus laborum illo qui reprehenderit. Voluptatum fugit tenetur esse ad. Et nihil sapiente modi ullam at.'
+                            isDefault: true
+                'Quo et aspernatur distinctio non ea eius.':
+                    defaultTitle: 'Quo et aspernatur distinctio non ea eius'
+                    defaultSlugPrototype: quo-et-aspernatur-distinctio
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Quas nostrum quos eum nihil consequuntur ea distinctio. Suscipit reprehenderit iure magnam. Quibusdam maiores laudantium iure. Dolor sit quam doloremque.'
+                            isDefault: true
+        French:
+            defaultTitle: French
+            defaultSlugPrototype: french
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: safety_specification_section
+                    params: []
+                    isDefault: true
+            children:
+                'Voluptatem suscipit dolorem consequatur aut.':
+                    defaultTitle: 'Voluptatem suscipit dolorem consequatur aut'
+                    defaultSlugPrototype: voluptatem-suscipit-dolorem-consequatur
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Ullam facere quia ducimus tempora. Magni blanditiis incidunt voluptatem ut voluptates facere consequatur. Earum ut quia magni quaerat. Nam totam repellat rerum sequi sit laborum. Praesentium nulla et expedita est.'
+                            isDefault: true
+                'Accusantium occaecati hic voluptatem possimus.':
+                    defaultTitle: 'Accusantium occaecati hic voluptatem possimus'
+                    defaultSlugPrototype: accusantium-occaecati-hic-voluptatem
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Maiores expedita et totam quasi provident. Quis dolores tenetur ut ipsa cupiditate voluptatum soluta. Non quae sunt est. Ea adipisci quia aut soluta magnam ab possimus. Amet tempore dolorum qui quos quasi error.'
+                            isDefault: true
+                'Eum praesentium voluptas consequuntur eos quia modi nam.':
+                    defaultTitle: 'Eum praesentium voluptas consequuntur eos quia modi nam'
+                    defaultSlugPrototype: eum-praesentium-voluptas-consequuntur
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Corrupti omnis itaque est id. Iure qui a veritatis id praesentium dolorem dolor. Magni unde saepe placeat. Dolores et impedit nihil aut nihil. Magni molestiae cum voluptatem numquam ut qui.'
+                            isDefault: true
+                'Veritatis facilis voluptatem quia.':
+                    defaultTitle: 'Veritatis facilis voluptatem quia'
+                    defaultSlugPrototype: veritatis-facilis-voluptatem-quia
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Eligendi est dolorum et quis voluptatem sunt inventore ex. Ducimus enim libero quas expedita illo ducimus. Minima ut nam quia aliquid non cupiditate. Aut quos nihil in quia. Ut repudiandae fugiat eum minus itaque corporis.'
+                            isDefault: true
+                'Accusantium natus nostrum officia suscipit et impedit distinctio quia.':
+                    defaultTitle: 'Accusantium natus nostrum officia suscipit et impedit distinctio quia'
+                    defaultSlugPrototype: accusantium-natus-nostrum-officia
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Officia unde nobis ipsum tempore. In voluptatibus eaque consequuntur facilis non quia omnis cumque. Tempore facilis aliquam impedit eos a quia. Consequatur a sed rerum blanditiis qui.'
+                            isDefault: true
+                'Et qui fuga rem qui voluptatem quam.':
+                    defaultTitle: 'Et qui fuga rem qui voluptatem quam'
+                    defaultSlugPrototype: et-qui-fuga-rem
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Sint qui inventore molestias veniam voluptas. Esse impedit voluptates labore nobis illum totam et aut. Ullam vero tempora quaerat labore asperiores. Molestiae eum quia deserunt voluptatem similique nihil. Voluptatum ex quos aliquid commodi numquam voluptatem. Ullam et illum eius neque.'
+                            isDefault: true
+        German:
+            defaultTitle: German
+            defaultSlugPrototype: german
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: safety_specification_section
+                    params: []
+                    isDefault: true
+            children:
+                'Dolorem tempora beatae aut architecto molestias.':
+                    defaultTitle: 'Dolorem tempora beatae aut architecto molestias'
+                    defaultSlugPrototype: dolorem-tempora-beatae-aut
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Dolore doloribus nesciunt molestias voluptatem ad et aut. Ut veritatis quaerat perferendis esse error. Aspernatur quas qui et sint accusamus officiis qui.'
+                            isDefault: true
+                'Cum perferendis est voluptate est sapiente officia repellendus.':
+                    defaultTitle: 'Cum perferendis est voluptate est sapiente officia repellendus'
+                    defaultSlugPrototype: cum-perferendis-est-voluptate
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Nam dolor aliquam sed velit. Qui voluptatem ipsa aut soluta. Repellendus reprehenderit provident pariatur dolor architecto.'
+                            isDefault: true
+                'Eos et quidem laudantium autem beatae qui eum.':
+                    defaultTitle: 'Eos et quidem laudantium autem beatae qui eum'
+                    defaultSlugPrototype: eos-et-quidem-laudantium
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Voluptatem architecto id sit sapiente rerum. Consequatur cupiditate eum officiis non enim dolorem. Non ut assumenda voluptas pariatur quia fugit dolorum. Repellat ab velit et occaecati. Minus accusantium vero iste ducimus.'
+                            isDefault: true
+                'Numquam quia autem nihil eaque explicabo a.':
+                    defaultTitle: 'Numquam quia autem nihil eaque explicabo a'
+                    defaultSlugPrototype: numquam-quia-autem-nihil
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Autem veniam et voluptas neque occaecati. Blanditiis laborum impedit et debitis. Quos soluta voluptatum voluptatem assumenda assumenda voluptatibus. Corrupti velit ducimus optio optio aliquam tenetur qui.'
+                            isDefault: true
+                'Pariatur commodi est et dolorum.':
+                    defaultTitle: 'Pariatur commodi est et dolorum'
+                    defaultSlugPrototype: pariatur-commodi-est-et
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Voluptatem est expedita consequatur ipsum voluptate odit provident. Consequuntur ipsum vel optio. Doloribus illo nesciunt id doloremque omnis consequatur sit. Eum est aut id eligendi et est et cum. Rerum deleniti recusandae et corporis soluta accusantium. Commodi dolores animi sequi facere explicabo illum recusandae.'
+                            isDefault: true
+                'Iusto repudiandae omnis vel laudantium et dolorum.':
+                    defaultTitle: 'Iusto repudiandae omnis vel laudantium et dolorum'
+                    defaultSlugPrototype: iusto-repudiandae-omnis-vel
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: safety_specification_file
+                            params:
+                                description: 'Recusandae id quae aut molestias. Unde rerum eaque sed a impedit eum dolorum iusto. Corporis in nobis debitis dolor. Quidem numquam est sed at optio explicabo tempora.'
+                            isDefault: true

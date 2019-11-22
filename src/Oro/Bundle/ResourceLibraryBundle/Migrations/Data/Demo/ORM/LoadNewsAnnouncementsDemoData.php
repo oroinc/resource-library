@@ -4,21 +4,29 @@ namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle;
-use Oro\Bundle\UserBundle\DataFixtures\UserUtilityTrait;
-use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogDemoData;
-use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\LoadWebCatalogDemoData as BaseLoadWebCatalogDemoData;
 
 /**
- * Web catalog demo data
+ * News & Announcements demo data
  */
 class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
-    use UserUtilityTrait;
+    use LoadDemoFileTrait;
+
+    /** @var \DateTime */
+    private $createdAt;
+
+    /** @var ObjectManager */
+    private $manager;
+
+    /** @var \DirectoryIterator */
+    private $images;
 
     /**
      * {@inheritdoc}
@@ -26,7 +34,7 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
     public function getDependencies()
     {
         return [
-            BaseLoadWebCatalogDemoData::class,
+            ResourceLibraryDemoData::class,
         ];
     }
 
@@ -35,15 +43,18 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
      */
     public function load(ObjectManager $manager)
     {
+        $this->manager = $manager;
+
         $webCatalog = $this->getWebCatalog($manager);
 
+        $this->createdAt = new \DateTime('now', new \DateTimeZone('UTC'));
         $this->loadContentNodes(
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
                 '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/news_announcements_data.yml'
             ),
-            $this->getRootNode($manager)
+            ResourceLibraryDemoData::getResourceLibraryNode($manager)
         );
 
         $manager->flush();
@@ -62,37 +73,66 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
     }
 
     /**
-     * @param ObjectManager $manager
-     * @return ContentNode
-     */
-    private function getRootNode(ObjectManager $manager)
-    {
-        return $manager->getRepository(ContentNode::class)
-            ->findOneBy(['parentNode' => null]);
-    }
-
-    /**
-     * @param string $type
-     * @param array $params
-     * @return ContentVariant
+     * {@inheritdoc}
      */
     protected function getContentVariant($type, array $params)
     {
         $variant = new ContentVariant();
         $variant->setType($type);
 
-        if ($variant->getType() === NewsAnnouncementsArticleContentVariantType::TYPE) {
-            $article = new NewsAnnouncementsArticle();
-            $article->setDescription($params['description']);
-            $article->setShortDescription($params['shortDescription']);
+        switch ($variant->getType()) {
+            case NewsAnnouncementsArticleContentVariantType::TYPE:
+                $article = new NewsAnnouncementsArticle();
+                $article->setDescription($params['description']);
+                $article->setShortDescription($params['shortDescription']);
 
-            if (isset($params['image'])) {
-//                $article->setImage();
-            }
+                $this->createdAt->modify('-' . rand(180, 360) . ' minutes');
+                $article->setCreatedAt(clone $this->createdAt);
+                $article->setImage($this->getNextImage($this->manager));
 
-            $variant->setNewsAnnouncementsArticle($article);
+                $variant->setNewsAnnouncementsArticle($article);
+                break;
+            case NewsAnnouncementsContentVariantType::TYPE:
+                $variant->setDescription($params['description']);
         }
 
         return $variant;
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param bool $useDam
+     * @return File
+     */
+    private function getNextImage(ObjectManager $manager, bool $useDam = true): File
+    {
+        if ($this->images === null) {
+            $this->images = new \DirectoryIterator(
+                $this->getFileLocator()->locate(
+                    '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/demo_picts/'
+                )
+            );
+
+            $this->images->rewind();
+        }
+
+        $rewound = false;
+        do {
+            $this->images->next();
+            if (!$this->images->valid()) {
+                if ($rewound) {
+                    throw new \LogicException(
+                        sprintf('Directory "%s" not has readable image files', $this->images->getPath())
+                    );
+                }
+
+                $this->images->rewind();
+                $rewound = true;
+            }
+
+            $current = $this->images->current();
+        } while (!$current->isFile() || $current->getExtension() !== 'jpg' || !$current->isReadable());
+
+        return $this->createFileFile($manager, $current->getPathname(), \basename($current->getPathname()), $useDam);
     }
 }

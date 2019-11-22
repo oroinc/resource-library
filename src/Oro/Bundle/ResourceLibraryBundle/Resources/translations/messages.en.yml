@@ -1,6 +1,7 @@
 oro:
     resourcelibrary:
         content_variant_type.label: 'Resource Library'
+        commerce_main_menu.label: 'Resource Library'
         form:
             description.label: 'Description'
 
@@ -71,23 +72,23 @@ oro:
             read_more: 'Read More >'
 
         mediakit:
-          entity_label: Media Kit
-          entity_plural_label: Media Kits
-          id.label: ID
-          description.label: Description
-          link.label: Link
-          banner.label: Banner
-          media_kit_file.label: Media Kit
-          logo_package_file.label: Logo Package
-          organization.label: Organization
+          entity_label: 'Media Kit'
+          entity_plural_label: 'Media Kits'
+          id.label: 'ID'
+          description.label: 'Description'
+          link.label: 'Link'
+          banner.label: 'Banner'
+          media_kit_file.label: 'Media Kit'
+          logo_package_file.label: 'Logo Package'
+          organization.label: 'Organization'
 
           content_variant_type:
-            list.label: Media Kit List
-            list_item.label: Media Kit Item
+            list.label: 'Media Kit List'
+            list_item.label: 'Media Kit Item'
 
-          visit_website.label: Visit Website
-          download_media_kit.label: Download Media Kit
-          download_logo_package.label: Download Logo Package
+          visit_website.label: 'Visit Website'
+          download_media_kit.label: 'Download Media Kit'
+          download_logo_package.label: 'Download Logo Package'
 
     webcatalog.contentvariant:
         description.label: 'Description'

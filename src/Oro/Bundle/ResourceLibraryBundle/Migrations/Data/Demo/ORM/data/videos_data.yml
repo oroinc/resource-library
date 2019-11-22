@@ -1,24 +1,17 @@
 'Video List':
     defaultTitle: Video List
     defaultSlugPrototype: video-list
-    parentScopeUsed: false
-    scopes:
-        -
-            localization: null
-            website: null
-            webCatalog: 'Default Web Catalog'
-            customer: null
-            customerGroup: null
+    parentScopeUsed: true
     contentVariants:
         -
             type: video_list
             params:
-                description: Video List Description
+                description: 'A collection of videos, organized by topic'
             isDefault: true
     children:
-        'Section 1':
-            defaultTitle: Section 1
-            defaultSlugPrototype: section-1
+        'How-To OroCommerce Video Tutorials':
+            defaultTitle: 'How-To OroCommerce Video Tutorials'
+            defaultSlugPrototype: 'tutorials'
             contentVariants:
                 -
                     type: video_list_section
@@ -26,141 +19,189 @@
                     isDefault: true
             parentScopeUsed: true
             children:
-                'Item 11':
-                    defaultTitle: 'Item 11'
-                    defaultSlugPrototype: 'item-11'
+                'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce':
+                    defaultTitle: 'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce'
+                    defaultSlugPrototype: 'shipping-tutorial-part-1:'
+                    parentScopeUsed: true
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 11'
-                                description: 'Description of Item 11'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                description: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                link: 'https://www.youtube.com/embed/ileKXVTG6B8'
                             isDefault: true
+                'Shipping Tutorial Part 2: How to Create Shipping Rules in OroCommerce':
+                    defaultTitle: 'Shipping Tutorial Part 2: How to Create Shipping Rules in OroCommerce'
+                    defaultSlugPrototype: 'shipping-tutorial-part-2:'
                     parentScopeUsed: true
-                'Item 12':
-                    defaultTitle: 'Item 12'
-                    defaultSlugPrototype: 'item-12'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 12'
-                                description: 'Description of Item 12'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: "This video tutorial demonstrates how to set up shipping rules in OroCommerce. Shipping rules allow relating customers to specific shipping methods (such as flat rate, UPC, DPD) or rates based on provided destinations. At the checkout, the system verifies a customer’s address against the predefined shipping rules and sort order to offer only shipping options relevant to this customer’s location. <br/>Check out the complete collection of training videos available in OroCommerce Media library at https://www.orocommerce.com/media-library"
+                                description: "This video tutorial demonstrates how to set up shipping rules in OroCommerce. Shipping rules allow relating customers to specific shipping methods (such as flat rate, UPC, DPD) or rates based on provided destinations. At the checkout, the system verifies a customer’s address against the predefined shipping rules and sort order to offer only shipping options relevant to this customer’s location. <br/>Check out the complete collection of training videos available in OroCommerce Media library at https://www.orocommerce.com/media-library"
+                                link: 'https://www.youtube.com/embed/46KlATao3MU'
                             isDefault: true
+                'How to Create Product Attributes & Product Families in OroCommerce':
+                    defaultTitle: 'How to Create Product Attributes & Product Families in OroCommerce'
+                    defaultSlugPrototype: how-to-create-product
                     parentScopeUsed: true
-                'Item 13':
-                    defaultTitle: 'Item 13'
-                    defaultSlugPrototype: 'item-13'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 13'
-                                description: 'Description of Item 13'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'This video discusses how to configure product attributes and product families in the application. Product attributes (e.g., size, color, name) can be organized in product families seen at the OroCommerce front store. Attributes and families help create both simple and configurable products for your website. Watch more video tutorials in our OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                description: 'This video discusses how to configure product attributes and product families in the application. Product attributes (e.g., size, color, name) can be organized in product families seen at the OroCommerce front store. Attributes and families help create both simple and configurable products for your website. Watch more video tutorials in our OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                link: 'https://www.youtube.com/embed/Ja7-3G7ljTA'
                             isDefault: true
+                'How to Create a Simple Product in OroCommerce':
+                    defaultTitle: 'How to Create a Simple Product in OroCommerce'
+                    defaultSlugPrototype: how-to-create-a
                     parentScopeUsed: true
-                'Item 14':
-                    defaultTitle: 'Item 14'
-                    defaultSlugPrototype: 'item-14'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 14'
-                                description: 'Description of Item 14'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'Simple products are items with basic, unchangeable qualifiers. Each simple product is assigned a unique SKU and is used to set up configurable products. This video shows how to configure simple products for individual product variations using product attributes and product families. More videos from our OroCommerce Media library are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'Simple products are items with basic, unchangeable qualifiers. Each simple product is assigned a unique SKU and is used to set up configurable products. This video shows how to configure simple products for individual product variations using product attributes and product families. More videos from our OroCommerce Media library are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/I0dHJ87IpzE'
                             isDefault: true
+                'How to Configure Price Lists for Customers, Customer Groups, and Websites in OroCommerce':
+                    defaultTitle: 'How to Configure Price Lists for Customers, Customer Groups, and Websites in OroCommerce'
+                    defaultSlugPrototype: how-to-configure-price
                     parentScopeUsed: true
-                'Item 15':
-                    defaultTitle: 'Item 15'
-                    defaultSlugPrototype: 'item-15'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 15'
-                                description: 'Description of Item 15'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'After watching this training video, you’ll be able to create a new price list for a customer, customer group, and a website as well as create the aggregated price lists for any website already configured in your application. Check out other video tutorials explaining OroCommerce essentials available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'After watching this training video, you’ll be able to create a new price list for a customer, customer group, and a website as well as create the aggregated price lists for any website already configured in your application. Check out other video tutorials explaining OroCommerce essentials available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/KYR1M6gykio'
                             isDefault: true
+                'How to Create a Configurable Product in OroCommerce':
+                    defaultTitle: 'How to Create a Configurable Product in OroCommerce'
+                    defaultSlugPrototype: how-to-create-a
                     parentScopeUsed: true
-                'Item 16':
-                    defaultTitle: 'Item 16'
-                    defaultSlugPrototype: 'item-16'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 16'
-                                description: 'Description of Item 16'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'Configurable products are displayed at the front store as a single item coming in different variations such as color, size, etc. When selecting a product of their choice, customers ‘configure’ it by specifying the desired qualifiers. This video tutorial explains how you can build a new configurable product in OroCommerce. Advance your knowledge of OroCommerce by watching other videos available in our Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                description: 'Configurable products are displayed at the front store as a single item coming in different variations such as color, size, etc. When selecting a product of their choice, customers ‘configure’ it by specifying the desired qualifiers. This video tutorial explains how you can build a new configurable product in OroCommerce. Advance your knowledge of OroCommerce by watching other videos available in our Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>.'
+                                link: 'https://www.youtube.com/embed/V3yhUw-Tc_U'
                             isDefault: true
+                'How to Create Tax Rules in OroCommerce':
+                    defaultTitle: 'How to Create Tax Rules in OroCommerce'
+                    defaultSlugPrototype: how-to-create-tax
                     parentScopeUsed: true
-                'Item 17':
-                    defaultTitle: 'Item 17'
-                    defaultSlugPrototype: 'item-17'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 17'
-                                description: 'Description of Item 17'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'By watching this video, you will find out what tax rules and tax rates exist in OroCommerce and how to create them. Learn how to apply tax rules, rates and codes for specific customer groups, namely for the cases when a non-exempt buyer pays a tax on taxable products; when a non-exempt buyer non-subject to sales taxes on non-taxable products; and when an exempt customer doesn’t pay taxes on taxable goods.Check out other tutorial videos from OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'By watching this video, you will find out what tax rules and tax rates exist in OroCommerce and how to create them. Learn how to apply tax rules, rates and codes for specific customer groups, namely for the cases when a non-exempt buyer pays a tax on taxable products; when a non-exempt buyer non-subject to sales taxes on non-taxable products; and when an exempt customer doesn’t pay taxes on taxable goods.Check out other tutorial videos from OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/Ma0JOwn9VVs'
                             isDefault: true
+                'How to Create Tax Codes and Jurisdictions in OroCommerce':
+                    defaultTitle: 'How to Create Tax Codes and Jurisdictions in OroCommerce'
+                    defaultSlugPrototype: how-to-create-tax
                     parentScopeUsed: true
-                'Item 18':
-                    defaultTitle: 'Item 18'
-                    defaultSlugPrototype: 'item-18'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 18'
-                                description: 'Description of Item 18'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'This video explains what tax codes are available in OroCommerce and how to create them for exempt and non-exempt customers and taxable and non-taxable goods. The video also talks about tax jurisdictions and demonstrates how companies can create various jurisdictions for their international shipments. Check out the complete collection of training videos in our OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'This video explains what tax codes are available in OroCommerce and how to create them for exempt and non-exempt customers and taxable and non-taxable goods. The video also talks about tax jurisdictions and demonstrates how companies can create various jurisdictions for their international shipments. Check out the complete collection of training videos in our OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/3Bra02GiKZE'
                             isDefault: true
+                'How to Create a Customer Record in OroCommerce':
+                    defaultTitle: 'How to Create a Customer Record in OroCommerce'
+                    defaultSlugPrototype: how-to-create-a
                     parentScopeUsed: true
-                'Item 19':
-                    defaultTitle: 'Item 19'
-                    defaultSlugPrototype: 'item-19'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 19'
-                                description: 'Description of Item 19'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'Each customer is represented by an organization registered on OroCommerce’s front end. Customers are allowed to set up company accounts, create orders, RFQs, and individual price lists.They can also have customer users authorized for business activity depending on a customer user role assigned. Watch this video to understand how customers are created and managed in the application. Check out the complete collection of training videos available in OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'Each customer is represented by an organization registered on OroCommerce’s front end. Customers are allowed to set up company accounts, create orders, RFQs, and individual price lists.They can also have customer users authorized for business activity depending on a customer user role assigned. Watch this video to understand how customers are created and managed in the application. Check out the complete collection of training videos available in OroCommerce Media library at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/iLphaHiU8YY'
                             isDefault: true
+                'How to Create a New Order in OroCommerce':
+                    defaultTitle: 'How to Create a New Order in OroCommerce'
+                    defaultSlugPrototype: how-to-create-a
                     parentScopeUsed: true
-                'Item 110':
-                    defaultTitle: 'Item 110'
-                    defaultSlugPrototype: 'item-110'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 110'
-                                description: 'Description of Item 111'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'Salespeople can place orders in the application for purchases customers made outside an online store. This video explains how to create, view, and manage customer orders in the OroCommerce backend. From these orders, you can instantly set up new customers and customer users, or add billing and shipping data. Watch other video tutorials our OroCommerce Media library offers at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'Salespeople can place orders in the application for purchases customers made outside an online store. This video explains how to create, view, and manage customer orders in the OroCommerce backend. From these orders, you can instantly set up new customers and customer users, or add billing and shipping data. Watch other video tutorials our OroCommerce Media library offers at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/ztwuz7NX1Y4'
                             isDefault: true
+                'How to Create Customer Roles in OroCommerce':
+                    defaultTitle: 'How to Create Customer Roles in OroCommerce'
+                    defaultSlugPrototype: how-to-create-customer
                     parentScopeUsed: true
-                'Item 111':
-                    defaultTitle: 'Item 111'
-                    defaultSlugPrototype: 'item-111'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 111'
-                                description: 'Description of Item 111'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'In OroCommerce, each customer user is assigned one of three pre-defined customer user roles. This ensures everyone working inside the application can view and manage only relevant data. You can modify permissions for each default role. This video discusses customer role permissions and shows how to create a new customer role in the system. The complete collection of training videos is available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'In OroCommerce, each customer user is assigned one of three pre-defined customer user roles. This ensures everyone working inside the application can view and manage only relevant data. You can modify permissions for each default role. This video discusses customer role permissions and shows how to create a new customer role in the system. The complete collection of training videos is available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/xBbzgDYTVUQ'
                             isDefault: true
+                'How to Create Customer Groups in OroCommerce':
+                    defaultTitle: 'How to Create Customer Groups in OroCommerce'
+                    defaultSlugPrototype: how-to-create-customer
                     parentScopeUsed: true
-        'Section 2':
-            defaultTitle: Section 2
-            defaultSlugPrototype: section-2
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'Watch this video to learn about creating and managing a new customer group. Customers can be arranged into customer groups based on specific attributes or configurations they share. You can customize any of your customer groups by adjusting their front-end menus and menu items, as well as by configuring discounts, payment conditions, or tax codes. More tutorials are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'Watch this video to learn about creating and managing a new customer group. Customers can be arranged into customer groups based on specific attributes or configurations they share. You can customize any of your customer groups by adjusting their front-end menus and menu items, as well as by configuring discounts, payment conditions, or tax codes. More tutorials are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/DbyVljBIHbA'
+                            isDefault: true
+                'How to Create an Order from a Shopping List in OroCommerce':
+                    defaultTitle: 'How to Create an Order from a Shopping List in OroCommerce'
+                    defaultSlugPrototype: how-to-create-an
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'This video provides a detailed explanation on how to use OroCommerce shopping lists for creating an order. It also demonstrates how to access and view a customer shopping list, and modify line items. Check out other video tutorials from OroCommerce Media library  at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'This video provides a detailed explanation on how to use OroCommerce shopping lists for creating an order. It also demonstrates how to access and view a customer shopping list, and modify line items. Check out other video tutorials from OroCommerce Media library  at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/w7NXMifQZnI'
+                            isDefault: true
+                'How to View and Customize Front-End Menus in OroCommerce':
+                    defaultTitle: 'How to View and Customize Front-End Menus in OroCommerce'
+                    defaultSlugPrototype: how-to-view-and
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: "OroCommerce allows users to customize the way menus look and the elements they contain:<br/><br/>-By Organization Front Menu (EE only)<br/>-By Website Front-end Menu (EE only)<br/>-Customer<br/>-Customer Group"
+                                description: "OroCommerce allows users to customize the way menus look and the elements they contain:<br/><br/>-By Organization Front Menu (EE only)<br/>-By Website Front-end Menu (EE only)<br/>-Customer<br/>-Customer Group"
+                                link: 'https://www.youtube.com/embed/nNPLsSOUc1c'
+                            isDefault: true
+                'How to Manage Request for Quotes (RFQs) in OroCommerce':
+                    defaultTitle: 'How to Manage Request for Quotes (RFQs) in OroCommerce'
+                    defaultSlugPrototype: how-to-manage-request
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'In OroCommerce,  sellers use Request for Quotes (RFQs) to assist customers throughout the sales process. RFQs can be submitted by a buyer on a website or come through a number of ways including email or phone requests. Watch this video to learn how to enable, disable, and modify RFQs in the application. More video tutorials are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                description: 'In OroCommerce,  sellers use Request for Quotes (RFQs) to assist customers throughout the sales process. RFQs can be submitted by a buyer on a website or come through a number of ways including email or phone requests. Watch this video to learn how to enable, disable, and modify RFQs in the application. More video tutorials are available at <a href=\"https://www.orocommerce.com/media-library\">https://www.orocommerce.com/media-library</a>'
+                                link: 'https://www.youtube.com/embed/tNSZFHNDdQU'
+                            isDefault: true
+        'B2B eCommerce Webinars':
+            defaultTitle: 'B2B eCommerce Webinars'
+            defaultSlugPrototype: 'webinars'
             contentVariants:
                 -
                     type: video_list_section
@@ -168,277 +209,39 @@
                     isDefault: true
             parentScopeUsed: true
             children:
-                'Item 21':
-                    defaultTitle: 'Item 21'
-                    defaultSlugPrototype: 'item-21'
+                'Disruptive Trends in B2B eCommerce - OroCommerce':
+                    defaultTitle: 'Disruptive Trends in B2B eCommerce - OroCommerce'
+                    defaultSlugPrototype: disruptive-trends-in-b2b
+                    parentScopeUsed: true
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 21'
-                                description: 'Description of Item 21'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: "Watch CEO and co-founder of Oro, Yoav Kutner, speak on \"Disruptive Trends in B2B eCommerce\" at Internet World 2017 in Munich, Germany.<br/><br/>This video discusses topics like what is B2B eCommerce, similarities between B2C and B2B eCommerce, and company information.<br/><br/>Visit <a href=\"www.orocommerce.com\">www.orocommerce.com</a>for more information."
+                                description: "Watch CEO and co-founder of Oro, Yoav Kutner, speak on \"Disruptive Trends in B2B eCommerce\" at Internet World 2017 in Munich, Germany.<br/><br/>This video discusses topics like what is B2B eCommerce, similarities between B2C and B2B eCommerce, and company information.<br/><br/>Visit <a href=\"www.orocommerce.com\">www.orocommerce.com</a>for more information."
+                                link: 'https://www.youtube.com/embed/IDGLS2XW2wI'
                             isDefault: true
+                'Oro Community Webinar - OroCommerce 1.0 Features Overview and Demo':
+                    defaultTitle: 'Oro Community Webinar - OroCommerce 1.0 Features Overview and Demo'
+                    defaultSlugPrototype: oro-community-webinar--
                     parentScopeUsed: true
-                'Item 22':
-                    defaultTitle: 'Item 22'
-                    defaultSlugPrototype: 'item-22'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 22'
-                                description: 'Description of Item 22'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: "Our community webinar will discuss high level features included in the 1.0 release of OroCommerce. We will walk through our demo and discuss the various functionalities included with the product.<br/><br/>For more information, please visit our website at <a href=\"https://www.orocommerce.com\">https://www.orocommerce.com</a>."
+                                description: "Our community webinar will discuss high level features included in the 1.0 release of OroCommerce. We will walk through our demo and discuss the various functionalities included with the product.<br/><br/>For more information, please visit our website at <a href=\"https://www.orocommerce.com\">https://www.orocommerce.com</a>."
+                                link: 'https://www.youtube.com/embed/vPIjW50Qalw'
                             isDefault: true
+                'Roadmap to Digitizing Your B2B Commerce Business':
+                    defaultTitle: 'Roadmap to Digitizing Your B2B Commerce Business'
+                    defaultSlugPrototype: roadmap-to-digitizing-your
                     parentScopeUsed: true
-                'Item 23':
-                    defaultTitle: 'Item 23'
-                    defaultSlugPrototype: 'item-23'
                     contentVariants:
                         -
                             type: video_list_section_item
                             params:
-                                shortDescription: 'Short Description of Item 23'
-                                description: 'Description of Item 23'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
+                                shortDescription: 'This webinar discusses why and how B2B companies should be undergoing a digital transformation. It also highlights disruptive technologies designed to help businesses successfully digitize commerce, in particular, eCommerce platforms and ERP solutions built specifically for B2B. Watch the webinar recording to learn how to launch and develop your eCommerce strategy.'
+                                description: 'This webinar discusses why and how B2B companies should be undergoing a digital transformation. It also highlights disruptive technologies designed to help businesses successfully digitize commerce, in particular, eCommerce platforms and ERP solutions built specifically for B2B. Watch the webinar recording to learn how to launch and develop your eCommerce strategy.'
+                                link: 'https://www.youtube.com/embed/m7sZ5R2pLBk'
                             isDefault: true
-                    parentScopeUsed: true
-                'Item 24':
-                    defaultTitle: 'Item 24'
-                    defaultSlugPrototype: 'item-24'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 24'
-                                description: 'Description of Item 24'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 25':
-                    defaultTitle: 'Item 25'
-                    defaultSlugPrototype: 'item-25'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 25'
-                                description: 'Description of Item 25'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 26':
-                    defaultTitle: 'Item 26'
-                    defaultSlugPrototype: 'item-26'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 26'
-                                description: 'Description of Item 26'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 27':
-                    defaultTitle: 'Item 27'
-                    defaultSlugPrototype: 'item-27'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 27'
-                                description: 'Description of Item 27'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 28':
-                    defaultTitle: 'Item 28'
-                    defaultSlugPrototype: 'item-28'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 28'
-                                description: 'Description of Item 28'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 29':
-                    defaultTitle: 'Item 29'
-                    defaultSlugPrototype: 'item-29'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 29'
-                                description: 'Description of Item 29'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 210':
-                    defaultTitle: 'Item 210'
-                    defaultSlugPrototype: 'item-210'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 210'
-                                description: 'Description of Item 211'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 211':
-                    defaultTitle: 'Item 211'
-                    defaultSlugPrototype: 'item-211'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 211'
-                                description: 'Description of Item 211'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-        'Section 3':
-            defaultTitle: Section 3
-            defaultSlugPrototype: section-3
-            contentVariants:
-                -
-                    type: video_list_section
-                    params: []
-                    isDefault: true
-            parentScopeUsed: true
-            children:
-                'Item 31':
-                    defaultTitle: 'Item 31'
-                    defaultSlugPrototype: 'item-31'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 31'
-                                description: 'Description of Item 31'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 32':
-                    defaultTitle: 'Item 32'
-                    defaultSlugPrototype: 'item-32'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 32'
-                                description: 'Description of Item 32'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 33':
-                    defaultTitle: 'Item 33'
-                    defaultSlugPrototype: 'item-33'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 33'
-                                description: 'Description of Item 33'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 34':
-                    defaultTitle: 'Item 34'
-                    defaultSlugPrototype: 'item-34'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 34'
-                                description: 'Description of Item 34'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 35':
-                    defaultTitle: 'Item 35'
-                    defaultSlugPrototype: 'item-35'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 35'
-                                description: 'Description of Item 35'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 36':
-                    defaultTitle: 'Item 36'
-                    defaultSlugPrototype: 'item-36'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 36'
-                                description: 'Description of Item 36'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 37':
-                    defaultTitle: 'Item 37'
-                    defaultSlugPrototype: 'item-37'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 37'
-                                description: 'Description of Item 37'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 38':
-                    defaultTitle: 'Item 38'
-                    defaultSlugPrototype: 'item-38'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 38'
-                                description: 'Description of Item 38'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 39':
-                    defaultTitle: 'Item 39'
-                    defaultSlugPrototype: 'item-39'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 39'
-                                description: 'Description of Item 39'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 310':
-                    defaultTitle: 'Item 310'
-                    defaultSlugPrototype: 'item-310'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 310'
-                                description: 'Description of Item 311'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true
-                'Item 311':
-                    defaultTitle: 'Item 311'
-                    defaultSlugPrototype: 'item-311'
-                    contentVariants:
-                        -
-                            type: video_list_section_item
-                            params:
-                                shortDescription: 'Short Description of Item 311'
-                                description: 'Description of Item 311'
-                                link: 'https://www.youtube.com/embed/ATV4VnhpiUU'
-                            isDefault: true
-                    parentScopeUsed: true

@@ -4,18 +4,18 @@ namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\VideoListSectionItemContentVariantType;
-use Oro\Bundle\ResourceLibraryBundle\Entity\Video;
+use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\ResourceLibraryContentVariantType;
 use Oro\Bundle\UserBundle\DataFixtures\UserUtilityTrait;
+use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
 use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\AbstractLoadWebCatalogDemoData;
+use Oro\Bundle\WebCatalogBundle\Migrations\Data\Demo\ORM\LoadWebCatalogDemoData as BaseLoadWebCatalogDemoData;
 
 /**
- * Videos demo data
+ * Resource Library demo data
  */
-class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
+class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements DependentFixtureInterface
 {
     use UserUtilityTrait;
 
@@ -25,7 +25,7 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
     public function getDependencies()
     {
         return [
-            ResourceLibraryDemoData::class,
+            BaseLoadWebCatalogDemoData::class,
         ];
     }
 
@@ -40,14 +40,30 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
             $manager,
             $webCatalog,
             $this->getWebCatalogData(
-                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/videos_data.yml'
+                '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/resource_library_data.yml'
             ),
-            ResourceLibraryDemoData::getResourceLibraryNode($manager)
+            $this->getRootNode($manager)
         );
 
         $manager->flush();
 
         $this->generateCache($webCatalog);
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @return ContentNode
+     */
+    public static function getResourceLibraryNode(ObjectManager $manager): ContentNode
+    {
+        return $manager->getRepository(ContentNode::class)
+            ->createQueryBuilder('node')
+            ->innerJoin('node.titles', 't')
+            ->where('t.string = :title')
+            ->setParameter(':title', 'Resource Library')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getSingleResult();
     }
 
     /**
@@ -61,6 +77,16 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
     }
 
     /**
+     * @param ObjectManager $manager
+     * @return ContentNode
+     */
+    private function getRootNode(ObjectManager $manager)
+    {
+        return $manager->getRepository(ContentNode::class)
+            ->findOneBy(['parentNode' => null]);
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getContentVariant($type, array $params)
@@ -69,18 +95,8 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
         $variant->setType($type);
 
         switch ($variant->getType()) {
-            case VideoListContentVariantType::TYPE:
+            case ResourceLibraryContentVariantType::TYPE:
                 $variant->setDescription($params['description']);
-                break;
-
-            case VideoListSectionItemContentVariantType::TYPE:
-                $video = new Video();
-                $video->setShortDescription($params['shortDescription']);
-                $video->setDescription($params['description']);
-                $video->setLink($params['link']);
-
-                $variant->setVideo($video);
-                break;
         }
 
         return $variant;
