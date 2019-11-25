@@ -79,13 +79,14 @@ class LoadMediaKitsDemoData extends AbstractLoadWebCatalogDemoData implements De
                 $mediaKit = new MediaKit();
                 $mediaKit->setDescription($params['description']);
                 $mediaKit->setLink($params['link']);
-                $mediaKit->setBanner(
-                    $this->createFileFile(
-                        $this->manager,
-                        $this->getFileLocator()->locate($params['banner']),
-                        $params['bannerTitle']
-                    )
+                $mediaKitFile =  $this->createFileFile(
+                    $this->manager,
+                    $this->getFileLocator()->locate($params['banner']),
+                    $params['bannerTitle']
                 );
+                $mediaKit->setBanner($mediaKitFile);
+                $mediaKit->setLogoPackageFile($mediaKitFile);
+                $mediaKit->setMediaKitFile($mediaKitFile);
 
                 $variant->setMediaKit($mediaKit);
                 break;

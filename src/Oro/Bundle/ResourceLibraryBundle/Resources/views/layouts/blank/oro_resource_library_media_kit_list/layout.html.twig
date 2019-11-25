@@ -66,11 +66,10 @@
                 constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
             )
         }) %}
+        <a {{ block('block_attributes') }}>
+            {{ 'oro.resourcelibrary.mediakit.download_media_kit.label'|trans }}
+        </a>
     {% endif %}
-
-    <a {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.mediakit.download_media_kit.label'|trans }}
-    </a>
 {% endblock %}
 
 {% block _media_kit_list_item_logo_package_file_widget %}
@@ -82,9 +81,8 @@
                 constant('Oro\\Bundle\\AttachmentBundle\\Provider\\FileUrlProviderInterface::FILE_ACTION_DOWNLOAD')
             )
         }) %}
+        <a {{ block('block_attributes') }}>
+            {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
+        </a>
     {% endif %}
-
-    <a {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
-    </a>
 {% endblock %}
