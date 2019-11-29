@@ -1,0 +1,65 @@
+/* @theme: blank; */
+
+.resource-library-post {
+    display: $resource-library-post-display;
+    align-items: $resource-library-post-align-items;
+
+    &:not(:last-child) {
+        border-bottom: $resource-library-post-border-bottom;
+        margin-bottom: $resource-library-post-offset-bottom;
+        padding-bottom: $resource-library-post-inner-offset-bottom;
+    }
+
+    &__head {
+        width: $resource-library-post-head-width;
+        flex-grow: $resource-library-post-head-flex-grow;
+        flex-shrink: $resource-library-post-head-flex-shrink;
+    }
+
+    &__content {
+        padding: $resource-library-post-content-inner-offset;
+        flex-grow: $resource-library-post-content-flex-grow;
+    }
+
+    &__image {
+        width: $resource-library-post-image-width;
+        flex-grow: $resource-library-post-image-flex-grow;
+        flex-shrink: $resource-library-post-image-flex-shrink;
+        overflow: $resource-library-post-image-overflow;
+
+        img {
+            width: $resource-library-post-image-img-width;
+            height: $resource-library-post-image-img-height;
+            display: $resource-library-post-image-img-display;
+            transition: $resource-library-post-image-img-transition;
+
+            &:hover {
+                transform: $resource-library-post-image-img-hover-transform;
+                transition: $resource-library-post-image-img-hover-transition;
+            }
+        }
+    }
+}
+
+@include breakpoint('mobile-big') {
+    .resource-library-post {
+        flex-direction: $resource-library-post-mobile-big-flex-direction;
+
+        &__head {
+            width: $resource-library-post-head-mobile-big-width;
+            margin-bottom: $resource-library-post-head-mobile-big-offset-bottom;
+        }
+
+        &__content {
+            width: $resource-library-post-content-mobile-big-width;
+            padding: $resource-library-post-content-mobile-big-inner-offset;
+            flex-grow: $resource-library-post-content-mobile-big-flex-grow;
+        }
+
+        &__image {
+            width: $resource-library-post-image-mobile-big-width;
+            margin-bottom: $resource-library-post-image-mobile-big-offset-bottom;
+            order: $resource-library-post-image-mobile-big-order;
+        }
+    }
+}

@@ -17,12 +17,12 @@ layout:
                 video_list_section_item:
                     blockType: container
                 video_list_section_item_video:
+                    blockType: container
+                video_list_section_item_embed:
                     blockType: link
                     options:
                         path: '=data["contentNode"].getResolvedContentVariant().video.getLink()'
                         attr:
-                            width: 480
-                            height: 320
                             frameborder: 0
                             allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
                 video_list_section_item_title:
@@ -52,13 +52,15 @@ layout:
                 video_list_section_other_item:
                     blockType: container
                 video_list_section_other_item_video:
+                    blockType: container
+                video_list_section_other_item_embed:
                     blockType: block
                     options:
                         attr:
-                            width: 480
-                            height: 320
                             frameborder: 0
                             allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                video_list_section_other_item_content:
+                    blockType: container
                 video_list_section_other_item_title:
                     blockType: block
                 video_list_section_other_item_date:
@@ -70,16 +72,19 @@ layout:
             tree:
                 page_content:
                     video_list_section_item:
-                        video_list_section_item_video: ~
                         video_list_section_item_title: ~
                         video_list_section_item_date: ~
+                        video_list_section_item_video:
+                            video_list_section_item_embed: ~
                         video_list_section_item_description: ~
                     video_list_section_other_items_container:
                         video_list_section_other_items_title: ~
                         video_list_section_other_items:
                             video_list_section_other_item:
-                                video_list_section_other_item_video: ~
-                                video_list_section_other_item_title: ~
-                                video_list_section_other_item_date: ~
-                                video_list_section_other_item_description: ~
-                                video_list_section_other_item_link: ~
+                                video_list_section_other_item_video:
+                                    video_list_section_other_item_embed: ~
+                                video_list_section_other_item_content:
+                                    video_list_section_other_item_title: ~
+                                    video_list_section_other_item_date: ~
+                                    video_list_section_other_item_description: ~
+                                    video_list_section_other_item_link: ~

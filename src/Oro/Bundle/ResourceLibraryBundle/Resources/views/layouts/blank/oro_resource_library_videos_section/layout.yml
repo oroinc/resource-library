@@ -26,6 +26,19 @@ layout:
             optionName: grid_parameters
             optionValue:
                 contentNodeId: '=data["contentNode"].getId()'
+        - '@setOption':
+            id: video_list_section_items_datagrid
+            optionName: grid_render_parameters.swipeActionsGrid.enable
+            optionValue: false
+        - '@setOption':
+            id: video_list_section_items_datagrid
+            optionName: grid_render_parameters.responsiveGrids.enable
+            optionValue: false
+        - '@setOption':
+            id: video_list_section_items_datagrid
+            optionName: grid_render_parameters.themeOptions.headerHide
+            optionValue: true
+
         - '@addTree':
             items:
                 video_list_section:

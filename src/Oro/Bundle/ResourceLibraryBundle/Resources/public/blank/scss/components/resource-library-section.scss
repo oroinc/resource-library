@@ -1,0 +1,23 @@
+/* @theme: blank; */
+
+.resource-library-section {
+    margin-bottom: $resource-library-section-offset-bottom;
+
+    &__title {
+        margin-bottom: $resource-library-section-title-offset-bottom;
+    }
+
+    &__video {
+        width: $resource-library-section-video-width;
+        max-width: $resource-library-section-video-max-width;
+        margin: $resource-library-section-video-offset;
+        flex-shrink: $resource-library-section-video-flex-shrink;
+        flex-grow: $resource-library-section-video-flex-grow;
+
+        @include aspect-ratio($width: 16, $height: 9);
+    }
+
+    &__description {
+        margin-bottom: $resource-library-section-description-offset-bottom;
+    }
+}

@@ -1,0 +1,53 @@
+/* @theme: blank; */
+
+$resource-library-article-display: flex !default;
+$resource-library-article-align-items: flex-start !default;
+
+$resource-library-article-video-width: 395px !default;
+$resource-library-article-video-offset-right: 30px !default;
+$resource-library-article-video-flex-shrink: 0 !default;
+$resource-library-article-video-flex-grow: 0 !default;
+
+$resource-library-article-embed-width: 100% !default;
+$resource-library-article-embed-height: 100% !default;
+$resource-library-article-embed-display: block !default;
+$resource-library-article-embed-position: absolute !default;
+$resource-library-article-embed-top: 0 !default;
+$resource-library-article-embed-left: 0 !default;
+
+$resource-library-article-content-flex-grow: 1 !default;
+
+$resource-library-article-title-offset-bottom: 8px !default;
+
+$resource-library-article-time-color: get-color('additional', 'middle') !default;
+$resource-library-article-time-display: block !default;
+
+$resource-library-article-description-offset: 16px 0 !default;
+$resource-library-article-description-offset-top: 0 !default;
+
+$resource-library-article-description-ul-offset: 16px 0 !default;
+
+$resource-library-article-goto-offset-left: 3px !default;
+$resource-library-article-goto-display: inline-block !default;
+$resource-library-article-goto-vertical-align: -1px !default;
+
+$resource-library-article-image-float: left !default;
+$resource-library-article-image-offset: 16px 20px 16px 0 !default;
+
+$resource-library-article-image-img-max-width: 100% !default;
+$resource-library-article-image-img-height: auto !default;
+$resource-library-article-image-img-display: block !default;
+
+// Mobile Big
+$resource-library-article-mobile-big-display: block !default;
+
+$resource-library-article-video-mobile-big-width: auto !default;
+$resource-library-article-video-mobile-big-offset-right: 0 !default;
+$resource-library-article-video-mobile-big-offset-bottom: 16px !default;
+
+// Mobile Landscape
+$resource-library-article-image-mobile-landscape-width: 100% !default;
+$resource-library-article-image-mobile-landscape-float: none !default;
+$resource-library-article-image-mobile-landscape-offset: 16px 0 !default;
+
+$resource-library-article-image-img-mobile-landscape-offset: 0 auto !default;

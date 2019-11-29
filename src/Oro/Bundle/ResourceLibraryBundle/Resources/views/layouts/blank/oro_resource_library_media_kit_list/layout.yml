@@ -31,12 +31,16 @@ layout:
                         items: '=data["contentNode"].getChildNodes()'
                 media_kit_list_item:
                     blockType: container
+                media_kit_list_item_poster:
+                    blockType: container
                 media_kit_list_item_banner:
                     blockType: block
                     options:
                         attr:
                             width: 480
                             height: 320
+                media_kit_list_item_content:
+                    blockType: container
                 media_kit_list_item_title:
                     blockType: block
                 media_kit_list_item_description:
@@ -56,10 +60,12 @@ layout:
                         media_kit_list_description: ~
                         media_kit_list_items:
                             media_kit_list_item:
-                                media_kit_list_item_banner: ~
-                                media_kit_list_item_title: ~
-                                media_kit_list_item_description: ~
-                                media_kit_list_item_link: ~
-                                media_kit_list_item_files:
-                                    media_kit_list_item_media_kit_file: ~
-                                    media_kit_list_item_logo_package_file: ~
+                                media_kit_list_item_poster:
+                                    media_kit_list_item_banner: ~
+                                media_kit_list_item_content:
+                                    media_kit_list_item_title: ~
+                                    media_kit_list_item_description: ~
+                                    media_kit_list_item_link: ~
+                                    media_kit_list_item_files:
+                                        media_kit_list_item_media_kit_file: ~
+                                        media_kit_list_item_logo_package_file: ~

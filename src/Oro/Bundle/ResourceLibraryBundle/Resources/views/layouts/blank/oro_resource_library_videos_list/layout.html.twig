@@ -1,12 +1,30 @@
-{% block _video_list_title_widget %}
-    <h1 {{ block('block_attributes') }}>
+{% block _video_list_container_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
         {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _video_list_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
+    <h1 {{ block('block_attributes') }}>
+        {{- block_widget(block) -}}
     </h1>
 {% endblock %}
 
 {% block _video_list_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        {{ block_widget(block)|oro_html_sanitize }}
+        {{- block_widget(block)|oro_html_sanitize -}}
     </div>
 {% endblock %}
 
@@ -21,71 +39,138 @@
 
 {% block _video_list_section_widget %}
     {% if item.childNodes|length > 0 %}
-        <hr>
+        {% set attr = layout_attr_defaults(attr, {
+            '~class': ' resource-library__section'
+        }) %}
+
+        <div {{ block('block_attributes') }}>
             {{ block_widget(block) }}
-        <hr>
+        </div>
     {% endif %}
 {% endblock %}
 
 {% block _video_list_section_title_widget %}
-    {{ item.titles|localized_value }}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        <span>
+            {{- item.titles|localized_value -}}
+        </span>
+    </h2>
 {% endblock %}
 
 {% block _video_list_section_items_widget %}
     <div {{ block('block_attributes') }}>
-        {% set displayed = 0 %}
+        {% set max_items = max_items|default(2) %}
 
-        {% for item in item.childNodes if displayed < 2 and item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
+        {% for item in item.childNodes|slice(0, max_items) if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
             {% do block|merge_context({item: item}) %}
             {{ block('container_widget') }}
-
-            {% set displayed = displayed + 1 %}
         {% endfor %}
     </div>
 {% endblock %}
 
 {% block _video_list_section_item_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-item resource-library-article'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ block('container_widget') }}
     </div>
 {% endblock %}
 
+{% block _video_list_section_footer_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-footer'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
 {% block _video_list_section_link_widget %}
-    {% set attr = layout_attr_defaults(attr, {href: oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+    {% set attr = layout_attr_defaults(attr, {
+        'href': oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value),
+        '~class': ' btn btn--info'
+    }) %}
 
     <a {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.video.view_all_videos.label'|trans }}
+        {{- 'oro.resourcelibrary.video.view_all_videos.label'|trans -}}
     </a>
 {% endblock %}
 
 {% block _video_list_section_item_video_widget %}
-    {% set attr = layout_attr_defaults(attr, {src: item.resolvedContentVariant.video.link}) %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__video'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _video_list_section_item_embed_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        'src': item.resolvedContentVariant.video.link,
+        '~class': ' resource-library-article__embed'
+    }) %}
 
     <iframe {{ block('block_attributes') }}></iframe>
 {% endblock %}
 
-{% block _video_list_section_item_title_widget %}
+{% block _video_list_section_item_content_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__content'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        {{ item.titles|localized_value }}
+        {{ block_widget(block) }}
     </div>
+{% endblock %}
+
+{% block _video_list_section_item_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__title'
+    }) %}
+
+    <h3 {{ block('block_attributes') }}>
+        {{- item.titles|localized_value -}}
+    </h3>
 {% endblock %}
 
 {% block _video_list_section_item_date_widget %}
-    <div {{ block('block_attributes') }}>
-        {{ item.resolvedContentVariant.video.createdAt|oro_format_datetime }}
-    </div>
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__time',
+        'datetime': item.resolvedContentVariant.video.createdAt|date("Y-m-d\\TH:i:s")
+    }) %}
+
+    <time {{ block('block_attributes') }}>
+        {{- item.resolvedContentVariant.video.createdAt|oro_format_time() }}
+        | {{ item.resolvedContentVariant.video.createdAt|oro_format_date({'dateType': 2}) -}}
+    </time>
 {% endblock %}
 
 {% block _video_list_section_item_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__description cms-typography'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ item.resolvedContentVariant.video.shortDescription|oro_html_sanitize }}
     </div>
 {% endblock %}
 
 {% block _video_list_section_item_link_widget %}
-    {% set attr = layout_attr_defaults(attr, {href: oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value)}) %}
+    {% set attr = layout_attr_defaults(attr, {
+        'href': oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value),
+        '~class': ' resource-library-article__goto'
+    }) %}
 
     <a {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.video.watch_video.label'|trans }}
+        {{- 'oro.resourcelibrary.video.watch_video.label'|trans -}}
     </a>
 {% endblock %}

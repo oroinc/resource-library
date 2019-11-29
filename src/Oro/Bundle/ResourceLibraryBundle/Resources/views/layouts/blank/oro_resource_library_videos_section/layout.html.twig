@@ -1,5 +1,19 @@
 {% block _video_list_section_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
     <h1 {{ block('block_attributes') }}>
-        {{ block_widget(block) }}
+        {{- block_widget(block) -}}
     </h1>
+{% endblock %}
+
+{% block _video_list_section_items_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-datagrid'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
 {% endblock %}

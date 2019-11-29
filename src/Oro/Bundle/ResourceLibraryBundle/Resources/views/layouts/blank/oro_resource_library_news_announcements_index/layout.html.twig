@@ -1,10 +1,32 @@
-{% block _today_container_title_widget %}
+{% block _news_section_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
     <h1 {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.newsannouncementsarticle.today'|trans }}
+        {{- 'oro.resourcelibrary.news_announcements.content_variant_type.label'|trans -}}
     </h1>
 {% endblock %}
 
+{% block _today_container_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        <span>
+            {{- 'oro.resourcelibrary.newsannouncementsarticle.today'|trans -}}
+        </span>
+    </h2>
+{% endblock %}
+
 {% block _today_list_items_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-newsposts',
+        'data-page-component-module': 'orofrontend/js/app/components/list-slider-component',
+        '~data-page-component-options': slider_options
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {% for index, item in items %}
             {% do block|merge_context({item: item}) %}
@@ -14,15 +36,35 @@
 {% endblock %}
 
 {% block _article_list_container_title_widget %}
-    <h1 {{ block('block_attributes') }}>
-        {{ 'oro.resourcelibrary.newsannouncementsarticle.latest'|trans }}
-    </h1>
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        <span>
+            {{- 'oro.resourcelibrary.newsannouncementsarticle.latest'|trans -}}
+        </span>
+    </h2>
+{% endblock %}
+
+{% block _article_list_items_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-datagrid'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
 {% endblock %}
 
 {% block _article_list_item_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-newspost resource-library-newsposts__item'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ block_widget(block['article_list_item_image']) }}
-        <div>
+        <div class="resource-library-newspost__head">
             {{ block_widget(block['article_list_item_title']) }}
             {{ block_widget(block['article_list_item_date']) }}
         </div>
@@ -31,39 +73,51 @@
 {% endblock %}
 
 {% block _article_list_item_image_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-newspost__image'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {% if item.newsAnnouncementsArticle.image is not empty %}
             <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_today') }}"
-                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}"
-             />
+                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}">
         {% else %}
-            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" style="width: 400px; height: 250px"/>
+            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" alt="{{ item.node.titles|localized_value }}">
         {% endif %}
     </div>
 {% endblock %}
 
 {% block _article_list_item_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__title'
+    }) %}
+
     <h3 {{ block('block_attributes') }}>
-        {{ item.node.titles|localized_value }}
+        {{- item.node.titles|localized_value -}}
     </h3>
 {% endblock %}
 
 {% block _article_list_item_date_widget %}
-    <div {{ block('block_attributes') }}>
-        {{ item.newsAnnouncementsArticle.createdAt|oro_format_time() }}
-        | {{ item.newsAnnouncementsArticle.createdAt|oro_format_date({'dateType': 2}) }}
-    </div>
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__time',
+        'datetime': item.newsAnnouncementsArticle.createdAt|date("Y-m-d\\TH:i:s")
+    }) %}
+
+    <time {{ block('block_attributes') }}>
+        {{- item.newsAnnouncementsArticle.createdAt|oro_format_time() }}
+        | {{ item.newsAnnouncementsArticle.createdAt|oro_format_date({'dateType': 2}) -}}
+    </time>
 {% endblock %}
 
 {% block _article_list_item_short_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__description cms-typography'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        <div>
-            {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
-        </div>
-        <div>
-            <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}">
-                {{ 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans }}
-            </a>
-        </div>
+        {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
     </div>
+    <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}" class="btn btn--info">
+        {{- 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans -}}
+    </a>
 {% endblock %}

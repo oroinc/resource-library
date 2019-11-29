@@ -1,0 +1,47 @@
+/* @theme: blank; */
+
+.resource-library-specifications {
+    margin-top: $resource-library-specifications-offset-top;
+    margin-left: $resource-library-specifications-offset-left;
+    display: $resource-library-specifications-display;
+    flex-wrap: $resource-library-specifications-flex-wrap;
+
+    &__item {
+        width: $resource-library-specifications-item-width;
+        margin-bottom: $resource-library-specifications-item-offset-bottom;
+        padding-left: $resource-library-specifications-item-inner-offset-left;
+        flex-grow: $resource-library-specifications-item-flex-grow;
+        flex-shrink: $resource-library-specifications-item-flex-shrink;
+    }
+
+    &__title {
+        margin-bottom: $resource-library-specifications-title-offset-bottom;
+    }
+
+    &__description {
+        margin: $resource-library-specifications-description-offset;
+    }
+}
+
+@include breakpoint('tablet') {
+    .resource-library-specifications {
+        margin-left: $resource-library-specifications-tablet-offset-left;
+
+        &__item {
+            width: $resource-library-specifications-item-tablet-width;
+            padding-left: $resource-library-specifications-item-tablet-inner-offset-left;
+        }
+    }
+}
+
+@include breakpoint('mobile-big') {
+    .resource-library-specifications {
+        margin-left: $resource-library-specifications-mobile-big-offset-left;
+        display: $resource-library-specifications-mobile-big-display;
+
+        &__item {
+            width: $resource-library-specifications-item-mobile-big-width;
+            padding-left: $resource-library-specifications-item-mobile-big-inner-offset-left;
+        }
+    }
+}

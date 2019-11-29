@@ -5,6 +5,8 @@ datagrids:
             frontend: true
             entity_pagination: true
             toolbarOptions:
+                placement:
+                    top: false
                 pageSize:
                     items: [10]
                     default_per_page: 10
@@ -52,6 +54,8 @@ datagrids:
             frontend: true
             entity_pagination: true
             toolbarOptions:
+                placement:
+                    top: false
                 pageSize:
                     items: [10]
                     default_per_page: 10

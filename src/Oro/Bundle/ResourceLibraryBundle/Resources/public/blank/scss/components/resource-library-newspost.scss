@@ -1,0 +1,13 @@
+/* @theme: blank; */
+
+.resource-library-newspost {
+    &__image {
+        margin-bottom: $resource-library-newspost-image-offset-bottom;
+
+        img {
+            width: $resource-library-newspost-image-img-width;
+            height: $resource-library-newspost-image-img-height;
+            display: $resource-library-newspost-image-img-display;
+        }
+    }
+}

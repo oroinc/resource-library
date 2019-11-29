@@ -1,0 +1,22 @@
+/* @theme: blank; */
+
+$resource-library-datagrid-table-border-top: none !default;
+
+$resource-library-datagrid-grid-body-cell-border-top: none !default;
+$resource-library-datagrid-grid-body-cell-inner-offset-top: 0 !default;
+
+$resource-library-datagrid-grid-body-cell-inner-offset: 30px 0 !default;
+$resource-library-datagrid-grid-body-cell-vertical-align: top !default;
+
+$resource-library-datagrid-action-cell-empty-display: none !default;
+
+// Mobile Big
+$resource-library-datagrid-grid-row-mobile-big-display: block !default;
+$resource-library-datagrid-grid-row-mobile-big-border-top: 1px solid get-color('additional', 'light') !default;
+$resource-library-datagrid-grid-row-mobile-big-offset-top: 30px !default;
+$resource-library-datagrid-grid-row-mobile-big-inner-offset-top: 30px !default;
+$resource-library-datagrid-grid-row-mobile-big-offset-bottom: 30px !default;
+
+$resource-library-datagrid-grid-body-cell-mobile-big-display: block !default;
+$resource-library-datagrid-grid-body-cell-mobile-big-border: none !default;
+$resource-library-datagrid-grid-body-cell-mobile-big-inner-offset: 0 !default;

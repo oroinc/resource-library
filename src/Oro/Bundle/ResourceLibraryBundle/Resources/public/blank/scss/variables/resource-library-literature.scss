@@ -1,0 +1,28 @@
+/* @theme: blank; */
+
+$resource-library-literature-display: flex !default;
+$resource-library-literature-offset-left: -100px !default;
+
+$resource-library-literature-section-width: calc(100% / 3) !default;
+$resource-library-literature-section-offset-bottom: 30px !default;
+$resource-library-literature-section-inner-offset-left: 100px !default;
+
+$resource-library-literature-list-offset-top: 30px !default;
+$resource-library-literature-list-inner-offset: 0 60px !default;
+
+$resource-library-literature-item-offset-bottom: 16px !default;
+
+// Tablet
+$resource-library-literature-tablet-display: block !default;
+$resource-library-literature-tablet-offset-left: 0 !default;
+
+$resource-library-literature-section-tablet-width: auto !default;
+$resource-library-literature-section-tablet-inner-offset-left: 0 !default;
+
+$resource-library-literature-list-tablet-column-count: 2 !default;
+$resource-library-literature-list-tablet-column-gap: 60px !default;
+
+// Mobile Big
+$resource-library-literature-list-mobile-big-column-count: auto !default;
+$resource-library-literature-list-mobile-big-column-gap: normal !default;
+$resource-library-literature-list-mobile-big-inner-offset: 0 !default;

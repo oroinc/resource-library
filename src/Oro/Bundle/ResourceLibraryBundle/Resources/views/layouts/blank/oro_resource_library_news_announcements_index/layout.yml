@@ -6,66 +6,87 @@ layout:
             namespace: article_list_items
     actions:
         - '@setBlockTheme':
-              themes: 'layout.html.twig'
+            themes: 'layout.html.twig'
         - '@setOption':
-              id: title
-              optionName: value
-              optionValue: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
+            id: title
+            optionName: value
+            optionValue: '=data["locale"].getLocalizedValue(data["contentVariant"].getNode().getTitles())'
         - '@add':
-              id: breadcrumbs
-              parentId: page_main_header
-              blockType: breadcrumbs
-              options:
-                  breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+            id: breadcrumbs
+            parentId: page_main_header
+            blockType: breadcrumbs
+            options:
+                breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
         - '@setOption':
-              id: article_list_items_datagrid
-              optionName: grid_name
-              optionValue: news-announcements-article-grid
+            id: article_list_items_datagrid
+            optionName: grid_name
+            optionValue: news-announcements-article-grid
         - '@setOption':
-              id: article_list_items_datagrid
-              optionName: grid_parameters
-              optionValue:
-                    parentNodeId: '=data["contentVariant"].getNode().getId()'
+            id: article_list_items_datagrid
+            optionName: grid_parameters
+            optionValue:
+                parentNodeId: '=data["contentVariant"].getNode().getId()'
+        - '@setOption':
+            id: article_list_items_datagrid
+            optionName: grid_render_parameters.swipeActionsGrid.enable
+            optionValue: false
+        - '@setOption':
+            id: article_list_items_datagrid
+            optionName: grid_render_parameters.responsiveGrids.enable
+            optionValue: false
+        - '@setOption':
+            id: article_list_items_datagrid
+            optionName: grid_render_parameters.themeOptions.headerHide
+            optionValue: true
         - '@addTree':
-              items:
-                  today_container:
-                      blockType: container
-                      options:
-                          visible: '=data["today"].count()'
-                  today_container_title:
-                      blockType: block
-                  today_list_items:
-                      blockType: container
-                      options:
-                          vars:
-                              items: '=data["today"]'
-                  article_list_item:
-                      blockType: container
-                  article_list_item_title:
-                      blockType: block
-                  article_list_item_date:
-                      blockType: block
-                  article_list_item_short_description:
-                      blockType: block
-                  article_list_item_image:
-                      blockType: block
+            items:
+                news_section_title:
+                    blockType: block
+                today_container:
+                    blockType: container
+                    options:
+                        visible: '=data["today"].count()'
+                today_container_title:
+                    blockType: block
+                today_list_items:
+                    blockType: container
+                    options:
+                        vars:
+                            items: '=data["today"]'
+                            slider_options:
+                                slidesToShow: 3
+                                responsive:
+                                    - {breakpoint: 1100, settings: {arrows: true}}
+                                    - {breakpoint: 993, settings: {slidesToShow: 2, arrows: true}}
+                                    - {breakpoint: 641, settings: {slidesToShow: 1, arrows: true}}
+                article_list_item:
+                    blockType: container
+                article_list_item_title:
+                    blockType: block
+                article_list_item_date:
+                    blockType: block
+                article_list_item_short_description:
+                    blockType: block
+                article_list_item_image:
+                    blockType: block
 
-                  article_list_container:
-                      blockType: container
-                  article_list_container_title:
-                      blockType: block
-                  article_list_items:
-                      blockType: container
-              tree:
-                  page_content:
-                      today_container:
-                          today_container_title: ~
-                          today_list_items:
-                              article_list_item:
-                                  article_list_item_image: ~
-                                  article_list_item_title: ~
-                                  article_list_item_date: ~
-                                  article_list_item_short_description: ~
-                      article_list_container:
-                          article_list_container_title: ~
-                          article_list_items: ~
+                article_list_container:
+                    blockType: container
+                article_list_container_title:
+                    blockType: block
+                article_list_items:
+                    blockType: container
+            tree:
+                page_content:
+                    news_section_title: ~
+                    today_container:
+                        today_container_title: ~
+                        today_list_items:
+                            article_list_item:
+                                article_list_item_image: ~
+                                article_list_item_title: ~
+                                article_list_item_date: ~
+                                article_list_item_short_description: ~
+                    article_list_container:
+                        article_list_container_title: ~
+                        article_list_items: ~

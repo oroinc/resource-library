@@ -5,14 +5,22 @@
 {% endblock %}
 
 {% block _safety_specifications_page_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        {{ block_widget(block)|oro_html_sanitize }}
+        {{- block_widget(block)|oro_html_sanitize -}}
     </div>
 {% endblock %}
 
 {% block _safety_specifications_page_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
     <h1 {{ block('block_attributes') }}>
-        {{ block_widget(block) }}
+        {{- block_widget(block) -}}
     </h1>
 {% endblock %}
 
@@ -26,29 +34,46 @@
 {% endblock %}
 
 {% block _safety_specifications_section_title_widget %}
-    <hr>
-    <h3 {{ block('block_attributes') }}>
-        {{ section.titles|localized_value }}
-    </h3>
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        <span>
+            {{- section.titles|localized_value -}}
+        </span>
+    </h2>
 {% endblock %}
 
 {% block _safety_specifications_files_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-specifications'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {% for fileSection in section.getChildNodes if fileSection.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationFileContentVariantType::TYPE') %}
             {% do block|merge_context({fileSection: fileSection}) %}
-            {{ block('container_widget') }}
+            <div class="resource-library-specifications__item">
+                {{ block('container_widget') }}
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
 
 {% block _safety_specifications_file_title_widget %}
-    <br>
-    <h4 {{ block('block_attributes') }}>
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-specifications__title'
+    }) %}
+    <h3 {{ block('block_attributes') }}>
         {{ fileSection.titles|localized_value }}
-    </h4>
+    </h3>
 {% endblock %}
 
 {% block _safety_specifications_file_short_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-specifications__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ fileSection.resolvedContentVariant.description|oro_html_sanitize }}
     </div>
@@ -63,8 +88,10 @@
         title: 'oro.resourcelibrary.btn.download_pdf.label'|trans
     }) %}
 
-    <span class="filename">
-        <i class="fa {{ oro_attachment_icon(fileSection.resolvedContentVariant.pdf_file) }}"></i>
-        <a {{ block('block_attributes') }}>{{ 'oro.resourcelibrary.btn.download_pdf.label'|trans }}</a>
-    </span>
+    <div class="resource-library-specifications__filename">
+        <a {{ block('block_attributes') }}>
+            <span class="{{ oro_attachment_icon(fileSection.resolvedContentVariant.pdf_file) }}" aria-hidden="true"></span>
+            {{- 'oro.resourcelibrary.btn.download_pdf.label'|trans -}}
+        </a>
+    </div>
 {% endblock %}

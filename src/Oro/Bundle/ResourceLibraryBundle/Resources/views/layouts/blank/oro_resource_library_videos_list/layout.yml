@@ -35,16 +35,21 @@ layout:
                     blockType: block
                 video_list_section_items:
                     blockType: container
+                    options:
+                        vars:
+                            max_items: 2
                 video_list_section_item:
                     blockType: container
                 video_list_section_item_video:
+                    blockType: container
+                video_list_section_item_embed:
                     blockType: block
                     options:
                         attr:
-                            width: 480
-                            height: 320
                             frameborder: 0
                             allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                video_list_section_item_content:
+                    blockType: container
                 video_list_section_item_title:
                     blockType: block
                 video_list_section_item_date:
@@ -53,6 +58,8 @@ layout:
                     blockType: block
                 video_list_section_item_link:
                     blockType: block
+                video_list_section_footer:
+                    blockType: container
                 video_list_section_link:
                     blockType: block
             tree:
@@ -65,9 +72,12 @@ layout:
                                 video_list_section_title: ~
                                 video_list_section_items:
                                     video_list_section_item:
-                                        video_list_section_item_video: ~
-                                        video_list_section_item_title: ~
-                                        video_list_section_item_date: ~
-                                        video_list_section_item_description: ~
-                                        video_list_section_item_link: ~
-                                video_list_section_link: ~
+                                        video_list_section_item_video:
+                                            video_list_section_item_embed: ~
+                                        video_list_section_item_content:
+                                            video_list_section_item_title: ~
+                                            video_list_section_item_date: ~
+                                            video_list_section_item_description: ~
+                                            video_list_section_item_link: ~
+                                video_list_section_footer:
+                                    video_list_section_link: ~

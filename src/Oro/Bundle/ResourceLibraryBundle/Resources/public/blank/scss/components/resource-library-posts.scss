@@ -1,0 +1,11 @@
+/* @theme: blank; */
+
+.resource-library-posts {
+    padding: $resource-library-posts-inner-offset;
+}
+
+@include breakpoint('mobile-big') {
+    .resource-library-posts {
+        padding: $resource-library-posts-mobile-big-inner-offset;
+    }
+}

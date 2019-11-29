@@ -1,16 +1,28 @@
 {% block _media_kit_list_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
     <h1 {{ block('block_attributes') }}>
-        {{ block_widget(block) }}
+        {{- block_widget(block) -}}
     </h1>
 {% endblock %}
 
 {% block _media_kit_list_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ block_widget(block)|oro_html_sanitize }}
     </div>
 {% endblock %}
 
 {% block _media_kit_list_items_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {% for item in items if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListItemContentVariantType::TYPE') %}
             {% do block|merge_context({item: item}) %}
@@ -20,31 +32,69 @@
 {% endblock %}
 
 {% block _media_kit_list_item_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits__item'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ block('container_widget') }}
     </div>
 {% endblock %}
 
-{% block _media_kit_list_item_banner_widget %}
-    {% set attr = layout_attr_defaults(attr, {src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height)}) %}
+{% block _media_kit_list_item_poster_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits__poster'
+    }) %}
 
-    <img {{ block('block_attributes') }}/>
-{% endblock %}
-
-{% block _media_kit_list_item_title_widget %}
     <div {{ block('block_attributes') }}>
-        {{ item.titles|localized_value }}
+        {{ block_widget(block) }}
     </div>
 {% endblock %}
 
+{% block _media_kit_list_item_banner_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
+        '~class': ' resource-library-kits__image'
+    }) %}
+
+    <img {{ block('block_attributes') }}>
+{% endblock %}
+
+{% block _media_kit_list_item_content_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits__content'
+    }) %}
+
+    <div {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _media_kit_list_item_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-article__title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        {{ item.titles|localized_value }}
+    </h2>
+{% endblock %}
+
 {% block _media_kit_list_item_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ item.resolvedContentVariant.media_kit.description|oro_html_sanitize }}
     </div>
 {% endblock %}
 
 {% block _media_kit_list_item_link_widget %}
-    {% set attr = layout_attr_defaults(attr, {href: item.resolvedContentVariant.media_kit.link}) %}
+    {% set attr = layout_attr_defaults(attr, {
+        'href': item.resolvedContentVariant.media_kit.link,
+        '~class': ' resource-library-article__goto'
+    }) %}
 
     <a {{ block('block_attributes') }}>
         {{ 'oro.resourcelibrary.mediakit.visit_website.label'|trans }}
@@ -52,12 +102,20 @@
 {% endblock %}
 
 {% block _media_kit_list_item_files_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-kits__files'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {{ block('container_widget') }}
     </div>
 {% endblock %}
 
 {% block _media_kit_list_item_media_kit_file_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' btn btn--info resource-library-kits__btn'
+    }) %}
+
     {% if item.resolvedContentVariant.media_kit.mediaKitFile is defined
         and item.resolvedContentVariant.media_kit.mediaKitFile is not empty %}
         {% set attr = layout_attr_defaults(attr, {
@@ -67,12 +125,17 @@
             )
         }) %}
         <a {{ block('block_attributes') }}>
+            <span class="fa-download" aria-hidden="true"></span>
             {{ 'oro.resourcelibrary.mediakit.download_media_kit.label'|trans }}
         </a>
     {% endif %}
 {% endblock %}
 
 {% block _media_kit_list_item_logo_package_file_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' btn btn--info resource-library-kits__btn'
+    }) %}
+
     {% if item.resolvedContentVariant.media_kit.logoPackageFile is defined
         and item.resolvedContentVariant.media_kit.logoPackageFile is not empty %}
         {% set attr = layout_attr_defaults(attr, {
@@ -82,6 +145,7 @@
             )
         }) %}
         <a {{ block('block_attributes') }}>
+            <span class="fa-download" aria-hidden="true"></span>
             {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
         </a>
     {% endif %}

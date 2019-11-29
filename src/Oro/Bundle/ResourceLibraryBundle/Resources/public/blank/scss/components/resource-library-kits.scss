@@ -1,0 +1,95 @@
+/* @theme: blank; */
+
+.resource-library-kits {
+    &__item {
+        display: $resource-library-kits-item-display;
+
+        &:not(:last-child) {
+            border-bottom: $resource-library-kits-item-border-bottom;
+            margin-bottom: $resource-library-kits-item-offset-bottom;
+            padding-bottom: $resource-library-kits-item-inner-offset-bottom;
+        }
+
+        &:nth-child(odd) {
+            .resource-library-kits__content {
+                padding-left: $resource-library-kits-content-odd-inner-offset-left;
+            }
+        }
+
+        &:nth-child(even) {
+            .resource-library-kits__poster {
+                order: $resource-library-kits-poster-even-order;
+            }
+
+            .resource-library-kits__content {
+                padding-right: $resource-library-kits-content-even-inner-offset-right;
+            }
+        }
+    }
+
+    &__poster {
+        width: $resource-library-kits-poster-width;
+    }
+
+    &__image {
+        width: $resource-library-kits-image-width;
+        height: $resource-library-kits-image-height;
+        display: $resource-library-kits-image-display;
+    }
+
+    &__content {
+        width: $resource-library-kits-content-width;
+    }
+
+    &__description {
+        margin-bottom: $resource-library-kits-description-offset-bottom;
+    }
+
+    &__files {
+        margin-top: $resource-library-kits-files-offset-top;
+    }
+
+    &__btn {
+        margin-right: $resource-library-kits-btn-offset-right;
+        margin-bottom: $resource-library-kits-btn-offset-left;
+    }
+}
+
+@include breakpoint('tablet') {
+    .resource-library-kits {
+        &__item {
+            display: $resource-library-kits-item-tablet-display;
+
+            &:nth-child(odd) {
+                .resource-library-kits__content {
+                    padding-left: $resource-library-kits-content-odd-tablet-inner-offset-left;
+                }
+            }
+
+            &:nth-child(even) {
+                .resource-library-kits__content {
+                    padding-right: $resource-library-kits-content-even-tablet-inner-offset-right;
+                }
+            }
+        }
+
+        &__poster {
+            width: $resource-library-kits-poster-tablet-width;
+            max-width: $resource-library-kits-poster-tablet-max-width;
+            margin: $resource-library-kits-poster-tablet-offset;
+        }
+
+        &__content {
+            width: $resource-library-kits-content-tablet-width;
+        }
+    }
+}
+
+@include breakpoint('mobile-landscape') {
+    .resource-library-kits {
+        &__btn {
+            width: $resource-library-kits-btn-mobile-landscape-width;
+            margin-right: $resource-library-kits-btn-mobile-landscape-offset-right;
+        }
+    }
+}

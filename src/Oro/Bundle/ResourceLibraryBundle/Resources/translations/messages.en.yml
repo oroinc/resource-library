@@ -69,7 +69,7 @@ oro:
             today: 'Today''s featured'
             latest: 'The latest'
             iteresting: 'Also interesting'
-            read_more: 'Read More >'
+            read_more: 'Read More'
 
         mediakit:
           entity_label: 'Media Kit'

@@ -5,18 +5,30 @@
 {% endblock %}
 
 {% block _literature_page_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__title'
+    }) %}
+
     <h1 {{ block('block_attributes') }}>
-        {{ contentNode.titles|localized_value }}
+        {{- contentNode.titles|localized_value -}}
     </h1>
 {% endblock %}
 
 {% block _literature_page_description_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__description'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        {{ contentVariant.description|oro_html_sanitize}}
+        {{- contentVariant.description|oro_html_sanitize -}}
     </div>
 {% endblock %}
 
 {% block _literature_sections_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-literature'
+    }) %}
+
     <div {{ block('block_attributes') }}>
         {% for fileSection in fileSections %}
                 {% set context = {
@@ -28,13 +40,33 @@
     </div>
 {% endblock %}
 
-{% block _literature_section_title_widget%}
+{% block _literature_section_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-literature__section'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        <h3>{{ section.childNode.titles|localized_value }}</h3>
+        {{- block_widget(block) -}}
     </div>
 {% endblock %}
 
+{% block _literature_section_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library__section-title'
+    }) %}
+
+    <h2 {{ block('block_attributes') }}>
+        <span>
+            {{- section.childNode.titles|localized_value -}}
+        </span>
+    </h2>
+{% endblock %}
+
 {% block _literature_section_files_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-literature__list'
+    }) %}
+
     <div {{ block('block_attributes') }}>
     {% for literatureNoteEntity in section.filesCollection %}
             {% set context = {
@@ -47,9 +79,14 @@
 {% endblock %}
 
 {% block _literature_file_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' resource-library-literature__item'
+    }) %}
+
     <div {{ block('block_attributes') }}>
-        <a href="{{ file_url(file, 'download') }}" class="{{ oro_attachment_icon(file) }}">
-            {{ oro_file_title(file) }}
+        <a href="{{ file_url(file, 'download') }}">
+            <span class="{{ oro_attachment_icon(file) }}" aria-hidden="true"></span>
+            {{- oro_file_title(file) -}}
         </a>
     </div>
 {% endblock %}

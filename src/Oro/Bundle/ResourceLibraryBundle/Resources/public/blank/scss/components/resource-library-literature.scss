@@ -1,0 +1,48 @@
+/* @theme: blank; */
+
+.resource-library-literature {
+    display: $resource-library-literature-display;
+    margin-left: $resource-library-literature-offset-left;
+
+    &__section {
+        width: $resource-library-literature-section-width;
+        margin-bottom: $resource-library-literature-section-offset-bottom;
+        padding-left: $resource-library-literature-section-inner-offset-left;
+    }
+
+    &__list {
+        margin-top: $resource-library-literature-list-offset-top;
+        padding: $resource-library-literature-list-inner-offset;
+    }
+
+    &__item {
+        margin-bottom: $resource-library-literature-item-offset-bottom;
+    }
+}
+
+@include breakpoint('tablet') {
+    .resource-library-literature {
+        display: $resource-library-literature-tablet-display;
+        margin-left: $resource-library-literature-tablet-offset-left;
+
+        &__section {
+            width: $resource-library-literature-section-tablet-width;
+            padding-left: $resource-library-literature-section-tablet-inner-offset-left;
+        }
+
+        &__list {
+            column-count: $resource-library-literature-list-tablet-column-count;
+            column-gap: $resource-library-literature-list-tablet-column-gap;
+        }
+    }
+}
+
+@include breakpoint('mobile-big') {
+    .resource-library-literature {
+        &__list {
+            column-count: $resource-library-literature-list-mobile-big-column-count;
+            column-gap: $resource-library-literature-list-mobile-big-column-gap;
+            padding: $resource-library-literature-list-mobile-big-inner-offset;
+        }
+    }
+}

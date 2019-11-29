@@ -1,0 +1,61 @@
+/* @theme: blank; */
+
+$resource-library-width: 100% !default;
+
+$resource-library-section-offset-bottom: 30px !default;
+
+$resource-library-section-footer-text-align: center !default;
+
+$resource-library-title-text-align: center !default;
+$resource-library-title-offset-bottom: 12px !default;
+
+$resource-library-description-text-align: center !default;
+$resource-library-description-offset-bottom: 30px !default;
+
+$resource-library-section-title-text-align: center !default;
+$resource-library-section-title-text-transform: uppercase !default;
+$resource-library-section-title-offset-bottom: 16px !default;
+$resource-library-section-title-position: relative !default;
+
+$resource-library-section-title-before-content: '' !default;
+$resource-library-section-title-before-background: get-color('additional', 'light') !default;
+$resource-library-section-title-before-height: 1px !default;
+$resource-library-section-title-before-position: absolute !default;
+$resource-library-section-title-before-top: 50% !default;
+$resource-library-section-title-before-left: 0 !default;
+$resource-library-section-title-before-right: 0 !default;
+$resource-library-section-title-before-z-index: z('base') !default;
+
+$resource-library-section-title-span-background: get-color('additional', 'ultra') !default;
+$resource-library-section-title-span-display: inline-block !default;
+$resource-library-section-title-span-padding: 0 16px !default;
+$resource-library-section-title-span-position: relative !default;
+$resource-library-section-title-span-z-index: $resource-library-section-title-before-z-index + 1 !default;
+
+$resource-library-section-item-offset-bottom: 30px !default;
+$resource-library-section-item-offset-border-bottom: 1px solid get-color('additional', 'light') !default;
+$resource-library-section-item-offset-inner-offset-bottom: 30px !default;
+
+$resource-library-menu-offset: -16px 0 0 !default;
+
+$resource-library-menu-item-width: 20% !default;
+$resource-library-menu-item-inner-offset: 16px 8px 0 !default;
+$resource-library-menu-item-offset-top: 0 !default;
+
+$resource-library-menu-content-display: flex !default;
+$resource-library-menu-content-flex-direction: column !default;
+$resource-library-menu-content-align-items: center !default;
+
+$resource-library-menu-link-font-weight: bold !default;
+$resource-library-menu-link-offset-top: auto !default;
+$resource-library-menu-link-inner-offset-right: 16px !default;
+$resource-library-menu-link-inner-offset-left: 16px !default;
+
+// Tablet
+$resource-library-menu-item-tablet-width: 50% !default;
+
+// Tablet Small
+$resource-library-menu-tablet-small-justify-content: center !default;
+
+// Mobile Landscape
+$resource-library-menu-item-mobile-landscape-width: 100% !default;

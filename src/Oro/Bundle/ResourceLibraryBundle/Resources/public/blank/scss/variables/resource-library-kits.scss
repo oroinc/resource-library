@@ -1,0 +1,42 @@
+/* @theme: blank; */
+
+$resource-library-kits-item-display: flex !default;
+$resource-library-kits-item-border-bottom: 1px solid get-color('additional', 'light') !default;
+$resource-library-kits-item-offset-bottom: 30px !default;
+$resource-library-kits-item-inner-offset-bottom: 30px !default;
+
+$resource-library-kits-content-odd-inner-offset-left: 30px !default;
+
+$resource-library-kits-poster-even-order: 1 !default;
+$resource-library-kits-content-even-inner-offset-right: 30px !default;
+
+$resource-library-kits-poster-width: calc(50% - 15px) !default;
+
+$resource-library-kits-image-width: 100% !default;
+$resource-library-kits-image-height: auto !default;
+$resource-library-kits-image-display: block !default;
+
+$resource-library-kits-content-width: calc(50% + 15px) !default;
+
+$resource-library-kits-description-offset-bottom: 16px !default;
+
+$resource-library-kits-files-offset-top: 25px !default;
+
+$resource-library-kits-btn-offset-right: 16px !default;
+$resource-library-kits-btn-offset-left: 16px !default;
+
+// Tablet
+$resource-library-kits-item-tablet-display: block !default;
+
+$resource-library-kits-content-odd-tablet-inner-offset-left: 0 !default;
+$resource-library-kits-content-even-tablet-inner-offset-right: 0 !default;
+
+$resource-library-kits-poster-tablet-width: auto !default;
+$resource-library-kits-poster-tablet-max-width: 595px !default;
+$resource-library-kits-poster-tablet-offset: 0 auto 30px !default;
+
+$resource-library-kits-content-tablet-width: auto !default;
+
+// Mobile Landscape
+$resource-library-kits-btn-mobile-landscape-width: 100% !default;
+$resource-library-kits-btn-mobile-landscape-offset-right: 0 !default;
