@@ -26,7 +26,11 @@ class SafetySpecificationController extends AbstractController
     {
         return [
             'data' => [
-                'contentNode' => $this->resolveTree($contentVariant, SafetySpecificationPageContentVariantType::TYPE),
+                'resolvedContentNode' => $this->resolveTree(
+                    $contentVariant,
+                    SafetySpecificationPageContentVariantType::TYPE
+                ),
+                'contentNode' => $contentVariant ? $contentVariant->getNode() : null
             ]
         ];
     }

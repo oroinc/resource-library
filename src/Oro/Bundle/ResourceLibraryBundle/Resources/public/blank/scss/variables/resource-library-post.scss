@@ -20,11 +20,19 @@ $resource-library-post-image-overflow: hidden !default;
 
 $resource-library-post-image-img-width: 100% !default;
 $resource-library-post-image-img-height: auto !default;
+$resource-library-post-image-img-min-height: 114px !default;
+$resource-library-post-image-img-max-height: 170px !default;
 $resource-library-post-image-img-display: block !default;
 $resource-library-post-image-img-transition: transform .2s linear !default;
+$resource-library-post-image-img-object-fit: cover !default;
 
-$resource-library-post-image-img-hover-transform: scale(1.1) !default;
-$resource-library-post-image-img-hover-transition: transform .2s linear !default;
+$resource-library-post-picture-width: 100% !default;
+$resource-library-post-picture-height: auto !default;
+$resource-library-post-picture-display: block !default;
+$resource-library-post-picture-transition: transform .2s linear !default;
+
+$resource-library-post-picture-hover-transform: scale(1.1) !default;
+$resource-library-post-picture-hover-transition: transform .2s linear !default;
 
 // Mobile Big
 $resource-library-post-mobile-big-flex-direction: column !default;
@@ -39,3 +47,8 @@ $resource-library-post-content-mobile-big-flex-grow: 0 !default;
 $resource-library-post-image-mobile-big-width: 100% !default;
 $resource-library-post-image-mobile-big-offset-bottom: 16px !default;
 $resource-library-post-image-mobile-big-order: -1 !default;
+
+$resource-library-post-image-img-mobile-big-max-height: 500px !default;
+
+// Mobile
+$resource-library-post-image-img-mobile-max-height: 350px !default;

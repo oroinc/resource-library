@@ -30,6 +30,11 @@
         @extend .h1;
 
         margin-bottom: $resource-library-article-title-offset-bottom;
+
+        a,
+        a:hover {
+            color: $resource-library-article-title-link-color;
+        }
     }
 
     &__time {

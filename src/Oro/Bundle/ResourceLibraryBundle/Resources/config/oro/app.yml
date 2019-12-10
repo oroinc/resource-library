@@ -11,10 +11,20 @@ liip_imagine:
         news_announcements_lists:
             quality: 95
             filters:
-                thumbnail:
-                    size: [150, 100]
-                    mode: outbound
-                strip: ~
+                relative_resize:
+                    widen: 200
+
+        news_announcements_lists_middle:
+            quality: 95
+            filters:
+                relative_resize:
+                    widen: 767
+
+        news_announcements_lists_small:
+            quality: 95
+            filters:
+                relative_resize:
+                    widen: 414
 
         news_announcements_article:
             quality: 95

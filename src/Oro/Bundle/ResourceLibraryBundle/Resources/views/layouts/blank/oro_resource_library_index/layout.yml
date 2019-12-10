@@ -6,7 +6,7 @@ layout:
         - '@setOption':
             id: title
             optionName: value
-            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+            optionValue: '=data["locale"].getLocalizedValue(data["resolvedContentNode"].getTitles())'
 
         - '@add':
             id: breadcrumbs
@@ -14,6 +14,37 @@ layout:
             blockType: breadcrumbs
             options:
                 breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+
+        - '@add':
+              id: meta_title
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'title'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaTitles")'
+
+        - '@add':
+              id: meta_description
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'description'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaDescriptions")'
+
+        - '@add':
+              id: meta_keywords
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'keywords'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaKeywords")'
+
+        - '@add':
+              id: entity_localized_urls
+              parentId: head
+              blockType: seo_localized_links_container
+              options:
+                  linkItems: '=data["seo_localized_links"].getAlternates(data["web_catalog_content_variant"].getFromRequest() ? data["web_catalog_content_variant"].getFromRequest() : data["contentNode"])'
 
         - '@addTree':
             items:
@@ -23,12 +54,12 @@ layout:
                 resource_library_page_title:
                     blockType: text
                     options:
-                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+                        text: '=data["locale"].getLocalizedValue(data["resolvedContentNode"].getTitles())'
 
                 resource_library_page_description:
                     blockType: text
                     options:
-                        text: '=data["contentNode"].getResolvedContentVariant().description'
+                        text: '=data["resolvedContentNode"].getResolvedContentVariant().description'
                         escape: false
 
                 resource_library_page_categories:
@@ -37,7 +68,7 @@ layout:
                 resource_library_page_category_literature_and_application_notes:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\LiteratureApplicationNoteContentVariantType::TYPE")'
                         vars:
                             icon: 'fa-book'
@@ -45,7 +76,7 @@ layout:
                 resource_library_page_category_news_and_announcements:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\NewsAnnouncementsContentVariantType::TYPE")'
                         vars:
                             icon: 'fa-list-alt'
@@ -53,7 +84,7 @@ layout:
                 resource_library_page_category_videos:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListContentVariantType::TYPE")'
                         vars:
                             icon: 'fa-play-circle'
@@ -61,7 +92,7 @@ layout:
                 resource_library_page_category_safety_specifications:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationPageContentVariantType::TYPE")'
                         vars:
                             icon: 'fa-file-text-o'
@@ -69,7 +100,7 @@ layout:
                 resource_library_page_category_media_kits:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListContentVariantType::TYPE")'
                         vars:
                             icon: 'fa-archive'
@@ -81,7 +112,7 @@ layout:
                 resource_library_page_news_and_announcements_container_title:
                     blockType: content_variant_typed_child
                     options:
-                        items: '=data["contentNode"].getChildNodes()'
+                        items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\NewsAnnouncementsContentVariantType::TYPE")'
                 resource_library_page_news_and_announcements_list_items:
                     blockType: container

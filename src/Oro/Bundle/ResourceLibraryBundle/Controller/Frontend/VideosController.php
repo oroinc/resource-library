@@ -39,22 +39,23 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if (!$contentNode ||
-            $contentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
+        if (!$resolvedContentNode ||
+            $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
         }
 
         /** @var ResolvedContentNode $section */
-        foreach ($contentNode->getChildNodes() as $section) {
+        foreach ($resolvedContentNode->getChildNodes() as $section) {
             $this->sortChildNodesByVideoDate($section);
         }
 
         return [
             'data' => [
+                'resolvedContentNode' => $resolvedContentNode,
                 'contentNode' => $contentNode,
             ]
         ];
@@ -102,17 +103,18 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if (!$contentNode ||
-            $contentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
+        if (!$resolvedContentNode ||
+            $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
         }
 
         return [
             'data' => [
+                'resolvedContentNode' => $resolvedContentNode,
                 'contentNode' => $contentNode,
             ]
         ];
@@ -158,6 +160,7 @@ class VideosController extends AbstractController
 
         return [
             'data' => [
+                'node' => $contentNode,
                 'contentNode' => $itemContentNode,
                 'parentContentNode' => $parentContentNode,
             ]

@@ -10,13 +10,44 @@ layout:
         - '@setOption':
             id: title
             optionName: value
-            optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+            optionValue: '=data["locale"].getLocalizedValue(data["resolvedContentNode"].getTitles())'
         - '@add':
             id: breadcrumbs
             parentId: page_main_header
             blockType: breadcrumbs
             options:
                 breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+        - '@add':
+              id: meta_title
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'title'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaTitles")'
+
+        - '@add':
+              id: meta_description
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'description'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaDescriptions")'
+
+        - '@add':
+              id: meta_keywords
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'keywords'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaKeywords")'
+
+        - '@add':
+              id: entity_localized_urls
+              parentId: head
+              blockType: seo_localized_links_container
+              options:
+                  linkItems: '=data["seo_localized_links"].getAlternates(data["web_catalog_content_variant"].getFromRequest() ? data["web_catalog_content_variant"].getFromRequest() : data["contentNode"])'
+
         - '@setOption':
             id: video_list_section_items_datagrid
             optionName: grid_name
@@ -25,7 +56,7 @@ layout:
             id: video_list_section_items_datagrid
             optionName: grid_parameters
             optionValue:
-                contentNodeId: '=data["contentNode"].getId()'
+                contentNodeId: '=data["resolvedContentNode"].getId()'
         - '@setOption':
             id: video_list_section_items_datagrid
             optionName: grid_render_parameters.swipeActionsGrid.enable
@@ -46,7 +77,7 @@ layout:
                 video_list_section_title:
                     blockType: text
                     options:
-                        text: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
+                        text: '=data["locale"].getLocalizedValue(data["resolvedContentNode"].getTitles())'
                 video_list_section_items:
                     blockType: container
             tree:

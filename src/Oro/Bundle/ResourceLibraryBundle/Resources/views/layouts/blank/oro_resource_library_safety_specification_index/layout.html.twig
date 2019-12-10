@@ -40,7 +40,7 @@
 
     <h2 {{ block('block_attributes') }}>
         <span>
-            {{- section.titles|localized_value -}}
+            {{- section.titles|localized_value|e -}}
         </span>
     </h2>
 {% endblock %}
@@ -65,7 +65,7 @@
         '~class': ' resource-library-specifications__title'
     }) %}
     <h3 {{ block('block_attributes') }}>
-        {{ fileSection.titles|localized_value }}
+        {{ fileSection.titles|localized_value|e }}
     </h3>
 {% endblock %}
 

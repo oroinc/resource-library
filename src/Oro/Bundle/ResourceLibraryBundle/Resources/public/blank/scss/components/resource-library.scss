@@ -28,6 +28,7 @@
         text-transform: $resource-library-section-title-text-transform;
         margin-bottom: $resource-library-section-title-offset-bottom;
         position: $resource-library-section-title-position;
+        clear: $resource-library-section-title-clear;
 
         &:before {
             content: $resource-library-section-title-before-content;

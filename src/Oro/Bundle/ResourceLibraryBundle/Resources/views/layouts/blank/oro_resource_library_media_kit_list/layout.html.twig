@@ -52,12 +52,15 @@
 {% endblock %}
 
 {% block _media_kit_list_item_banner_widget %}
-    {% set attr = layout_attr_defaults(attr, {
-        src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
-        '~class': ' resource-library-kits__image'
-    }) %}
+    {% if item.resolvedContentVariant.media_kit.banner is defined
+        and item.resolvedContentVariant.media_kit.banner is not empty %}
+        {% set attr = layout_attr_defaults(attr, {
+            src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
+            '~class': ' resource-library-kits__image'
+        }) %}
 
-    <img {{ block('block_attributes') }}>
+        <img {{ block('block_attributes') }}>
+    {% endif %}
 {% endblock %}
 
 {% block _media_kit_list_item_content_widget %}
@@ -76,7 +79,7 @@
     }) %}
 
     <h2 {{ block('block_attributes') }}>
-        {{ item.titles|localized_value }}
+        {{ item.titles|localized_value|e }}
     </h2>
 {% endblock %}
 
@@ -93,7 +96,8 @@
 {% block _media_kit_list_item_link_widget %}
     {% set attr = layout_attr_defaults(attr, {
         'href': item.resolvedContentVariant.media_kit.link,
-        '~class': ' resource-library-article__goto'
+        '~class': ' resource-library-article__goto',
+        'target': '_blank'
     }) %}
 
     <a {{ block('block_attributes') }}>

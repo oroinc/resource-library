@@ -21,7 +21,7 @@
             children:
                 'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce':
                     defaultTitle: 'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce'
-                    defaultSlugPrototype: 'shipping-tutorial-part-1:'
+                    defaultSlugPrototype: 'shipping-tutorial-part-1'
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -29,11 +29,11 @@
                             params:
                                 shortDescription: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
                                 description: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
-                                link: 'https://www.youtube.com/embed/ileKXVTG6B8'
+                                link: 'https://youtu.be/ileKXVTG6B8'
                             isDefault: true
                 'Shipping Tutorial Part 2: How to Create Shipping Rules in OroCommerce':
                     defaultTitle: 'Shipping Tutorial Part 2: How to Create Shipping Rules in OroCommerce'
-                    defaultSlugPrototype: 'shipping-tutorial-part-2:'
+                    defaultSlugPrototype: 'shipping-tutorial-part-2'
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -41,7 +41,7 @@
                             params:
                                 shortDescription: 'This video tutorial demonstrates how to set up shipping rules in OroCommerce. Shipping rules allow relating customers to specific shipping methods (such as flat rate, UPC, DPD) or rates based on provided destinations. At the checkout, the system verifies a customer’s address against the predefined shipping rules and sort order to offer only shipping options relevant to this customer’s location. <br/>Check out the complete collection of training videos available in OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'This video tutorial demonstrates how to set up shipping rules in OroCommerce. Shipping rules allow relating customers to specific shipping methods (such as flat rate, UPC, DPD) or rates based on provided destinations. At the checkout, the system verifies a customer’s address against the predefined shipping rules and sort order to offer only shipping options relevant to this customer’s location. <br/>Check out the complete collection of training videos available in OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/46KlATao3MU'
+                                link: 'https://youtu.be/46KlATao3MU'
                             isDefault: true
                 'How to Create Product Attributes & Product Families in OroCommerce':
                     defaultTitle: 'How to Create Product Attributes & Product Families in OroCommerce'
@@ -53,7 +53,7 @@
                             params:
                                 shortDescription: 'This video discusses how to configure product attributes and product families in the application. Product attributes (e.g., size, color, name) can be organized in product families seen at the OroCommerce front store. Attributes and families help create both simple and configurable products for your website. Watch more video tutorials in our OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
                                 description: 'This video discusses how to configure product attributes and product families in the application. Product attributes (e.g., size, color, name) can be organized in product families seen at the OroCommerce front store. Attributes and families help create both simple and configurable products for your website. Watch more video tutorials in our OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
-                                link: 'https://www.youtube.com/embed/Ja7-3G7ljTA'
+                                link: 'https://youtu.be/Ja7-3G7ljTA'
                             isDefault: true
                 'How to Create a Simple Product in OroCommerce':
                     defaultTitle: 'How to Create a Simple Product in OroCommerce'
@@ -65,7 +65,7 @@
                             params:
                                 shortDescription: 'Simple products are items with basic, unchangeable qualifiers. Each simple product is assigned a unique SKU and is used to set up configurable products. This video shows how to configure simple products for individual product variations using product attributes and product families. More videos from our OroCommerce Media library are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'Simple products are items with basic, unchangeable qualifiers. Each simple product is assigned a unique SKU and is used to set up configurable products. This video shows how to configure simple products for individual product variations using product attributes and product families. More videos from our OroCommerce Media library are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/I0dHJ87IpzE'
+                                link: 'https://youtu.be/I0dHJ87IpzE'
                             isDefault: true
                 'How to Configure Price Lists for Customers, Customer Groups, and Websites in OroCommerce':
                     defaultTitle: 'How to Configure Price Lists for Customers, Customer Groups, and Websites in OroCommerce'
@@ -77,7 +77,7 @@
                             params:
                                 shortDescription: 'After watching this training video, you’ll be able to create a new price list for a customer, customer group, and a website as well as create the aggregated price lists for any website already configured in your application. Check out other video tutorials explaining OroCommerce essentials available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'After watching this training video, you’ll be able to create a new price list for a customer, customer group, and a website as well as create the aggregated price lists for any website already configured in your application. Check out other video tutorials explaining OroCommerce essentials available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/KYR1M6gykio'
+                                link: 'https://youtu.be/KYR1M6gykio'
                             isDefault: true
                 'How to Create a Configurable Product in OroCommerce':
                     defaultTitle: 'How to Create a Configurable Product in OroCommerce'
@@ -89,7 +89,7 @@
                             params:
                                 shortDescription: 'Configurable products are displayed at the front store as a single item coming in different variations such as color, size, etc. When selecting a product of their choice, customers ‘configure’ it by specifying the desired qualifiers. This video tutorial explains how you can build a new configurable product in OroCommerce. Advance your knowledge of OroCommerce by watching other videos available in our Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
                                 description: 'Configurable products are displayed at the front store as a single item coming in different variations such as color, size, etc. When selecting a product of their choice, customers ‘configure’ it by specifying the desired qualifiers. This video tutorial explains how you can build a new configurable product in OroCommerce. Advance your knowledge of OroCommerce by watching other videos available in our Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
-                                link: 'https://www.youtube.com/embed/V3yhUw-Tc_U'
+                                link: 'https://youtu.be/V3yhUw-Tc_U'
                             isDefault: true
                 'How to Create Tax Rules in OroCommerce':
                     defaultTitle: 'How to Create Tax Rules in OroCommerce'
@@ -101,7 +101,7 @@
                             params:
                                 shortDescription: 'By watching this video, you will find out what tax rules and tax rates exist in OroCommerce and how to create them. Learn how to apply tax rules, rates and codes for specific customer groups, namely for the cases when a non-exempt buyer pays a tax on taxable products; when a non-exempt buyer non-subject to sales taxes on non-taxable products; and when an exempt customer doesn’t pay taxes on taxable goods.Check out other tutorial videos from OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'By watching this video, you will find out what tax rules and tax rates exist in OroCommerce and how to create them. Learn how to apply tax rules, rates and codes for specific customer groups, namely for the cases when a non-exempt buyer pays a tax on taxable products; when a non-exempt buyer non-subject to sales taxes on non-taxable products; and when an exempt customer doesn’t pay taxes on taxable goods.Check out other tutorial videos from OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/Ma0JOwn9VVs'
+                                link: 'https://youtu.be/Ma0JOwn9VVs'
                             isDefault: true
                 'How to Create Tax Codes and Jurisdictions in OroCommerce':
                     defaultTitle: 'How to Create Tax Codes and Jurisdictions in OroCommerce'
@@ -113,7 +113,7 @@
                             params:
                                 shortDescription: 'This video explains what tax codes are available in OroCommerce and how to create them for exempt and non-exempt customers and taxable and non-taxable goods. The video also talks about tax jurisdictions and demonstrates how companies can create various jurisdictions for their international shipments. Check out the complete collection of training videos in our OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'This video explains what tax codes are available in OroCommerce and how to create them for exempt and non-exempt customers and taxable and non-taxable goods. The video also talks about tax jurisdictions and demonstrates how companies can create various jurisdictions for their international shipments. Check out the complete collection of training videos in our OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/3Bra02GiKZE'
+                                link: 'https://youtu.be/3Bra02GiKZE'
                             isDefault: true
                 'How to Create a Customer Record in OroCommerce':
                     defaultTitle: 'How to Create a Customer Record in OroCommerce'
@@ -125,7 +125,7 @@
                             params:
                                 shortDescription: 'Each customer is represented by an organization registered on OroCommerce’s front end. Customers are allowed to set up company accounts, create orders, RFQs, and individual price lists.They can also have customer users authorized for business activity depending on a customer user role assigned. Watch this video to understand how customers are created and managed in the application. Check out the complete collection of training videos available in OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'Each customer is represented by an organization registered on OroCommerce’s front end. Customers are allowed to set up company accounts, create orders, RFQs, and individual price lists.They can also have customer users authorized for business activity depending on a customer user role assigned. Watch this video to understand how customers are created and managed in the application. Check out the complete collection of training videos available in OroCommerce Media library at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/iLphaHiU8YY'
+                                link: 'https://youtu.be/iLphaHiU8YY'
                             isDefault: true
                 'How to Create a New Order in OroCommerce':
                     defaultTitle: 'How to Create a New Order in OroCommerce'
@@ -137,7 +137,7 @@
                             params:
                                 shortDescription: 'Salespeople can place orders in the application for purchases customers made outside an online store. This video explains how to create, view, and manage customer orders in the OroCommerce backend. From these orders, you can instantly set up new customers and customer users, or add billing and shipping data. Watch other video tutorials our OroCommerce Media library offers at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'Salespeople can place orders in the application for purchases customers made outside an online store. This video explains how to create, view, and manage customer orders in the OroCommerce backend. From these orders, you can instantly set up new customers and customer users, or add billing and shipping data. Watch other video tutorials our OroCommerce Media library offers at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/ztwuz7NX1Y4'
+                                link: 'https://youtu.be/ztwuz7NX1Y4'
                             isDefault: true
                 'How to Create Customer Roles in OroCommerce':
                     defaultTitle: 'How to Create Customer Roles in OroCommerce'
@@ -149,7 +149,7 @@
                             params:
                                 shortDescription: 'In OroCommerce, each customer user is assigned one of three pre-defined customer user roles. This ensures everyone working inside the application can view and manage only relevant data. You can modify permissions for each default role. This video discusses customer role permissions and shows how to create a new customer role in the system. The complete collection of training videos is available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'In OroCommerce, each customer user is assigned one of three pre-defined customer user roles. This ensures everyone working inside the application can view and manage only relevant data. You can modify permissions for each default role. This video discusses customer role permissions and shows how to create a new customer role in the system. The complete collection of training videos is available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/xBbzgDYTVUQ'
+                                link: 'https://youtu.be/xBbzgDYTVUQ'
                             isDefault: true
                 'How to Create Customer Groups in OroCommerce':
                     defaultTitle: 'How to Create Customer Groups in OroCommerce'
@@ -161,7 +161,7 @@
                             params:
                                 shortDescription: 'Watch this video to learn about creating and managing a new customer group. Customers can be arranged into customer groups based on specific attributes or configurations they share. You can customize any of your customer groups by adjusting their front-end menus and menu items, as well as by configuring discounts, payment conditions, or tax codes. More tutorials are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'Watch this video to learn about creating and managing a new customer group. Customers can be arranged into customer groups based on specific attributes or configurations they share. You can customize any of your customer groups by adjusting their front-end menus and menu items, as well as by configuring discounts, payment conditions, or tax codes. More tutorials are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/DbyVljBIHbA'
+                                link: 'https://youtu.be/DbyVljBIHbA'
                             isDefault: true
                 'How to Create an Order from a Shopping List in OroCommerce':
                     defaultTitle: 'How to Create an Order from a Shopping List in OroCommerce'
@@ -173,7 +173,7 @@
                             params:
                                 shortDescription: 'This video provides a detailed explanation on how to use OroCommerce shopping lists for creating an order. It also demonstrates how to access and view a customer shopping list, and modify line items. Check out other video tutorials from OroCommerce Media library  at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'This video provides a detailed explanation on how to use OroCommerce shopping lists for creating an order. It also demonstrates how to access and view a customer shopping list, and modify line items. Check out other video tutorials from OroCommerce Media library  at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/w7NXMifQZnI'
+                                link: 'https://youtu.be/w7NXMifQZnI'
                             isDefault: true
                 'How to View and Customize Front-End Menus in OroCommerce':
                     defaultTitle: 'How to View and Customize Front-End Menus in OroCommerce'
@@ -185,7 +185,7 @@
                             params:
                                 shortDescription: 'OroCommerce allows users to customize the way menus look and the elements they contain:<br/><br/>-By Organization Front Menu (EE only)<br/>-By Website Front-end Menu (EE only)<br/>-Customer<br/>-Customer Group'
                                 description: 'OroCommerce allows users to customize the way menus look and the elements they contain:<br/><br/>-By Organization Front Menu (EE only)<br/>-By Website Front-end Menu (EE only)<br/>-Customer<br/>-Customer Group'
-                                link: 'https://www.youtube.com/embed/nNPLsSOUc1c'
+                                link: 'https://youtu.be/nNPLsSOUc1c'
                             isDefault: true
                 'How to Manage Request for Quotes (RFQs) in OroCommerce':
                     defaultTitle: 'How to Manage Request for Quotes (RFQs) in OroCommerce'
@@ -197,7 +197,7 @@
                             params:
                                 shortDescription: 'In OroCommerce,  sellers use Request for Quotes (RFQs) to assist customers throughout the sales process. RFQs can be submitted by a buyer on a website or come through a number of ways including email or phone requests. Watch this video to learn how to enable, disable, and modify RFQs in the application. More video tutorials are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
                                 description: 'In OroCommerce,  sellers use Request for Quotes (RFQs) to assist customers throughout the sales process. RFQs can be submitted by a buyer on a website or come through a number of ways including email or phone requests. Watch this video to learn how to enable, disable, and modify RFQs in the application. More video tutorials are available at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>'
-                                link: 'https://www.youtube.com/embed/tNSZFHNDdQU'
+                                link: 'https://youtu.be/tNSZFHNDdQU'
                             isDefault: true
         'B2B eCommerce Webinars':
             defaultTitle: 'B2B eCommerce Webinars'
@@ -219,7 +219,7 @@
                             params:
                                 shortDescription: '<Watch CEO and co-founder of Oro, Yoav Kutner, speak on "Disruptive Trends in B2B eCommerce" at Internet World 2017 in Munich, Germany.<br/><br/>This video discusses topics like what is B2B eCommerce, similarities between B2C and B2B eCommerce, and company information.<br/><br/>Visit <a href="www.orocommerce.com">www.orocommerce.com</a>for more information.'
                                 description: 'Watch CEO and co-founder of Oro, Yoav Kutner, speak on "Disruptive Trends in B2B eCommerce" at Internet World 2017 in Munich, Germany.<br/><br/>This video discusses topics like what is B2B eCommerce, similarities between B2C and B2B eCommerce, and company information.<br/><br/>Visit <a href="www.orocommerce.com">www.orocommerce.com</a>for more information.'
-                                link: 'https://www.youtube.com/embed/IDGLS2XW2wI'
+                                link: 'https://youtu.be/IDGLS2XW2wI'
                             isDefault: true
                 'Oro Community Webinar - OroCommerce 1.0 Features Overview and Demo':
                     defaultTitle: 'Oro Community Webinar - OroCommerce 1.0 Features Overview and Demo'
@@ -231,7 +231,7 @@
                             params:
                                 shortDescription: 'Our community webinar will discuss high level features included in the 1.0 release of OroCommerce. We will walk through our demo and discuss the various functionalities included with the product.<br/><br/>For more information, please visit our website at <a href="https://www.orocommerce.com">https://www.orocommerce.com</a>.'
                                 description: 'Our community webinar will discuss high level features included in the 1.0 release of OroCommerce. We will walk through our demo and discuss the various functionalities included with the product.<br/><br/>For more information, please visit our website at <a href="https://www.orocommerce.com">https://www.orocommerce.com</a>.'
-                                link: 'https://www.youtube.com/embed/vPIjW50Qalw'
+                                link: 'https://youtu.be/vPIjW50Qalw'
                             isDefault: true
                 'Roadmap to Digitizing Your B2B Commerce Business':
                     defaultTitle: 'Roadmap to Digitizing Your B2B Commerce Business'
@@ -243,5 +243,5 @@
                             params:
                                 shortDescription: 'This webinar discusses why and how B2B companies should be undergoing a digital transformation. It also highlights disruptive technologies designed to help businesses successfully digitize commerce, in particular, eCommerce platforms and ERP solutions built specifically for B2B. Watch the webinar recording to learn how to launch and develop your eCommerce strategy.'
                                 description: 'This webinar discusses why and how B2B companies should be undergoing a digital transformation. It also highlights disruptive technologies designed to help businesses successfully digitize commerce, in particular, eCommerce platforms and ERP solutions built specifically for B2B. Watch the webinar recording to learn how to launch and develop your eCommerce strategy.'
-                                link: 'https://www.youtube.com/embed/m7sZ5R2pLBk'
+                                link: 'https://youtu.be/m7sZ5R2pLBk'
                             isDefault: true

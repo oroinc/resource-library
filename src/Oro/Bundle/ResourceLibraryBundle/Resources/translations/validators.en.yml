@@ -2,6 +2,7 @@ oro.resourcelibrary:
     video:
         url:
             not_dangerous_protocol.message: '"{{ protocol }}" pseudo-protocol is not allowed in slide URIs.'
+            youtube_link.message: 'Allowed only Youtube urls with format "https://youtu.be/XXXXXXXXXXX"'
     mediakit:
         url:
             not_dangerous_protocol.message: '"{{ protocol }}" pseudo-protocol is not allowed in slide URIs.'

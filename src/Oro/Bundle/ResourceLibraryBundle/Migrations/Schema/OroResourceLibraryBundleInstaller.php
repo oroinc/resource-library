@@ -400,7 +400,7 @@ class OroResourceLibraryBundleInstaller implements
         $table->addColumn('created_at', 'datetime');
         $table->setPrimaryKey(['id']);
 
-        $this->attachmentExtension->addFileRelation(
+        $this->attachmentExtension->addImageRelation(
             $schema,
             'oro_news_announce_article',
             'image',

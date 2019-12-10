@@ -9,7 +9,6 @@ use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
 use Oro\Bundle\UserBundle\DataFixtures\UserUtilityTrait;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpFoundation\File\File as ComponentFile;
 
 /**
  * Provides methods for creating file entities on loading sample data
@@ -39,15 +38,18 @@ trait LoadDemoFileTrait
      */
     private function createFileFile(ObjectManager $manager, string $pathname, string $title, bool $useDam = true): File
     {
-        $file = new File();
-        $file->setFile(new ComponentFile($pathname));
+        $user = $this->getFirstUser($manager);
+
+        $fileManager = $this->container->get('oro_attachment.file_manager');
+        $file = $fileManager->createFileEntity($pathname);
+        $file->setOwner($user);
+        $manager->persist($file);
 
         if ($useDam) {
             $localizedFallbackValue = new LocalizedFallbackValue();
             $localizedFallbackValue->setString($title);
             $manager->persist($localizedFallbackValue);
 
-            $user = $this->getFirstUser($manager);
             $digitalAsset = new DigitalAsset();
             $digitalAsset->addTitle($localizedFallbackValue)
                 ->setSourceFile($file)

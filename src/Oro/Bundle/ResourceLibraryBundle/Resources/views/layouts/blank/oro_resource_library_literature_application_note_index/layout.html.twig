@@ -10,7 +10,7 @@
     }) %}
 
     <h1 {{ block('block_attributes') }}>
-        {{- contentNode.titles|localized_value -}}
+        {{- contentNode.titles|localized_value|e -}}
     </h1>
 {% endblock %}
 
@@ -31,11 +31,11 @@
 
     <div {{ block('block_attributes') }}>
         {% for fileSection in fileSections %}
-                {% set context = {
-                    section: fileSection
-                } %}
-                {% do block|merge_context(context) %}
-                {{ block('container_widget') }}
+            {% set context = {
+                section: fileSection
+            } %}
+            {% do block|merge_context(context) %}
+            {{ block('container_widget') }}
         {% endfor %}
     </div>
 {% endblock %}
@@ -57,7 +57,7 @@
 
     <h2 {{ block('block_attributes') }}>
         <span>
-            {{- section.childNode.titles|localized_value -}}
+            {{- section.childNode.titles|localized_value|e -}}
         </span>
     </h2>
 {% endblock %}

@@ -49,3 +49,34 @@ layout:
             blockType: breadcrumbs
             options:
                 breadcrumbs: '=data["web_catalog_breadcrumbs"].getItems()'
+
+        - '@add':
+              id: meta_title
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'title'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaTitles")'
+
+        - '@add':
+              id: meta_description
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'description'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaDescriptions")'
+
+        - '@add':
+              id: meta_keywords
+              parentId: head
+              blockType: meta
+              options:
+                  name: 'keywords'
+                  content: '=data["seo"].getMetaInformation(data["contentNode"], "metaKeywords")'
+
+        - '@add':
+              id: entity_localized_urls
+              parentId: head
+              blockType: seo_localized_links_container
+              options:
+                  linkItems: '=data["seo_localized_links"].getAlternates(data["web_catalog_content_variant"].getFromRequest() ? data["web_catalog_content_variant"].getFromRequest() : data["contentNode"])'

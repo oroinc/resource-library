@@ -2,7 +2,6 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Form\Type;
 
-use Oro\Bundle\FormBundle\Form\Type\CollectionType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteFileCollectionContentVariantType;
 use Oro\Component\WebCatalog\Form\PageVariantType;
 use Symfony\Component\Form\AbstractType;
@@ -22,7 +21,7 @@ class LiteratureApplicationNoteFileCollectionType extends AbstractType
     {
         $builder->add(
             'literature_note_files',
-            CollectionType::class,
+            LiteratureApplicationNoteFilesType::class,
             [
                 'label' => 'oro.resourcelibrary.literature_application_note.form.attachment.plural_label',
                 'required' => true,

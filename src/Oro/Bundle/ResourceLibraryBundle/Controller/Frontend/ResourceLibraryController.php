@@ -46,7 +46,8 @@ class ResourceLibraryController extends AbstractController
 
         return [
             'data' => [
-                'contentNode' => $resolvedContentNode,
+                'contentNode' => $contentVariant ? $contentVariant->getNode() : null,
+                'resolvedContentNode' => $resolvedContentNode,
                 'latestNews' => $latestNews ?? new ArrayCollection(),
             ],
         ];

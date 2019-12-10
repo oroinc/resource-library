@@ -4,7 +4,7 @@
     }) %}
 
     <h1 {{ block('block_attributes') }}>
-        {{- 'oro.resourcelibrary.news_announcements.content_variant_type.label'|trans -}}
+        {{ block_widget(block) }}
     </h1>
 {% endblock %}
 
@@ -74,26 +74,36 @@
 
 {% block _article_list_item_image_widget %}
     {% set attr = layout_attr_defaults(attr, {
-        '~class': ' resource-library-newspost__image'
+        '~class': ' resource-library-newspost__image',
+        'href': app.request.uriForPath(item.node.localizedUrls|localized_value)
     }) %}
 
-    <div {{ block('block_attributes') }}>
-        {% if item.newsAnnouncementsArticle.image is not empty %}
-            <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_today') }}"
-                 alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}">
-        {% else %}
-            <img src="{{ asset('bundles/oroui/img/oro_icon.svg') }}" alt="{{ item.node.titles|localized_value }}">
-        {% endif %}
-    </div>
+    <a {{ block('block_attributes') }}>
+        <picture data-page-component-module="oroui/js/app/components/view-component"
+                 data-page-component-options="{{ {view: 'orofrontend/js/app/views/object-fit-polyfill-view'}|json_encode }}"
+        >
+            {% if item.newsAnnouncementsArticle.image is not empty %}
+                <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_today') }}"
+                     alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}">
+            {% else %}
+                <img src="{{ asset('bundles/ororesourcelibrary/images/no_image.png') }}" alt="{{ item.node.titles|localized_value }}">
+            {% endif %}
+        </picture>
+    </a>
 {% endblock %}
 
 {% block _article_list_item_title_widget %}
+    {% set title = item.node.titles|localized_value %}
+
     {% set attr = layout_attr_defaults(attr, {
-        '~class': ' resource-library-article__title'
+        '~class': ' resource-library-article__title',
+        'title': title
     }) %}
 
     <h3 {{ block('block_attributes') }}>
-        {{- item.node.titles|localized_value -}}
+        <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}">
+            {{- title -}}
+        </a>
     </h3>
 {% endblock %}
 

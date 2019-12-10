@@ -12,6 +12,9 @@ Oro\Bundle\ResourceLibraryBundle\Entity\Video:
             - Url: ~
             - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
                 message: oro.resourcelibrary.video.url.not_dangerous_protocol.message
+            - Regex:
+                  pattern: '~^(http|https)://youtu.be/[^/]+$~'
+                  message: oro.resourcelibrary.video.url.youtube_link.message
 Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit:
     properties:
         description:

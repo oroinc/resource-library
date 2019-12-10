@@ -34,17 +34,18 @@ class MediaKitController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $contentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentNode, $scope);
 
-        if (!$contentNode ||
-            $contentNode->getResolvedContentVariant()->getType() !== MediaKitListContentVariantType::TYPE
+        if (!$resolvedContentNode ||
+            $resolvedContentNode->getResolvedContentVariant()->getType() !== MediaKitListContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
         }
 
         return [
             'data' => [
+                'resolvedContentNode' => $resolvedContentNode,
                 'contentNode' => $contentNode,
             ]
         ];

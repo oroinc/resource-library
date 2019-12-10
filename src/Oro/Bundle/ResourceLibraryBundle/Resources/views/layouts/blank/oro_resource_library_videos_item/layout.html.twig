@@ -10,7 +10,7 @@
 
 {% block _video_list_section_item_embed_widget %}
     {% set attr = layout_attr_defaults(attr, {
-        'src': path,
+        'src': path|replace({'://youtu.be/': '://www.youtube.com/embed/'}),
         '~class': ' resource-library-article__embed'
     }) %}
 
@@ -34,7 +34,8 @@
     }) %}
 
     <time {{ block('block_attributes') }}>
-        {{- date|oro_format_datetime -}}
+        {{- date|oro_format_time() }}
+        | {{ date|oro_format_date({'dateType': 2}) -}}
     </time>
 {% endblock %}
 
@@ -103,7 +104,7 @@
 
 {% block _video_list_section_other_item_embed_widget %}
     {% set attr = layout_attr_defaults(attr, {
-        'src': item.resolvedContentVariant.video.link,
+        'src': item.resolvedContentVariant.video.link|replace({'://youtu.be/': '://www.youtube.com/embed/'}),
         '~class': ' resource-library-article__embed'
     }) %}
 
@@ -121,12 +122,17 @@
 {% endblock %}
 
 {% block _video_list_section_other_item_title_widget %}
+    {% set title = item.titles|localized_value %}
+
     {% set attr = layout_attr_defaults(attr, {
-        '~class': ' resource-library-article__title'
+        '~class': ' resource-library-article__title',
+        'title': title
     }) %}
 
     <h3 {{ block('block_attributes') }}>
-        {{ item.titles|localized_value }}
+        <a href="{{ app.request.uriForPath(item.resolvedContentVariant.localizedUrls|localized_value) }}">
+            {{- title -}}
+        </a>
     </h3>
 {% endblock %}
 

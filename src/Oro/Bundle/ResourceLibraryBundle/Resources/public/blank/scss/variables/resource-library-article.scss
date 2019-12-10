@@ -18,6 +18,7 @@ $resource-library-article-embed-left: 0 !default;
 $resource-library-article-content-flex-grow: 1 !default;
 
 $resource-library-article-title-offset-bottom: 8px !default;
+$resource-library-article-title-link-color: get-color() !default;
 
 $resource-library-article-time-color: get-color('additional', 'middle') !default;
 $resource-library-article-time-display: block !default;
