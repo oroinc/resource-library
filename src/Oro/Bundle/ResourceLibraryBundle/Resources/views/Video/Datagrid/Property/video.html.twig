@@ -1,7 +1,8 @@
 <div class="resource-library-article__video">
+    {% set link = record.getValue('link')|replace({'://youtu.be/': '://www.youtube.com/embed/'}) %}
     <iframe width="480"
             height="320"
-            src="{{ record.getValue('link') }}"
+            src="{{ link }}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
