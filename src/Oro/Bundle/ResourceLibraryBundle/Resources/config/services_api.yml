@@ -1,0 +1,63 @@
+services:
+    oro_resource_library.api.resource_type_resolver.resource_library:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'resource_library'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_index }
+
+    oro_resource_library.api.resource_type_resolver.literature_and_application_notes:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'literature_and_application_notes'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_literature_application_note_index }
+
+    oro_resource_library.api.resource_type_resolver.safety_specifications:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'safety_specifications'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_safety_specification_index }
+
+    oro_resource_library.api.resource_type_resolver.media_kits:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'media_kits'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_media_kit_list }
+
+    oro_resource_library.api.resource_type_resolver.news_and_announcements_collection:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'news_and_announcements_collection'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_news_announcements_index }
+
+    oro_resource_library.api.resource_type_resolver.news_and_announcements_article:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'news_and_announcements_article'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_news_announcements_article }
+
+    oro_resource_library.api.resource_type_resolver.video_list:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'video_list'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_videos_list }
+
+    oro_resource_library.api.resource_type_resolver.video_list_section:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'video_list_section'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_videos_section }
+
+    oro_resource_library.api.resource_type_resolver.video_list_item:
+        class: Oro\Bundle\FrontendBundle\Api\ResourceTypeResolver
+        arguments:
+            - 'video_list_item'
+        tags:
+            - { name: oro_frontend.api.resource_type_resolver, routeName: oro_resource_library_videos_item }
