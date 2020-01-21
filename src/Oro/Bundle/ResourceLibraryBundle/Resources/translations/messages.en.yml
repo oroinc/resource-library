@@ -19,6 +19,7 @@ oro:
         literatureapplicationnotefile:
             entity_label: 'Application and Note File'
             entity_plural_label: 'Application and Note Files'
+            entity_grid_all_view_label: 'All %entity_plural_label%'
             id.label: 'ID'
             content_variant.label: 'Content Variant'
             file.label: 'File'
@@ -33,6 +34,7 @@ oro:
         video:
             entity_label: 'Video'
             entity_plural_label: 'Videos'
+            entity_grid_all_view_label: All %entity_plural_label%
             id.label: 'ID'
             short_description.label: 'Short Description'
             description.label: 'Description'
@@ -53,6 +55,7 @@ oro:
         newsannouncementsarticle:
             entity_label: 'News & Announcements Article'
             entity_plural_label: 'News & Announcements Articles'
+            entity_grid_all_view_label: 'All %entity_plural_label%'
             id.label: 'ID'
             short_description:
                 label: 'Short Description'
@@ -74,6 +77,7 @@ oro:
         mediakit:
           entity_label: 'Media Kit'
           entity_plural_label: 'Media Kits'
+          entity_grid_all_view_label: 'All %entity_plural_label%'
           id.label: 'ID'
           description.label: 'Description'
           link.label: 'Link'
