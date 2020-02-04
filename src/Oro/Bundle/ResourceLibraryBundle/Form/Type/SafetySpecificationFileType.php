@@ -37,7 +37,7 @@ class SafetySpecificationFileType extends AbstractType
                 [
                     'label' => 'oro.resourcelibrary.safety_specification.form.pdf_file.label',
                     'required' => true,
-                    //'checkEmptyFile' => true
+                    'checkEmptyFile' => true
                 ]
             );
     }

@@ -27,7 +27,7 @@ class MediaKitType extends AbstractType
             [
                 'label' => 'oro.resourcelibrary.mediakit.banner.label',
                 'required' => true,
-                //'checkEmptyFile' => true
+                'checkEmptyFile' => true
             ]
         )->add(
             'description',
@@ -49,7 +49,7 @@ class MediaKitType extends AbstractType
             [
                 'label' => 'oro.resourcelibrary.mediakit.media_kit_file.label',
                 'required' => true,
-                //'checkEmptyFile' => true
+                'checkEmptyFile' => true
             ]
         )->add(
             'logo_package_file',
@@ -57,7 +57,6 @@ class MediaKitType extends AbstractType
             [
                 'label' => 'oro.resourcelibrary.mediakit.logo_package_file.label',
                 'required' => false,
-                //'checkEmptyFile' => true
             ]
         );
     }
