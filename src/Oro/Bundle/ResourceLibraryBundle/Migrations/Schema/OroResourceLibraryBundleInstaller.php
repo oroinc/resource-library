@@ -51,7 +51,6 @@ class OroResourceLibraryBundleInstaller implements
     public function up(Schema $schema, QueryBag $queries): void
     {
         $this->createLiteratureApplicationNoteTable($schema);
-        $this->addLiteratureApplicationNoteForeignKeyConstraints($schema);
         $this->createVideoTable($schema);
         $this->createMediaKitTable($schema);
         $this->createNewsAnnouncementsTable($schema);
@@ -219,24 +218,10 @@ class OroResourceLibraryBundleInstaller implements
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
                     'without_default' => true,
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ],
             self::MAX_FILE_SIZE
-        );
-    }
-
-    /**
-     * @param Schema $schema
-     */
-    private function addLiteratureApplicationNoteForeignKeyConstraints(Schema $schema): void
-    {
-        $table = $schema->getTable('oro_literature_note_file');
-        $table->addForeignKeyConstraint(
-            $schema->getTable('oro_attachment_file'),
-            ['file_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
         );
     }
 
@@ -256,18 +241,10 @@ class OroResourceLibraryBundleInstaller implements
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
                     'without_default' => true,
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ],
             self::MAX_FILE_SIZE
-        );
-
-        $table = $schema->getTable('oro_web_catalog_variant');
-        $table->addForeignKeyConstraint(
-            $schema->getTable('oro_attachment_file'),
-            ['pdf_file_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
         );
     }
 
@@ -326,7 +303,7 @@ class OroResourceLibraryBundleInstaller implements
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
                     'without_default' => true,
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ],
             self::MAX_FILE_SIZE
@@ -342,7 +319,7 @@ class OroResourceLibraryBundleInstaller implements
                     'is_extend' => true,
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ],
             self::MAX_FILE_SIZE
@@ -358,33 +335,10 @@ class OroResourceLibraryBundleInstaller implements
                     'is_extend' => true,
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ],
             self::MAX_FILE_SIZE
-        );
-
-        $attachmentsTable = $schema->getTable('oro_attachment_file');
-
-        $table->addForeignKeyConstraint(
-            $attachmentsTable,
-            ['banner_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
-        );
-
-        $table->addForeignKeyConstraint(
-            $attachmentsTable,
-            ['logo_package_file_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
-        );
-
-        $table->addForeignKeyConstraint(
-            $attachmentsTable,
-            ['media_kit_file_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
         );
     }
 
@@ -411,16 +365,9 @@ class OroResourceLibraryBundleInstaller implements
                     'owner' => ExtendScope::OWNER_CUSTOM,
                     'cascade' => ['persist', 'remove'],
                     'without_default' => true,
-                    'on_delete' => 'CASCADE',
+                    'on_delete' => 'SET NULL',
                 ],
             ]
-        );
-
-        $table->addForeignKeyConstraint(
-            $schema->getTable('oro_attachment_file'),
-            ['image_id'],
-            ['id'],
-            ['onDelete' => 'SET NULL']
         );
     }
 }
