@@ -24,7 +24,8 @@ class LiteratureApplicationNoteFileType extends AbstractType
             [
                 'label' => false,
                 'required' => true,
-                'checkEmptyFile' => true
+                'checkEmptyFile' => true,
+                'dynamic_fields_ignore_exception' => true
             ]
         );
     }

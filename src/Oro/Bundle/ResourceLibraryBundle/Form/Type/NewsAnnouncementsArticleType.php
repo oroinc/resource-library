@@ -45,6 +45,7 @@ class NewsAnnouncementsArticleType extends AbstractType
                     'label' => 'oro.resourcelibrary.newsannouncementsarticle.image.label',
                     'constraints' => [new Valid()],
                     'required' => false,
+                    'dynamic_fields_ignore_exception' => true
                 ]
             );
     }
