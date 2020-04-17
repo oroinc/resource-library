@@ -24,7 +24,7 @@
                     isDefault: true
         'OroCRM':
             defaultTitle: 'OroCRM'
-            defaultSlugPrototype: orocommerce
+            defaultSlugPrototype: orocommerce-1
             parentScopeUsed: true
             contentVariants:
                 -
@@ -37,7 +37,7 @@
                     isDefault: true
         'OroPlatform':
             defaultTitle: 'OroPlatform'
-            defaultSlugPrototype: orocommerce
+            defaultSlugPrototype: orocommerce-2
             parentScopeUsed: true
             contentVariants:
                 -
