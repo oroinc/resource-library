@@ -79,9 +79,7 @@
     }) %}
 
     <a {{ block('block_attributes') }}>
-        <picture data-page-component-module="oroui/js/app/components/view-component"
-                 data-page-component-options="{{ {view: 'orofrontend/js/app/views/object-fit-polyfill-view'}|json_encode }}"
-        >
+        <picture data-object-fit="">
             {% if item.newsAnnouncementsArticle.image is not empty %}
                 <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_today') }}"
                      alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}">
