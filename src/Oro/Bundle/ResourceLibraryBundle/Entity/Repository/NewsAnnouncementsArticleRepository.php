@@ -4,6 +4,7 @@ namespace Oro\Bundle\ResourceLibraryBundle\Entity\Repository;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityRepository;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
 use Oro\Bundle\ScopeBundle\Model\ScopeCriteria;
@@ -42,7 +43,7 @@ class NewsAnnouncementsArticleRepository extends EntityRepository
                 $qb->expr()->lte('article.createdAt', ':createdAt')
             )
             ->setParameter('variantIds', $variantIds)
-            ->setParameter('createdAt', $variant->getNewsAnnouncementsArticle()->getCreatedAt())
+            ->setParameter('createdAt', $variant->getNewsAnnouncementsArticle()->getCreatedAt(), Type::DATETIME)
             ->orderBy('article.createdAt', 'DESC')
             ->setMaxResults(2);
 
@@ -74,8 +75,8 @@ class NewsAnnouncementsArticleRepository extends EntityRepository
                 $qb->expr()->between('article.createdAt', ':createdAtFrom', ':createdAtTo')
             )
             ->setParameter('variantIds', $variantIds)
-            ->setParameter('createdAtFrom', new \DateTime('today', new \DateTimeZone('UTC')))
-            ->setParameter('createdAtTo', new \DateTime('tomorrow', new \DateTimeZone('UTC')))
+            ->setParameter('createdAtFrom', new \DateTime('today', new \DateTimeZone('UTC')), Type::DATETIME)
+            ->setParameter('createdAtTo', new \DateTime('tomorrow', new \DateTimeZone('UTC')), Type::DATETIME)
             ->orderBy('article.createdAt', 'DESC');
 
         return new ArrayCollection($qb->getQuery()->getResult());
