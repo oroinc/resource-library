@@ -4,13 +4,16 @@ namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
 use Oro\Bundle\ResourceLibraryBundle\Form\Type\SafetySpecificationFileType;
 use Oro\Component\Routing\RouteData;
+use Oro\Component\WebCatalog\ContentVariantEntityProviderInterface;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
  * Provides content variant type for Safety Specifications File
  */
-class SafetySpecificationFileContentVariantType implements ContentVariantTypeInterface
+class SafetySpecificationFileContentVariantType implements
+    ContentVariantTypeInterface,
+    ContentVariantEntityProviderInterface
 {
     public const TYPE = 'safety_specification_file';
 
@@ -68,5 +71,13 @@ class SafetySpecificationFileContentVariantType implements ContentVariantTypeInt
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttachedEntity(ContentVariantInterface $contentVariant)
+    {
+        return $contentVariant->getPdfFile();
     }
 }

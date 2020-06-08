@@ -4,13 +4,14 @@ namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
 use Oro\Bundle\ResourceLibraryBundle\Form\Type\MediaKitListItemType;
 use Oro\Component\Routing\RouteData;
+use Oro\Component\WebCatalog\ContentVariantEntityProviderInterface;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
  * Provides content variant type for media kit item.
  */
-class MediaKitListItemContentVariantType implements ContentVariantTypeInterface
+class MediaKitListItemContentVariantType implements ContentVariantTypeInterface, ContentVariantEntityProviderInterface
 {
     public const TYPE = 'media_kit_list_item';
 
@@ -68,5 +69,13 @@ class MediaKitListItemContentVariantType implements ContentVariantTypeInterface
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttachedEntity(ContentVariantInterface $contentVariant)
+    {
+        return $contentVariant->getMediaKit();
     }
 }
