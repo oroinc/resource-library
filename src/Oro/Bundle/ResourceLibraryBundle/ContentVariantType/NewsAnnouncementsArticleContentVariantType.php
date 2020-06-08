@@ -4,13 +4,16 @@ namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
 use Oro\Bundle\ResourceLibraryBundle\Form\Type\NewsAnnouncementsArticleVariantType;
 use Oro\Component\Routing\RouteData;
+use Oro\Component\WebCatalog\ContentVariantEntityProviderInterface;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
  * Provides content variant type for news and announcements article view page
  */
-class NewsAnnouncementsArticleContentVariantType implements ContentVariantTypeInterface
+class NewsAnnouncementsArticleContentVariantType implements
+    ContentVariantTypeInterface,
+    ContentVariantEntityProviderInterface
 {
     public const TYPE = 'oro_news_announcements_article';
 
@@ -68,5 +71,13 @@ class NewsAnnouncementsArticleContentVariantType implements ContentVariantTypeIn
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttachedEntity(ContentVariantInterface $contentVariant)
+    {
+        return $contentVariant->getNewsAnnouncementsArticle();
     }
 }
