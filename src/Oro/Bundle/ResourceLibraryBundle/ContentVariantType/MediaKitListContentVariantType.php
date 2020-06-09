@@ -51,7 +51,7 @@ class MediaKitListContentVariantType implements ContentVariantTypeInterface
      */
     public function getRouteData(ContentVariantInterface $contentVariant)
     {
-        return new RouteData('oro_resource_library_media_kit_list', ['id' => $contentVariant->getNode()->getId()]);
+        return new RouteData('oro_resource_library_media_kit_list', ['id' => $contentVariant->getId()]);
     }
 
     /**

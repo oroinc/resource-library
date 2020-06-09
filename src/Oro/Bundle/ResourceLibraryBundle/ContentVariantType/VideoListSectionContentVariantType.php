@@ -51,7 +51,7 @@ class VideoListSectionContentVariantType implements ContentVariantTypeInterface
      */
     public function getRouteData(ContentVariantInterface $contentVariant)
     {
-        return new RouteData('oro_resource_library_videos_section', ['id' => $contentVariant->getNode()->getId()]);
+        return new RouteData('oro_resource_library_videos_section', ['id' => $contentVariant->getId()]);
     }
 
     /**

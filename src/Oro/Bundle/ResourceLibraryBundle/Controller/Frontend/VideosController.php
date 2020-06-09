@@ -13,6 +13,7 @@ use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
 use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
+use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,12 +26,12 @@ class VideosController extends AbstractController
      * @Route("/", name="oro_resource_library_videos_list", requirements={"id"="\d+"})
      * @Layout()
      *
-     * @param ContentNode $contentNode
+     * @param ContentNode $contentVariant
      * @return array
      */
-    public function listAction(ContentNode $contentNode = null): array
+    public function listAction(ContentVariant $contentVariant = null): array
     {
-        if (!$contentNode) {
+        if (!$contentVariant) {
             throw $this->createNotFoundException();
         }
 
@@ -40,7 +41,7 @@ class VideosController extends AbstractController
         }
 
         $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
-            ->getResolvedContentNode($contentNode, $scope);
+            ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||
             $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
@@ -56,7 +57,7 @@ class VideosController extends AbstractController
         return [
             'data' => [
                 'resolvedContentNode' => $resolvedContentNode,
-                'contentNode' => $contentNode,
+                'contentVariant' => $contentVariant,
             ]
         ];
     }
@@ -64,7 +65,7 @@ class VideosController extends AbstractController
     /**
      * @param ResolvedContentNode $parentNode
      */
-    private function sortChildNodesByVideoDate(ResolvedContentNode &$parentNode): void
+    private function sortChildNodesByVideoDate(ResolvedContentNode $parentNode): void
     {
         $childNodes = $parentNode->getChildNodes();
 
@@ -89,12 +90,12 @@ class VideosController extends AbstractController
      * @Route("/section", name="oro_resource_library_videos_section", requirements={"id"="\d+"})
      * @Layout()
      *
-     * @param ContentNode $contentNode
+     * @param ContentVariant $contentVariant
      * @return array
      */
-    public function sectionAction(ContentNode $contentNode = null): array
+    public function sectionAction(ContentVariant $contentVariant = null): array
     {
-        if (!$contentNode) {
+        if (!$contentVariant) {
             throw $this->createNotFoundException();
         }
 
@@ -104,7 +105,7 @@ class VideosController extends AbstractController
         }
 
         $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
-            ->getResolvedContentNode($contentNode, $scope);
+            ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||
             $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
@@ -115,7 +116,7 @@ class VideosController extends AbstractController
         return [
             'data' => [
                 'resolvedContentNode' => $resolvedContentNode,
-                'contentNode' => $contentNode,
+                'contentVariant' => $contentVariant,
             ]
         ];
     }
@@ -124,12 +125,12 @@ class VideosController extends AbstractController
      * @Route("/item", name="oro_resource_library_videos_item", requirements={"id"="\d+"})
      * @Layout()
      *
-     * @param ContentNode $contentNode
+     * @param ContentVariant $contentVariant
      * @return array
      */
-    public function itemAction(ContentNode $contentNode = null): array
+    public function itemAction(ContentVariant $contentVariant = null): array
     {
-        if (!$contentNode) {
+        if (!$contentVariant) {
             throw $this->createNotFoundException();
         }
 
@@ -139,7 +140,7 @@ class VideosController extends AbstractController
         }
 
         $itemContentNode = $this->get(ContentNodeTreeResolverInterface::class)
-            ->getResolvedContentNode($contentNode, $scope);
+            ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$itemContentNode ||
             $itemContentNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE
@@ -148,7 +149,7 @@ class VideosController extends AbstractController
         }
 
         $parentContentNode = $this->get(ContentNodeTreeResolverInterface::class)
-            ->getResolvedContentNode($contentNode->getParentNode(), $scope);
+            ->getResolvedContentNode($contentVariant->getNode()->getParentNode(), $scope);
 
         $this->sortChildNodesByVideoDate($parentContentNode);
 
@@ -160,9 +161,9 @@ class VideosController extends AbstractController
 
         return [
             'data' => [
-                'node' => $contentNode,
-                'contentNode' => $itemContentNode,
-                'parentContentNode' => $parentContentNode,
+                'contentVariant' => $contentVariant,
+                'resolvedContentNode' => $itemContentNode,
+                'resolvedParentContentNode' => $parentContentNode,
             ]
         ];
     }

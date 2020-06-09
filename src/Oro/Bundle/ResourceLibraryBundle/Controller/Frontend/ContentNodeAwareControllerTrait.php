@@ -3,7 +3,6 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
-use Oro\Bundle\ScopeBundle\Model\ScopeCriteria;
 use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
@@ -47,13 +46,5 @@ trait ContentNodeAwareControllerTrait
         }
 
         throw $this->createNotFoundException();
-    }
-
-    /**
-     * @return ScopeCriteria
-     */
-    private function getWebContentCriteria(): ScopeCriteria
-    {
-        return $this->get(ScopeManager::class)->getCriteria('web_content');
     }
 }

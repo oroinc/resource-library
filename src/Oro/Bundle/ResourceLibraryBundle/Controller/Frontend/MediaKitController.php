@@ -7,7 +7,7 @@ use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVaria
 use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
-use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
+use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,12 +20,12 @@ class MediaKitController extends AbstractController
      * @Route("/", name="oro_resource_library_media_kit_list", requirements={"id"="\d+"})
      * @Layout()
      *
-     * @param ContentNode $contentNode
+     * @param ContentVariant $contentVariant
      * @return array
      */
-    public function listAction(ContentNode $contentNode = null): array
+    public function listAction(ContentVariant $contentVariant = null): array
     {
-        if (!$contentNode) {
+        if (!$contentVariant) {
             throw $this->createNotFoundException();
         }
 
@@ -35,7 +35,7 @@ class MediaKitController extends AbstractController
         }
 
         $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
-            ->getResolvedContentNode($contentNode, $scope);
+            ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||
             $resolvedContentNode->getResolvedContentVariant()->getType() !== MediaKitListContentVariantType::TYPE
@@ -46,7 +46,7 @@ class MediaKitController extends AbstractController
         return [
             'data' => [
                 'resolvedContentNode' => $resolvedContentNode,
-                'contentNode' => $contentNode,
+                'contentVariant' => $contentVariant,
             ]
         ];
     }

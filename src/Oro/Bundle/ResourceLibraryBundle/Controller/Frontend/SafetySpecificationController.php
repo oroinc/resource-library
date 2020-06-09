@@ -24,13 +24,17 @@ class SafetySpecificationController extends AbstractController
      */
     public function indexAction(ContentVariant $contentVariant = null): array
     {
+        if (!$contentVariant || $contentVariant->getType() !== SafetySpecificationPageContentVariantType::TYPE) {
+            throw $this->createNotFoundException();
+        }
+
         return [
             'data' => [
                 'resolvedContentNode' => $this->resolveTree(
                     $contentVariant,
                     SafetySpecificationPageContentVariantType::TYPE
                 ),
-                'contentNode' => $contentVariant ? $contentVariant->getNode() : null
+                'contentVariant' => $contentVariant
             ]
         ];
     }
