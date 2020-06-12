@@ -51,7 +51,9 @@ class LiteratureNoteContentProvider
         $resolvedContentNode = $this->contentNodeTreeResolver->getResolvedContentNode($contentNode, $criteria);
 
         $resolvedContentVariantIds = [];
-        $fileSections = [];
+        $fileSections = [
+            'data' => []
+        ];
 
         if ($resolvedContentNode) {
             foreach ($resolvedContentNode->getChildNodes() as $childNode) {
