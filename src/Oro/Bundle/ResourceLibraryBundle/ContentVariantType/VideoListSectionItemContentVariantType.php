@@ -4,13 +4,16 @@ namespace Oro\Bundle\ResourceLibraryBundle\ContentVariantType;
 
 use Oro\Bundle\ResourceLibraryBundle\Form\Type\VideoListSectionItemType;
 use Oro\Component\Routing\RouteData;
+use Oro\Component\WebCatalog\ContentVariantEntityProviderInterface;
 use Oro\Component\WebCatalog\ContentVariantTypeInterface;
 use Oro\Component\WebCatalog\Entity\ContentVariantInterface;
 
 /**
  * Provides content variant type for videos section item page.
  */
-class VideoListSectionItemContentVariantType implements ContentVariantTypeInterface
+class VideoListSectionItemContentVariantType implements
+    ContentVariantTypeInterface,
+    ContentVariantEntityProviderInterface
 {
     public const TYPE = 'video_list_section_item';
 
@@ -68,5 +71,13 @@ class VideoListSectionItemContentVariantType implements ContentVariantTypeInterf
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttachedEntity(ContentVariantInterface $contentVariant)
+    {
+        return $contentVariant->getVideo();
     }
 }
