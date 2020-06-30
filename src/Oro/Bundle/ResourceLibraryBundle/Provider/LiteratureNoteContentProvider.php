@@ -46,9 +46,11 @@ class LiteratureNoteContentProvider
     public function getContent(ContentVariant $contentVariant): array
     {
         $contentNode = $contentVariant->getNode();
-        $criteria = $this->scopeManager->findOrCreate('web_content');
+        $scope = $this->scopeManager->findMostSuitable('web_content');
 
-        $resolvedContentNode = $this->contentNodeTreeResolver->getResolvedContentNode($contentNode, $criteria);
+        $resolvedContentNode = $scope
+            ? $this->contentNodeTreeResolver->getResolvedContentNode($contentNode, $scope)
+            : null;
 
         $resolvedContentVariantIds = [];
         $fileSections = [
