@@ -99,7 +99,7 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
+        $scope = $this->get(ScopeManager::class)->find('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
@@ -134,7 +134,7 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
+        $scope = $this->get(ScopeManager::class)->find('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
