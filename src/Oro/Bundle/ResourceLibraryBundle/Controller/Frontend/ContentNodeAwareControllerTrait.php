@@ -36,13 +36,14 @@ trait ContentNodeAwareControllerTrait
     private function resolveTree(?ContentVariant $variant, string $expectedContentVariantType): ?ResolvedContentNode
     {
         if ($variant) {
-            $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
+            $scope = $this->get(ScopeManager::class)->findMostSuitable('web_content');
+            if ($scope) {
+                $resolved = $this->get(ContentNodeTreeResolverInterface::class)
+                    ->getResolvedContentNode($variant->getNode(), $scope);
 
-            $resolved = $this->get(ContentNodeTreeResolverInterface::class)
-                ->getResolvedContentNode($variant->getNode(), $scope);
-
-            if ($resolved && $resolved->getResolvedContentVariant()->getType() === $expectedContentVariantType) {
-                return $resolved;
+                if ($resolved && $resolved->getResolvedContentVariant()->getType() === $expectedContentVariantType) {
+                    return $resolved;
+                }
             }
         }
 
