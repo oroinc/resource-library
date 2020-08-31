@@ -149,9 +149,11 @@
                         media="(max-width: 767px)">
                 <img src="{{ filtered_image_url(item.newsAnnouncementsArticle.image , 'news_announcements_lists') }}"
                      class="resource-library-post__img"
-                     alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}">
+                     alt="{{ oro_file_title(item.newsAnnouncementsArticle.image) }}"
+                     loading="lazy"
+                >
             {% else %}
-                <img src="{{ asset('bundles/ororesourcelibrary/images/no_image.png') }}" alt="{{ item.node.titles|localized_value }}">
+                <img src="{{ asset('bundles/ororesourcelibrary/images/no_image.png') }}" alt="{{ item.node.titles|localized_value }}" loading="lazy">
             {% endif %}
         </picture>
     </a>
