@@ -56,7 +56,8 @@
         and item.resolvedContentVariant.media_kit.banner is not empty %}
         {% set attr = layout_attr_defaults(attr, {
             src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
-            '~class': ' resource-library-kits__image'
+            '~class': ' resource-library-kits__image',
+            loading: 'lazy'
         }) %}
 
         <img {{ block('block_attributes') }}>
