@@ -3,7 +3,7 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListItemContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit;

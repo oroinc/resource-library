@@ -2,7 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Migrations\Data\Demo\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\DigitalAssetBundle\Entity\DigitalAsset;
 use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
