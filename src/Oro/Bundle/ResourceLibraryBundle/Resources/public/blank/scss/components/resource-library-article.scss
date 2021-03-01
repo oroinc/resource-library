@@ -56,7 +56,7 @@
     }
 
     &__goto {
-        @include fa-icon($fa-var-angle-right, after, true) {
+        @include fa-icon(var(--fa-var-angle-right), after, true, true) {
             margin-left: $resource-library-article-goto-offset-left;
             display: $resource-library-article-goto-display;
             vertical-align: $resource-library-article-goto-vertical-align;
