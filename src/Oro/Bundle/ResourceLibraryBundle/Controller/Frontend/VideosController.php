@@ -12,7 +12,6 @@ use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
 use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
-use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +25,7 @@ class VideosController extends AbstractController
      * @Route("/", name="oro_resource_library_videos_list", requirements={"id"="\d+"})
      * @Layout()
      *
-     * @param ContentNode $contentVariant
+     * @param ContentVariant|null $contentVariant
      * @return array
      */
     public function listAction(ContentVariant $contentVariant = null): array
