@@ -61,6 +61,10 @@
             display: $resource-library-article-goto-display;
             vertical-align: $resource-library-article-goto-vertical-align;
         }
+
+        [dir="rtl"] & {
+            @include fa-icon($fa-var-angle-left, after);
+        }
     }
 
     &__image {
