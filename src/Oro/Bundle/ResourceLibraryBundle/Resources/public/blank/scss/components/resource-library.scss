@@ -30,7 +30,7 @@
         position: $resource-library-section-title-position;
         clear: $resource-library-section-title-clear;
 
-        &:before {
+        &::before {
             content: $resource-library-section-title-before-content;
             background: $resource-library-section-title-before-background;
             height: $resource-library-section-title-before-height;

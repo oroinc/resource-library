@@ -1,32 +1,6 @@
 /* @theme: blank; */
 
 .resource-library-kits {
-    &__item {
-        display: $resource-library-kits-item-display;
-
-        &:not(:last-child) {
-            border-bottom: $resource-library-kits-item-border-bottom;
-            margin-bottom: $resource-library-kits-item-offset-bottom;
-            padding-bottom: $resource-library-kits-item-inner-offset-bottom;
-        }
-
-        &:nth-child(odd) {
-            .resource-library-kits__content {
-                padding-left: $resource-library-kits-content-odd-inner-offset-left;
-            }
-        }
-
-        &:nth-child(even) {
-            .resource-library-kits__poster {
-                order: $resource-library-kits-poster-even-order;
-            }
-
-            .resource-library-kits__content {
-                padding-right: $resource-library-kits-content-even-inner-offset-right;
-            }
-        }
-    }
-
     &__poster {
         width: $resource-library-kits-poster-width;
     }
@@ -53,10 +27,46 @@
         margin-right: $resource-library-kits-btn-offset-right;
         margin-bottom: $resource-library-kits-btn-offset-left;
     }
+
+    &__item {
+        display: $resource-library-kits-item-display;
+
+        &:not(:last-child) {
+            border-bottom: $resource-library-kits-item-border-bottom;
+            margin-bottom: $resource-library-kits-item-offset-bottom;
+            padding-bottom: $resource-library-kits-item-inner-offset-bottom;
+        }
+
+        &:nth-child(odd) {
+            .resource-library-kits__content {
+                padding-left: $resource-library-kits-content-odd-inner-offset-left;
+            }
+        }
+
+        &:nth-child(even) {
+            .resource-library-kits__poster {
+                order: $resource-library-kits-poster-even-order;
+            }
+
+            .resource-library-kits__content {
+                padding-right: $resource-library-kits-content-even-inner-offset-right;
+            }
+        }
+    }
 }
 
 @include breakpoint('tablet') {
     .resource-library-kits {
+        &__poster {
+            width: $resource-library-kits-poster-tablet-width;
+            max-width: $resource-library-kits-poster-tablet-max-width;
+            margin: $resource-library-kits-poster-tablet-offset;
+        }
+
+        &__content {
+            width: $resource-library-kits-content-tablet-width;
+        }
+
         &__item {
             display: $resource-library-kits-item-tablet-display;
 
@@ -71,16 +81,6 @@
                     padding-right: $resource-library-kits-content-even-tablet-inner-offset-right;
                 }
             }
-        }
-
-        &__poster {
-            width: $resource-library-kits-poster-tablet-width;
-            max-width: $resource-library-kits-poster-tablet-max-width;
-            margin: $resource-library-kits-poster-tablet-offset;
-        }
-
-        &__content {
-            width: $resource-library-kits-content-tablet-width;
         }
     }
 }

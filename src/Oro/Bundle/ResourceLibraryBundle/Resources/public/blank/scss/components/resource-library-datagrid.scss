@@ -4,21 +4,21 @@
     .table {
         border-top: $resource-library-datagrid-table-border-top;
 
-        .grid-row {
-            &:first-child {
-                .grid-body-cell {
-                    border-top: $resource-library-datagrid-grid-body-cell-border-top;
-                    padding-top: $resource-library-datagrid-grid-body-cell-inner-offset-top;
-                }
-            }
-        }
-
         .grid-body-cell {
             padding: $resource-library-datagrid-grid-body-cell-inner-offset;
             vertical-align: $resource-library-datagrid-grid-body-cell-vertical-align;
 
             &.action-cell:empty {
                 display: $resource-library-datagrid-action-cell-empty-display;
+            }
+        }
+
+        .grid-row {
+            &:first-child {
+                .grid-body-cell {
+                    border-top: $resource-library-datagrid-grid-body-cell-border-top;
+                    padding-top: $resource-library-datagrid-grid-body-cell-inner-offset-top;
+                }
             }
         }
     }

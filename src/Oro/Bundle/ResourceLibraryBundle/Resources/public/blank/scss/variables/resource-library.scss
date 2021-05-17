@@ -47,7 +47,7 @@ $resource-library-menu-content-display: flex !default;
 $resource-library-menu-content-flex-direction: column !default;
 $resource-library-menu-content-align-items: center !default;
 
-$resource-library-menu-link-font-weight: bold !default;
+$resource-library-menu-link-font-weight: font-weight('bold') !default;
 $resource-library-menu-link-offset-top: auto !default;
 $resource-library-menu-link-inner-offset-right: 16px !default;
 $resource-library-menu-link-inner-offset-left: 16px !default;
