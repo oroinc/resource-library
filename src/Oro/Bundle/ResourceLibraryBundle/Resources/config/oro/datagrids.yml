@@ -42,11 +42,11 @@ datagrids:
             video:
                 type: twig
                 frontend_type: html
-                template: OroResourceLibraryBundle:Video:Datagrid/Property/video.html.twig
+                template: '@OroResourceLibrary/Video/Datagrid/Property/video.html.twig'
             data:
                 type: twig
                 frontend_type: html
-                template: OroResourceLibraryBundle:Video:Datagrid/Property/data.html.twig
+                template: '@OroResourceLibrary/Video/Datagrid/Property/data.html.twig'
 
     news-announcements-article-grid:
         extended_entity_name: 'Oro\\Bundle\\WebCatalogBundle\\Entity\\ContentVariant'
@@ -92,4 +92,4 @@ datagrids:
             node:
                 type: twig
                 frontend_type: html
-                template: OroResourceLibraryBundle:NewsAnnouncements:Datagrid/Property/news_announcements_article.html.twig
+                template: '@OroResourceLibrary/NewsAnnouncements/Datagrid/Property/news_announcements_article.html.twig'
