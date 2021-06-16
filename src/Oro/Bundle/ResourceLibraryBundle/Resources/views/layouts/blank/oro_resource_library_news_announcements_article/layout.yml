@@ -1,7 +1,7 @@
 layout:
     actions:
         - '@setBlockTheme':
-              themes: 'layout.html.twig'
+              themes: '@OroResourceLibrary/layouts/blank/oro_resource_library_news_announcements_article/layout.html.twig'
         - '@setOption':
               id: title
               optionName: value

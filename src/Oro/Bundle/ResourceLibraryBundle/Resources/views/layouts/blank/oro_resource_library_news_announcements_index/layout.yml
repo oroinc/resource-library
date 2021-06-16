@@ -6,7 +6,7 @@ layout:
             namespace: article_list_items
     actions:
         - '@setBlockTheme':
-            themes: 'layout.html.twig'
+            themes: '@OroResourceLibrary/layouts/blank/oro_resource_library_news_announcements_index/layout.html.twig'
         - '@setOption':
             id: title
             optionName: value
