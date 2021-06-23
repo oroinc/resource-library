@@ -6,7 +6,7 @@ layout:
             namespace: video_list_section_items
     actions:
         - '@setBlockTheme':
-            themes: '@OroResourceLibrary/layouts/blank/oro_resource_library_videos_section/layout.html.twig'
+            themes: 'layout.html.twig'
         - '@setOption':
             id: title
             optionName: value

@@ -5,7 +5,7 @@ layout:
             optionName: value
             optionValue: '=data["locale"].getLocalizedValue(data["resolvedContentNode"].getTitles())'
         - '@setBlockTheme':
-            themes: '@OroResourceLibrary/layouts/blank/oro_resource_library_safety_specification_index/layout.html.twig'
+            themes: 'layout.html.twig'
         - '@add':
             id: breadcrumbs
             parentId: page_main_header

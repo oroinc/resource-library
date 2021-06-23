@@ -5,7 +5,7 @@ layout:
             optionName: value
             optionValue: '=data["locale"].getLocalizedValue(data["contentNode"].getTitles())'
         - '@setBlockTheme':
-            themes: '@OroResourceLibrary/layouts/blank/oro_resource_library_literature_application_note_index/layout.html.twig'
+            themes: 'layout.html.twig'
         - '@addTree':
             items:
                 literature_page:
