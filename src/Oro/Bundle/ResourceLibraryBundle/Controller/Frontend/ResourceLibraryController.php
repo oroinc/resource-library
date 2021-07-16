@@ -53,9 +53,6 @@ class ResourceLibraryController extends AbstractController
         ];
     }
 
-    /**
-     * @return NewsAnnouncementsArticleRepository
-     */
     private function getArticleRepository(): NewsAnnouncementsArticleRepository
     {
         return $this->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);

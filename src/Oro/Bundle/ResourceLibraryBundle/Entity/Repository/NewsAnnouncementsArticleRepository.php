@@ -116,9 +116,6 @@ class NewsAnnouncementsArticleRepository extends EntityRepository
         return new ArrayCollection($qb->getQuery()->getResult());
     }
 
-    /**
-     * @return ContentVariantRepository
-     */
     private function getVariantRepository(): ContentVariantRepository
     {
         return $this->getEntityManager()->getRepository(ContentVariant::class);

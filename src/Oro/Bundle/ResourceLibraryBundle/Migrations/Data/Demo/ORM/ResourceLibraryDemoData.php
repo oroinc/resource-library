@@ -50,10 +50,6 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
         $this->generateCache($webCatalog);
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @return ContentNode
-     */
     public static function getResourceLibraryNode(ObjectManager $manager): ContentNode
     {
         return $manager->getRepository(ContentNode::class)

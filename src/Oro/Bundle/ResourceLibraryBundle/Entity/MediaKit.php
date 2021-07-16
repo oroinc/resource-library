@@ -60,17 +60,11 @@ class MediaKit extends ExtendMediaKit implements DatesAwareInterface, Organizati
      */
     protected $link;
 
-    /**
-     * @return null|int
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return null|string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -87,9 +81,6 @@ class MediaKit extends ExtendMediaKit implements DatesAwareInterface, Organizati
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getLink(): ?string
     {
         return $this->link;
