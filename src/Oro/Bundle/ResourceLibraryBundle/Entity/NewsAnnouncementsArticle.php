@@ -50,9 +50,6 @@ class NewsAnnouncementsArticle extends ExtendNewsAnnouncementsArticle implements
         return $this->id;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -69,9 +66,6 @@ class NewsAnnouncementsArticle extends ExtendNewsAnnouncementsArticle implements
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShortDescription(): ?string
     {
         return $this->shortDescription;

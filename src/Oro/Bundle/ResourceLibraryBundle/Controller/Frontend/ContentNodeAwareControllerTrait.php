@@ -26,12 +26,6 @@ trait ContentNodeAwareControllerTrait
         ]);
     }
 
-    /**
-     * @param ContentVariant|null $variant
-     * @param string $expectedContentVariantType
-     *
-     * @return ResolvedContentNode|null
-     */
     private function resolveTree(?ContentVariant $variant, string $expectedContentVariantType): ?ResolvedContentNode
     {
         if ($variant) {

@@ -24,9 +24,6 @@ class VideosController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_videos_list", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant|null $contentVariant
-     * @return array
      */
     public function listAction(ContentVariant $contentVariant = null): array
     {
@@ -61,9 +58,6 @@ class VideosController extends AbstractController
         ];
     }
 
-    /**
-     * @param ResolvedContentNode $parentNode
-     */
     private function sortChildNodesByVideoDate(ResolvedContentNode $parentNode): void
     {
         $childNodes = $parentNode->getChildNodes();

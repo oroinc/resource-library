@@ -129,7 +129,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-
     private function addLiteratureExtension(Schema $schema)
     {
         $table = $schema->getTable('oro_web_catalog_variant');
@@ -198,9 +197,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    /**
-     * @param Schema $schema
-     */
     private function createLiteratureApplicationNoteTable(Schema $schema): void
     {
         $table = $schema->createTable('oro_literature_note_file');
@@ -225,9 +221,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    /**
-     * @param Schema $schema
-     */
     private function addFileRelation(Schema $schema): void
     {
         $this->attachmentExtension->addFileRelation(
@@ -248,9 +241,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    /**
-     * @param Schema $schema
-     */
     private function createVideoTable(Schema $schema): void
     {
         $table = $schema->createTable('oro_rl_video');
@@ -271,9 +261,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    /**
-     * @param Schema $schema
-     */
     private function createMediaKitTable(Schema $schema): void
     {
         $table = $schema->createTable('oro_rl_media_kit');
@@ -342,9 +329,6 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    /**
-     * @param Schema $schema
-     */
     private function createNewsAnnouncementsTable(Schema $schema): void
     {
         $table = $schema->createTable('oro_news_announce_article');

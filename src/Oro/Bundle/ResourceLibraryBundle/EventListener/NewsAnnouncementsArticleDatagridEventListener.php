@@ -20,10 +20,6 @@ class NewsAnnouncementsArticleDatagridEventListener
     /** @var ScopeManager */
     private $scopeManager;
 
-    /**
-     * @param ScopeManager $scopeManager
-     * @param Registry $registry
-     */
     public function __construct(ScopeManager $scopeManager, Registry $registry)
     {
         $this->scopeManager = $scopeManager;
@@ -31,7 +27,6 @@ class NewsAnnouncementsArticleDatagridEventListener
     }
 
     /**
-     * @param PreBuild $event
      * @throws \Exception
      */
     public function onPreBuild(PreBuild $event): void

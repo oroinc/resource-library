@@ -67,17 +67,11 @@ class Video implements DatesAwareInterface, OrganizationAwareInterface
      */
     protected $link;
 
-    /**
-     * @return null|int
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return null|string
-     */
     public function getShortDescription(): ?string
     {
         return $this->shortDescription;
@@ -94,9 +88,6 @@ class Video implements DatesAwareInterface, OrganizationAwareInterface
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -113,9 +104,6 @@ class Video implements DatesAwareInterface, OrganizationAwareInterface
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getLink(): ?string
     {
         return $this->link;

@@ -99,11 +99,6 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
         return $variant;
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @param bool $useDam
-     * @return File
-     */
     private function getNextImage(ObjectManager $manager, bool $useDam = true): File
     {
         if ($this->images === null) {

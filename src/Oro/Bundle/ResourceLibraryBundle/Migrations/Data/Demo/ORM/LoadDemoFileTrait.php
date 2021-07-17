@@ -17,9 +17,6 @@ trait LoadDemoFileTrait
 {
     use UserUtilityTrait;
 
-    /**
-     * @return FileLocator
-     */
     private function getFileLocator(): FileLocator
     {
         if (property_exists($this, 'container') && $this->container instanceof ContainerInterface) {
@@ -29,13 +26,6 @@ trait LoadDemoFileTrait
         throw new \LogicException(sprintf('For use %s declare method %s', self::class, __METHOD__));
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @param string $pathname
-     * @param string $title
-     * @param bool $useDam
-     * @return File
-     */
     private function createFileFile(ObjectManager $manager, string $pathname, string $title, bool $useDam = true): File
     {
         $user = $this->getFirstUser($manager);

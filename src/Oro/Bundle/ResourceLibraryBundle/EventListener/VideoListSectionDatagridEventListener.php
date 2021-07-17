@@ -18,19 +18,12 @@ class VideoListSectionDatagridEventListener
     /** @var DoctrineHelper */
     private $doctrineHelper;
 
-    /**
-     * @param ContentNodeProvider $contentNodeProvider
-     * @param DoctrineHelper $doctrineHelper
-     */
     public function __construct(ContentNodeProvider $contentNodeProvider, DoctrineHelper $doctrineHelper)
     {
         $this->contentNodeProvider = $contentNodeProvider;
         $this->doctrineHelper = $doctrineHelper;
     }
 
-    /**
-     * @param PreBuild $event
-     */
     public function onPreBuild(PreBuild $event): void
     {
         $params = $event->getParameters();

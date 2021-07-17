@@ -24,11 +24,6 @@ class LiteratureNoteContentProvider
     /** @var DoctrineHelper */
     private $doctrineHelper;
 
-    /**
-     * @param ContentNodeTreeResolverInterface $contentNodeTreeResolver
-     * @param ScopeManager $scopeManager
-     * @param DoctrineHelper $doctrineHelper
-     */
     public function __construct(
         ContentNodeTreeResolverInterface $contentNodeTreeResolver,
         ScopeManager $scopeManager,
@@ -39,10 +34,6 @@ class LiteratureNoteContentProvider
         $this->doctrineHelper = $doctrineHelper;
     }
 
-    /**
-     * @param ContentVariant $contentVariant
-     * @return array
-     */
     public function getContent(ContentVariant $contentVariant): array
     {
         $contentNode = $contentVariant->getNode();
