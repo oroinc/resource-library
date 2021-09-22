@@ -6,15 +6,12 @@ use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
 use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 
 /**
  * Provides easy way to get ResolvedContentNode from the given ContentNode.
  */
 trait ContentNodeAwareControllerTrait
 {
-    use ControllerTrait;
-
     /**
      * {@inheritdoc}
      */
