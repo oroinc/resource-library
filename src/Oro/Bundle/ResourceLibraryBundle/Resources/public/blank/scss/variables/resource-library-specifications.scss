@@ -5,7 +5,7 @@ $resource-library-specifications-offset-left: -40px !default;
 $resource-library-specifications-display: flex !default;
 $resource-library-specifications-flex-wrap: wrap !default;
 
-$resource-library-specifications-item-width: calc(100% / 3) !default;
+$resource-library-specifications-item-width: calc(#{100%} / #{3}) !default;
 $resource-library-specifications-item-offset-bottom: 30px !default;
 $resource-library-specifications-item-inner-offset-left: 40px !default;
 $resource-library-specifications-item-flex-grow: 0 !default;

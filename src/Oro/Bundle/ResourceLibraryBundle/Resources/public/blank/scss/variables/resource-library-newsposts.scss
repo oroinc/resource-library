@@ -4,7 +4,7 @@ $resource-library-newsposts-offset: 0 36px 30px !default;
 $resource-library-newsposts-overflow: hidden !default;
 $resource-library-newsposts-white-space: nowrap !default;
 
-$resource-library-newsposts-item-width: calc(100% / 3) !default;
+$resource-library-newsposts-item-width: calc(#{100%} / #{3}) !default;
 $resource-library-newsposts-item-display: inline-block !default;
 $resource-library-newsposts-item-offset: 0 15px !default;
 $resource-library-newsposts-item-vertical-align: top !default;

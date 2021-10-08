@@ -3,7 +3,7 @@
 $resource-library-literature-display: flex !default;
 $resource-library-literature-offset-left: -100px !default;
 
-$resource-library-literature-section-width: calc(100% / 3) !default;
+$resource-library-literature-section-width: calc(#{100%} / #{3}) !default;
 $resource-library-literature-section-offset-bottom: 30px !default;
 $resource-library-literature-section-inner-offset-left: 100px !default;
 
