@@ -89,6 +89,8 @@ oro:
           content_variant_type:
             list.label: 'Media Kit List'
             list_item.label: 'Media Kit Item'
+            banner:
+                alt: 'Banner'
 
           visit_website.label: 'Visit Website'
           download_media_kit.label: 'Download Media Kit'
