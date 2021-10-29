@@ -47,13 +47,7 @@
                     <span class="{{ icon }} featured-menu__icon"></span>
                 </div>
                 <h4 class="featured-menu__title">{{- contentNode.titles|localized_value|e -}}</h4>
-                <div class="featured-menu__description"
-                     data-page-component-module="oroui/js/app/components/viewport-component"
-                     data-page-component-options="{{ {
-                         component: 'oroui/js/app/components/jquery-widget-component',
-                         widgetModule: 'orofrontend/default/js/widgets/line-clamp-widget'
-                     }|json_encode }}"
-                >
+                <div class="featured-menu__description line-clamp">
                     {% if contentNode.resolvedContentVariant.description is defined
                         and contentNode.resolvedContentVariant.description is not empty %}
                         {{ contentNode.resolvedContentVariant.description|oro_html_sanitize }}
