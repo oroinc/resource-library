@@ -30,9 +30,11 @@
 
 {% block _video_list_sections_widget %}
     <div {{ block('block_attributes') }}>
-        {% for item in items if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionContentVariantType::TYPE') %}
-            {% do block|merge_context({item: item}) %}
-            {{ block('container_widget') }}
+        {% for item in items %}
+            {% if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionContentVariantType::TYPE') %}
+                {% do block|merge_context({item: item}) %}
+                {{ block('container_widget') }}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
@@ -65,9 +67,11 @@
     <div {{ block('block_attributes') }}>
         {% set max_items = max_items|default(2) %}
 
-        {% for item in item.childNodes|slice(0, max_items) if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
-            {% do block|merge_context({item: item}) %}
-            {{ block('container_widget') }}
+        {% for item in item.childNodes|slice(0, max_items) %}
+            {% if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListSectionItemContentVariantType::TYPE') %}
+                {% do block|merge_context({item: item}) %}
+                {{ block('container_widget') }}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

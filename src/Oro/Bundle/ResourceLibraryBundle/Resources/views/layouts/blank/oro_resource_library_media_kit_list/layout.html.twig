@@ -24,9 +24,11 @@
     }) %}
 
     <div {{ block('block_attributes') }}>
-        {% for item in items if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListItemContentVariantType::TYPE') %}
-            {% do block|merge_context({item: item}) %}
-            {{ block('container_widget') }}
+        {% for item in items %}
+            {% if item.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListItemContentVariantType::TYPE') %}
+                {% do block|merge_context({item: item}) %}
+                {{ block('container_widget') }}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

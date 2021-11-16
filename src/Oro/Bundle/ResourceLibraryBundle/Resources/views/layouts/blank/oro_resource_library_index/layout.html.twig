@@ -36,10 +36,11 @@
 
 {% block content_variant_typed_child_widget %}
     {% set rendered = false %}
-    {% for contentNode in items if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
-        {% set attr = layout_attr_defaults(attr, {
-            '~class': ' featured-menu__item resource-library__menu-item'
-        }) %}
+    {% for contentNode in items %}
+        {% if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
+            {% set attr = layout_attr_defaults(attr, {
+                '~class': ' featured-menu__item resource-library__menu-item'
+            }) %}
 
         <li {{ block('block_attributes') }}>
             <div class="featured-menu__content resource-library__menu-content">
@@ -58,8 +59,9 @@
                 </a>
             </div>
 
-            {% set rendered = true %}
-        </li>
+                {% set rendered = true %}
+            </li>
+        {% endif %}
     {% endfor %}
 {% endblock %}
 
@@ -68,13 +70,15 @@
         '~class': ' resource-library__section-title'
     }) %}
     {% set rendered = false %}
-    {% for contentNode in items if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
-        <h2 {{ block('block_attributes') }}>
-            <span>
-                {{- contentNode.titles|localized_value|e -}}
-            </span>
-        </h2>
-        {% set rendered = true %}
+    {% for contentNode in items %}
+        {% if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
+            <h2 {{ block('block_attributes') }}>
+                <span>
+                    {{- contentNode.titles|localized_value|e -}}
+                </span>
+            </h2>
+            {% set rendered = true %}
+        {% endif %}
     {% endfor %}
 {% endblock %}
 

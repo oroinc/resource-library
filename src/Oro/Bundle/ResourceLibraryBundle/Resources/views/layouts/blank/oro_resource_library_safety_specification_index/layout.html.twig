@@ -26,9 +26,11 @@
 
 {% block _safety_specifications_sections_widget %}
     <div {{ block('block_attributes') }}>
-        {% for section in sections if section.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationSectionContentVariantType::TYPE') %}
-            {% do block|merge_context({section: section}) %}
-            {{ block('container_widget') }}
+        {% for section in sections %}
+            {% if section.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationSectionContentVariantType::TYPE') %}
+                {% do block|merge_context({section: section}) %}
+                {{ block('container_widget') }}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
@@ -51,11 +53,13 @@
     }) %}
 
     <div {{ block('block_attributes') }}>
-        {% for fileSection in section.getChildNodes if fileSection.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationFileContentVariantType::TYPE') %}
-            {% do block|merge_context({fileSection: fileSection}) %}
-            <div class="resource-library-specifications__item">
-                {{ block('container_widget') }}
-            </div>
+        {% for fileSection in section.getChildNodes %}
+            {% if fileSection.resolvedContentVariant.type == constant('Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationFileContentVariantType::TYPE') %}
+                {% do block|merge_context({fileSection: fileSection}) %}
+                <div class="resource-library-specifications__item">
+                    {{ block('container_widget') }}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

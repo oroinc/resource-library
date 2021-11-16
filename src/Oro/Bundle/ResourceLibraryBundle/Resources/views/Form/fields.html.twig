@@ -15,7 +15,7 @@
 
     <div class="control-group">
         <div>
-            {% spaceless %}
+            {% apply spaceless %}
                 {% if prototype is defined %}
                     {% set prototype_html = fields.oro_collection_item_prototype(form) %}
                 {% endif %}
@@ -48,7 +48,7 @@
                         <a class="btn add-list-item" href="#">{{ form.vars.add_label|default('oro.form.collection.add')|trans }}</a>
                     {% endif %}
                 </div>
-            {% endspaceless %}
+            {% endapply %}
         </div>
     </div>
 {% endblock %}
@@ -75,7 +75,7 @@
 
 {% block literature_application_note_file_widget %}
     {% set name = form.vars.full_name %}
-    {% spaceless %}
+    {% apply spaceless %}
         <tr data-content="{{ name }}" data-validation-optional-group class="grid-row">
             <td>{{ form_widget(form.file) }}</td>
             {% if form.parent.vars.allow_delete %}
@@ -86,7 +86,7 @@
                 </td>
             {% endif %}
         </tr>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {% block safety_specification_page_widget %}
