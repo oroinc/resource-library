@@ -102,7 +102,6 @@ layout:
                     blockType: block
                 article_list_item_image:
                     blockType: block
-
                 article_list_container:
                     blockType: container
                 article_list_container_title:

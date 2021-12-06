@@ -57,13 +57,15 @@
     {% if item.resolvedContentVariant.media_kit.banner is defined
         and item.resolvedContentVariant.media_kit.banner is not empty %}
         {% set attr = layout_attr_defaults(attr, {
-            src: resized_image_url(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
             '~class': ' resource-library-kits__image',
             loading: 'lazy',
             alt: item.resolvedContentVariant.media_kit.alt|default('oro.resourcelibrary.mediakit.content_variant_type.banner.alt'|trans)
         }) %}
 
-        <img {{ block('block_attributes') }}>
+        {% include '@OroAttachment/Twig/picture.html.twig' with {
+            sources: oro_resized_picture_sources(item.resolvedContentVariant.media_kit.banner, attr.width, attr.height),
+            img_attrs: attr
+        } %}
     {% endif %}
 {% endblock %}
 
