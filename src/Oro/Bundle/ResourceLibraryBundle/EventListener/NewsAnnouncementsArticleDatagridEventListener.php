@@ -2,7 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\EventListener;
 
-use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\Persistence\ManagerRegistry;
 use Oro\Bundle\DataGridBundle\Event\PreBuild;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
@@ -14,16 +14,13 @@ use Oro\Bundle\WebCatalogBundle\Entity\Repository\ContentVariantRepository;
  */
 class NewsAnnouncementsArticleDatagridEventListener
 {
-    /** @var Registry */
-    private $registry;
+    private ManagerRegistry $doctrine;
+    private ScopeManager $scopeManager;
 
-    /** @var ScopeManager */
-    private $scopeManager;
-
-    public function __construct(ScopeManager $scopeManager, Registry $registry)
+    public function __construct(ScopeManager $scopeManager, ManagerRegistry $doctrine)
     {
         $this->scopeManager = $scopeManager;
-        $this->registry = $registry;
+        $this->doctrine = $doctrine;
     }
 
     /**
@@ -37,7 +34,7 @@ class NewsAnnouncementsArticleDatagridEventListener
         }
 
         /** @var ContentVariantRepository $repository */
-        $repository = $this->registry->getRepository(ContentVariant::class);
+        $repository = $this->doctrine->getRepository(ContentVariant::class);
 
         $params->set('today', new \DateTime('today', new \DateTimeZone('UTC')));
         $params->set(
