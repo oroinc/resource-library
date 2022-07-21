@@ -57,7 +57,7 @@
                             isDefault: true
                 'How to Create a Simple Product in OroCommerce':
                     defaultTitle: 'How to Create a Simple Product in OroCommerce'
-                    defaultSlugPrototype: how-to-create-a
+                    defaultSlugPrototype: how-to-create-a-simple-product
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -81,7 +81,7 @@
                             isDefault: true
                 'How to Create a Configurable Product in OroCommerce':
                     defaultTitle: 'How to Create a Configurable Product in OroCommerce'
-                    defaultSlugPrototype: how-to-create-a
+                    defaultSlugPrototype: how-to-create-a-configurable-product
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -117,7 +117,7 @@
                             isDefault: true
                 'How to Create a Customer Record in OroCommerce':
                     defaultTitle: 'How to Create a Customer Record in OroCommerce'
-                    defaultSlugPrototype: how-to-create-a
+                    defaultSlugPrototype: how-to-create-a-customer-record
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -129,7 +129,7 @@
                             isDefault: true
                 'How to Create a New Order in OroCommerce':
                     defaultTitle: 'How to Create a New Order in OroCommerce'
-                    defaultSlugPrototype: how-to-create-a
+                    defaultSlugPrototype: how-to-create-a-new-order
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -165,7 +165,7 @@
                             isDefault: true
                 'How to Create an Order from a Shopping List in OroCommerce':
                     defaultTitle: 'How to Create an Order from a Shopping List in OroCommerce'
-                    defaultSlugPrototype: how-to-create-an
+                    defaultSlugPrototype: how-to-create-an-order-from-a-shopping-list
                     parentScopeUsed: true
                     contentVariants:
                         -
