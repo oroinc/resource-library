@@ -25,12 +25,12 @@
 {% endblock %}
 
 {% block _resource_library_page_categories_widget %}
-    {% set attr = layout_attr_defaults(attr, { '~class': ' featured-menu'}) %}
+    {% set attr = layout_attr_defaults(attr, { '~class': ' resource-library__menu'}) %}
 
     <div {{ block('block_attributes') }}>
-        <ul class="featured-menu__grid resource-library__menu">
+        <div class="tiles resource-library__tiles">
             {{ block_widget(block) }}
-        </ul>
+        </div>
     </div>
 {% endblock %}
 
@@ -39,28 +39,28 @@
     {% for contentNode in items %}
         {% if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
             {% set attr = layout_attr_defaults(attr, {
-                '~class': ' featured-menu__item resource-library__menu-item'
+                '~class': ' tiles-item'
             }) %}
 
-        <li {{ block('block_attributes') }}>
-            <div class="featured-menu__content resource-library__menu-content">
-                <div class="featured-menu__img-wrap">
-                    <span class="{{ icon }} featured-menu__icon"></span>
+        <div {{ block('block_attributes') }}>
+            <div class="featured-menu-content resource-library__menu-content">
+                <div class="featured-menu-content__img-wrap">
+                    <span class="{{ icon }} featured-menu-content__icon"></span>
                 </div>
-                <h4 class="featured-menu__title">{{- contentNode.titles|localized_value|e -}}</h4>
-                <div class="featured-menu__description line-clamp">
+                <h4 class="featured-menu-content__title">{{- contentNode.titles|localized_value|e -}}</h4>
+                <div class="featured-menu-content__description line-clamp">
                     {% if contentNode.resolvedContentVariant.description is defined
                         and contentNode.resolvedContentVariant.description is not empty %}
                         {{ contentNode.resolvedContentVariant.description|oro_html_sanitize }}
                     {% endif %}
                 </div>
-                <a class="btn btn--info btn--size-s featured-menu__link resource-library__menu-link" href="{{ oro_commercemenu_get_url(contentNode.resolvedContentVariant.localizedUrls|localized_value) }}">
+                <a class="btn btn--info btn--size-s featured-menu-content__link resource-library__menu-link" href="{{ oro_commercemenu_get_url(contentNode.resolvedContentVariant.localizedUrls|localized_value) }}">
                     {{- 'oro.resourcelibrary.btn.explore.label'|trans|upper -}}
                 </a>
             </div>
 
                 {% set rendered = true %}
-            </li>
+            </div>
         {% endif %}
     {% endfor %}
 {% endblock %}

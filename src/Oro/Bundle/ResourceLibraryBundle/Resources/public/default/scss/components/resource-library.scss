@@ -59,6 +59,10 @@
         }
     }
 
+    &__tiles {
+        --tiles-column-count: #{$resource-library-tiles-column-count};
+    }
+
     &__menu {
         margin: $resource-library-menu-offset;
     }
@@ -91,6 +95,10 @@
         &__menu-item {
             width: $resource-library-menu-item-tablet-width;
         }
+
+        &__tiles {
+            --tiles-column-count: #{$resource-library-tiles-tablet-column-count};
+        }
     }
 }
 
@@ -106,6 +114,14 @@
     .resource-library {
         &__menu-item {
             width: $resource-library-menu-item-mobile-landscape-width;
+        }
+    }
+}
+
+@include breakpoint('mobile') {
+    .resource-library {
+        &__tiles {
+            --tiles-column-count: #{$resource-library-tiles-mobile-column-count};
         }
     }
 }

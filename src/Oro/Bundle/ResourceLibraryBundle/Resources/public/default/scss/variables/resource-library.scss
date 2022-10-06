@@ -37,7 +37,9 @@ $resource-library-section-item-offset-bottom: 30px !default;
 $resource-library-section-item-offset-border-bottom: 1px solid get-color('additional', 'light') !default;
 $resource-library-section-item-offset-inner-offset-bottom: 30px !default;
 
-$resource-library-menu-offset: -16px 0 0 !default;
+$resource-library-tiles-column-count: 5 !default;
+
+$resource-library-menu-offset: 16px 0 30px !default;
 
 $resource-library-menu-item-width: 20% !default;
 $resource-library-menu-item-inner-offset: 16px 8px 0 !default;
@@ -54,9 +56,13 @@ $resource-library-menu-link-inner-offset-left: 16px !default;
 
 // Tablet
 $resource-library-menu-item-tablet-width: 50% !default;
+$resource-library-tiles-tablet-column-count: 2 !default;
 
 // Tablet Small
 $resource-library-menu-tablet-small-justify-content: center !default;
 
 // Mobile Landscape
 $resource-library-menu-item-mobile-landscape-width: 100% !default;
+
+// Mobile
+$resource-library-tiles-mobile-column-count: 1 !default;
