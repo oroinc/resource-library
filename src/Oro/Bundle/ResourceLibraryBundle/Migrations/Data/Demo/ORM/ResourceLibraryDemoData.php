@@ -42,7 +42,7 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
             $this->getWebCatalogData(
                 '@OroResourceLibraryBundle/Migrations/Data/Demo/ORM/data/resource_library_data.yml'
             ),
-            $this->getRootNode($manager)
+            $this->getRootNode($manager, $webCatalog)
         );
 
         $manager->flush();
@@ -62,24 +62,17 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
             ->getSingleResult();
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @return WebCatalog
-     */
-    private function getWebCatalog(ObjectManager $manager)
+    private function getWebCatalog(ObjectManager $manager): WebCatalog
     {
         return $manager->getRepository(WebCatalog::class)
             ->findOneBy(['name' => self::DEFAULT_WEB_CATALOG_NAME]);
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @return ContentNode
-     */
-    private function getRootNode(ObjectManager $manager)
+
+    private function getRootNode(ObjectManager $manager, WebCatalog $webCatalog): ContentNode
     {
         return $manager->getRepository(ContentNode::class)
-            ->findOneBy(['parentNode' => null]);
+            ->findOneBy(['parentNode' => null, 'webCatalog' => $webCatalog]);
     }
 
     /**
