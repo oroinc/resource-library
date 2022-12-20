@@ -93,7 +93,7 @@
                             isDefault: true
                 'How to Create Tax Rules in OroCommerce':
                     defaultTitle: 'How to Create Tax Rules in OroCommerce'
-                    defaultSlugPrototype: how-to-create-tax
+                    defaultSlugPrototype: how-to-create-tax-rules
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -105,7 +105,7 @@
                             isDefault: true
                 'How to Create Tax Codes and Jurisdictions in OroCommerce':
                     defaultTitle: 'How to Create Tax Codes and Jurisdictions in OroCommerce'
-                    defaultSlugPrototype: how-to-create-tax
+                    defaultSlugPrototype: how-to-create-tax-codes
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -141,7 +141,7 @@
                             isDefault: true
                 'How to Create Customer Roles in OroCommerce':
                     defaultTitle: 'How to Create Customer Roles in OroCommerce'
-                    defaultSlugPrototype: how-to-create-customer
+                    defaultSlugPrototype: how-to-create-customer-roles
                     parentScopeUsed: true
                     contentVariants:
                         -
@@ -153,7 +153,7 @@
                             isDefault: true
                 'How to Create Customer Groups in OroCommerce':
                     defaultTitle: 'How to Create Customer Groups in OroCommerce'
-                    defaultSlugPrototype: how-to-create-customer
+                    defaultSlugPrototype: how-to-create-customer-groups
                     parentScopeUsed: true
                     contentVariants:
                         -
