@@ -5,7 +5,7 @@ navigation:
                 label: 'oro.resourcelibrary.commerce_main_menu.label'
                 uri: '/resource-library'
                 extras:
-                    position: 10
+                    position: 0
         tree:
             commerce_main_menu:
                 children:
