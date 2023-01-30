@@ -50,7 +50,6 @@ class LiteratureNoteContentProvider
 
         if ($resolvedContentNode) {
             foreach ($resolvedContentNode->getChildNodes() as $childNode) {
-
                 /** @var ResolvedContentVariant $resolvedContentVariant */
                 $resolvedContentVariant = $childNode->getResolvedContentVariant();
 
