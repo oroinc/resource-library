@@ -3,12 +3,14 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
+use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
-use Oro\Bundle\ResourceLibraryBundle\Model\ExtendMediaKit;
 
 /**
  * Holds media kit information.
@@ -31,11 +33,18 @@ use Oro\Bundle\ResourceLibraryBundle\Model\ExtendMediaKit;
  *          }
  *      }
  * )
+ * @method null|File getBanner()
+ * @method MediaKit setBanner(File $image)
+ * @method null|File getMediaKitFile()
+ * @method MediaKit setMediaKitFile(File $mediaKitFile)
+ * @method null|File getLogoPackageFile()
+ * @method MediaKit setLogoPackageFile(File $logoPackageFile)
  */
-class MediaKit extends ExtendMediaKit implements DatesAwareInterface, OrganizationAwareInterface
+class MediaKit implements DatesAwareInterface, OrganizationAwareInterface, ExtendEntityInterface
 {
     use DatesAwareTrait;
     use OrganizationAwareTrait;
+    use ExtendEntityTrait;
 
     /**
      * @var integer

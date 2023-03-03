@@ -3,10 +3,12 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareTrait;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
-use Oro\Bundle\ResourceLibraryBundle\Model\ExtendNewsAnnouncementsArticle;
+use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
+use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 
 /**
  * NewsAnnouncementsArticle entity
@@ -14,10 +16,14 @@ use Oro\Bundle\ResourceLibraryBundle\Model\ExtendNewsAnnouncementsArticle;
  * @ORM\Entity(repositoryClass="Oro\Bundle\ResourceLibraryBundle\Entity\Repository\NewsAnnouncementsArticleRepository")
  * @ORM\Table(name="oro_news_announce_article")
  * @Config()
+ *
+ * @method File|null getImage()
+ * @method NewsAnnouncementsArticle setImage(?File $image)
  */
-class NewsAnnouncementsArticle extends ExtendNewsAnnouncementsArticle implements CreatedAtAwareInterface
+class NewsAnnouncementsArticle implements CreatedAtAwareInterface, ExtendEntityInterface
 {
     use CreatedAtAwareTrait;
+    use ExtendEntityTrait;
 
     /**
      * @var int

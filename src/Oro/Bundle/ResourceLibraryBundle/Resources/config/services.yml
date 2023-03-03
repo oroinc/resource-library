@@ -123,3 +123,4 @@ services:
             - '@oro_web_catalog.content_node_provider'
             - '@oro_scope.scope_manager'
             - '@oro_web_catalog.resolved_content_nodes_loader'
+            - '@property_accessor'
