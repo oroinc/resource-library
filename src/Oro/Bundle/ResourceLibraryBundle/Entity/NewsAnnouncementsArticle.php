@@ -3,6 +3,7 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Extend\Entity\Autocomplete\OroResourceLibraryBundle_Entity_NewsAnnouncementsArticle;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareTrait;
@@ -19,6 +20,7 @@ use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
  *
  * @method File|null getImage()
  * @method NewsAnnouncementsArticle setImage(?File $image)
+ * @mixin OroResourceLibraryBundle_Entity_NewsAnnouncementsArticle
  */
 class NewsAnnouncementsArticle implements CreatedAtAwareInterface, ExtendEntityInterface
 {

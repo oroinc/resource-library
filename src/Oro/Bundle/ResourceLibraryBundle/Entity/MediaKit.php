@@ -3,6 +3,7 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Extend\Entity\Autocomplete\OroResourceLibraryBundle_Entity_MediaKit;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
@@ -39,6 +40,7 @@ use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
  * @method MediaKit setMediaKitFile(File $mediaKitFile)
  * @method null|File getLogoPackageFile()
  * @method MediaKit setLogoPackageFile(File $logoPackageFile)
+ * @mixin OroResourceLibraryBundle_Entity_MediaKit
  */
 class MediaKit implements DatesAwareInterface, OrganizationAwareInterface, ExtendEntityInterface
 {

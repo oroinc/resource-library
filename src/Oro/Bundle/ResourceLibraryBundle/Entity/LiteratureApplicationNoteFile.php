@@ -3,6 +3,7 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Extend\Entity\Autocomplete\OroResourceLibraryBundle_Entity_LiteratureApplicationNoteFile;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
@@ -17,6 +18,7 @@ use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
  *
  * @method null|File getFile()
  * @method LiteratureApplicationNoteFile setFile(File $file)
+ * @mixin OroResourceLibraryBundle_Entity_LiteratureApplicationNoteFile
  */
 class LiteratureApplicationNoteFile implements ExtendEntityInterface
 {
