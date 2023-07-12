@@ -17,9 +17,6 @@ class LiteratureApplicationNoteController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_literature_application_note_index", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function indexAction(ContentVariant $contentVariant = null): array
     {

@@ -19,9 +19,6 @@ class MediaKitController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_media_kit_list", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function listAction(ContentVariant $contentVariant = null): array
     {

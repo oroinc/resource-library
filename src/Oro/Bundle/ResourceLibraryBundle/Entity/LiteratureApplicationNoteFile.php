@@ -33,9 +33,6 @@ class LiteratureApplicationNoteFile implements ExtendEntityInterface
      */
     protected $id;
 
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;

@@ -82,9 +82,6 @@ class VideosController extends AbstractController
     /**
      * @Route("/section", name="oro_resource_library_videos_section", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function sectionAction(ContentVariant $contentVariant = null): array
     {
@@ -117,9 +114,6 @@ class VideosController extends AbstractController
     /**
      * @Route("/item", name="oro_resource_library_videos_item", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function itemAction(ContentVariant $contentVariant = null): array
     {
