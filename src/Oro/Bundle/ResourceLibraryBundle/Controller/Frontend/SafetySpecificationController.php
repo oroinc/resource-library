@@ -18,9 +18,6 @@ class SafetySpecificationController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_safety_specification_index", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function indexAction(ContentVariant $contentVariant = null): array
     {

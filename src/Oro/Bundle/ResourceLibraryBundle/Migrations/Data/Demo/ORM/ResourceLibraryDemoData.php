@@ -68,7 +68,6 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
             ->findOneBy(['name' => self::DEFAULT_WEB_CATALOG_NAME]);
     }
 
-
     private function getRootNode(ObjectManager $manager, WebCatalog $webCatalog): ContentNode
     {
         return $manager->getRepository(ContentNode::class)

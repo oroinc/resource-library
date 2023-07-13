@@ -20,9 +20,6 @@ class NewsAnnouncementsController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_news_announcements_index", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function indexAction(ContentVariant $contentVariant = null): array
     {
@@ -44,9 +41,6 @@ class NewsAnnouncementsController extends AbstractController
     /**
      * @Route("/article/{id}", name="oro_resource_library_news_announcements_article", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function articleAction(ContentVariant $contentVariant = null): array
     {

@@ -24,9 +24,6 @@ class ResourceLibraryController extends AbstractController
     /**
      * @Route("/", name="oro_resource_library_index", requirements={"id"="\d+"})
      * @Layout()
-     *
-     * @param ContentVariant $contentVariant
-     * @return array
      */
     public function listAction(ContentVariant $contentVariant = null): array
     {
