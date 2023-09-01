@@ -99,7 +99,7 @@
 {% block _video_list_section_link_widget %}
     {% set attr = layout_attr_defaults(attr, {
         'href': oro_commercemenu_get_url(item.resolvedContentVariant.localizedUrls|localized_value),
-        '~class': ' btn btn--info'
+        '~class': ' btn btn--outlined'
     }) %}
 
     <a {{ block('block_attributes') }}>

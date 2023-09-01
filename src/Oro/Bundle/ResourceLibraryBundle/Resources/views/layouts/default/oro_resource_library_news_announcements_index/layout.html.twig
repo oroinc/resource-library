@@ -124,7 +124,7 @@
     <div {{ block('block_attributes') }}>
         {{ item.newsAnnouncementsArticle.shortDescription|oro_html_sanitize }}
     </div>
-    <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}" class="btn btn--info">
+    <a href="{{ app.request.uriForPath(item.node.localizedUrls|localized_value) }}" class="btn btn--outlined">
         {{- 'oro.resourcelibrary.newsannouncementsarticle.read_more'|trans -}}
     </a>
 {% endblock %}
