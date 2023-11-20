@@ -9,8 +9,7 @@
         margin-right: $resource-library-article-video-offset-right;
         flex-shrink: $resource-library-article-video-flex-shrink;
         flex-grow: $resource-library-article-video-flex-grow;
-
-        @include aspect-ratio($width: 16, $height: 9);
+        aspect-ratio: 16 / 9;
     }
 
     &__embed {

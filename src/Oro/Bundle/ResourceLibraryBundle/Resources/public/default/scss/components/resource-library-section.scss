@@ -14,7 +14,7 @@
         flex-shrink: $resource-library-section-video-flex-shrink;
         flex-grow: $resource-library-section-video-flex-grow;
 
-        @include aspect-ratio($width: 16, $height: 9);
+        aspect-ratio: 16 / 9;
     }
 
     &__description {
