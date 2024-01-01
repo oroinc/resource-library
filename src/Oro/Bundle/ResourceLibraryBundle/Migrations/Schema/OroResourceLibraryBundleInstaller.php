@@ -15,9 +15,6 @@ use Oro\Bundle\EntityExtendBundle\Migration\OroOptions;
 use Oro\Bundle\MigrationBundle\Migration\Installation;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
 
-/**
- * Creates appropriate tables
- */
 class OroResourceLibraryBundleInstaller implements
     Installation,
     ExtendExtensionAwareInterface,
@@ -26,10 +23,8 @@ class OroResourceLibraryBundleInstaller implements
     use ExtendExtensionAwareTrait;
     use AttachmentExtensionAwareTrait;
 
-    private const MAX_FILE_SIZE = 10; //MB
-
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getMigrationVersion(): string
     {
@@ -37,7 +32,7 @@ class OroResourceLibraryBundleInstaller implements
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function up(Schema $schema, QueryBag $queries): void
     {
@@ -120,7 +115,7 @@ class OroResourceLibraryBundleInstaller implements
         );
     }
 
-    private function addLiteratureExtension(Schema $schema)
+    private function addLiteratureExtension(Schema $schema): void
     {
         $table = $schema->getTable('oro_web_catalog_variant');
         $table->addColumn(
@@ -208,7 +203,7 @@ class OroResourceLibraryBundleInstaller implements
                     'on_delete' => 'SET NULL',
                 ],
             ],
-            self::MAX_FILE_SIZE
+            10
         );
     }
 
@@ -228,7 +223,7 @@ class OroResourceLibraryBundleInstaller implements
                     'on_delete' => 'SET NULL',
                 ],
             ],
-            self::MAX_FILE_SIZE
+            10
         );
     }
 
@@ -239,8 +234,8 @@ class OroResourceLibraryBundleInstaller implements
         $table->addColumn('short_description', 'text', ['notnull' => true]);
         $table->addColumn('description', 'text', ['notnull' => true]);
         $table->addColumn('link', 'string', ['length' => 255, 'notnull' => true]);
-        $table->addColumn('created_at', 'datetime', []);
-        $table->addColumn('updated_at', 'datetime', []);
+        $table->addColumn('created_at', 'datetime');
+        $table->addColumn('updated_at', 'datetime');
         $table->addColumn('organization_id', 'integer', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
 
@@ -258,8 +253,8 @@ class OroResourceLibraryBundleInstaller implements
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
         $table->addColumn('description', 'text', ['notnull' => true]);
         $table->addColumn('link', 'string', ['length' => 255, 'notnull' => true]);
-        $table->addColumn('created_at', 'datetime', []);
-        $table->addColumn('updated_at', 'datetime', []);
+        $table->addColumn('created_at', 'datetime');
+        $table->addColumn('updated_at', 'datetime');
         $table->addColumn('organization_id', 'integer', ['notnull' => false]);
         $table->setPrimaryKey(['id']);
 
@@ -284,7 +279,7 @@ class OroResourceLibraryBundleInstaller implements
                     'on_delete' => 'SET NULL',
                 ],
             ],
-            self::MAX_FILE_SIZE
+            10
         );
 
         $this->attachmentExtension->addFileRelation(
@@ -300,7 +295,7 @@ class OroResourceLibraryBundleInstaller implements
                     'on_delete' => 'SET NULL',
                 ],
             ],
-            self::MAX_FILE_SIZE
+            10
         );
 
         $this->attachmentExtension->addFileRelation(
@@ -316,7 +311,7 @@ class OroResourceLibraryBundleInstaller implements
                     'on_delete' => 'SET NULL',
                 ],
             ],
-            self::MAX_FILE_SIZE
+            10
         );
     }
 
