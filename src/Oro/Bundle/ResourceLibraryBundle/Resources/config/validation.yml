@@ -9,7 +9,6 @@ Oro\Bundle\ResourceLibraryBundle\Entity\Video:
             - Length:
                 min: 1
                 max: 255
-                allowEmptyString: false
             - Url: ~
             - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
                 message: oro.resourcelibrary.video.url.not_dangerous_protocol.message
@@ -25,7 +24,6 @@ Oro\Bundle\ResourceLibraryBundle\Entity\MediaKit:
             - Length:
                 min: 1
                 max: 255
-                allowEmptyString: false
             - Url: ~
             - Oro\Bundle\SecurityBundle\Validator\Constraints\NotDangerousProtocol:
                   message: oro.resourcelibrary.mediakit.url.not_dangerous_protocol.message

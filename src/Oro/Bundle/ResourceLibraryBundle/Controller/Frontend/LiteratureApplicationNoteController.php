@@ -25,7 +25,7 @@ class LiteratureApplicationNoteController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        return $this->get(LiteratureNoteContentProvider::class)->getContent($contentVariant);
+        return $this->container->get(LiteratureNoteContentProvider::class)->getContent($contentVariant);
     }
 
     /**
