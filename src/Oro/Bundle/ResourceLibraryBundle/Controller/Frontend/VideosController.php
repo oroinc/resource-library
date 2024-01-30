@@ -31,12 +31,12 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->findOrCreate('web_content');
+        $scope = $this->container->get(ScopeManager::class)->findOrCreate('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
 
-        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||
@@ -89,12 +89,12 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->find('web_content');
+        $scope = $this->container->get(ScopeManager::class)->find('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
 
-        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||
@@ -121,12 +121,12 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->find('web_content');
+        $scope = $this->container->get(ScopeManager::class)->find('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
 
-        $itemContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $itemContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$itemContentNode ||
@@ -135,7 +135,7 @@ class VideosController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $parentContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $parentContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode()->getParentNode(), $scope);
 
         $this->sortChildNodesByVideoDate($parentContentNode);

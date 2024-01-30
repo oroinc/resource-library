@@ -26,12 +26,12 @@ class MediaKitController extends AbstractController
             throw $this->createNotFoundException();
         }
 
-        $scope = $this->get(ScopeManager::class)->findMostSuitable('web_content');
+        $scope = $this->container->get(ScopeManager::class)->findMostSuitable('web_content');
         if (!$scope instanceof Scope) {
             throw $this->createNotFoundException();
         }
 
-        $resolvedContentNode = $this->get(ContentNodeTreeResolverInterface::class)
+        $resolvedContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
         if (!$resolvedContentNode ||

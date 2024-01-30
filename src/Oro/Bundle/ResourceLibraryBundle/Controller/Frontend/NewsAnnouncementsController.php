@@ -32,7 +32,7 @@ class NewsAnnouncementsController extends AbstractController
                 'contentVariant' => $contentVariant,
                 'today' => $this->getArticleRepository()->findTodayArticles(
                     $contentVariant,
-                    $this->get(ScopeManager::class)->getCriteria('web_content')
+                    $this->container->get(ScopeManager::class)->getCriteria('web_content')
                 ),
             ],
         ];
@@ -56,7 +56,7 @@ class NewsAnnouncementsController extends AbstractController
                 'contentVariant' => $contentVariant,
                 'alsoInteresting' => $this->getArticleRepository()->findAlsoInterestingArticles(
                     $contentVariant,
-                    $this->get(ScopeManager::class)->getCriteria('web_content')
+                    $this->container->get(ScopeManager::class)->getCriteria('web_content')
                 ),
             ],
         ];
@@ -64,7 +64,7 @@ class NewsAnnouncementsController extends AbstractController
 
     private function getArticleRepository(): NewsAnnouncementsArticleRepository
     {
-        return $this->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);
+        return $this->container->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);
     }
 
     /**

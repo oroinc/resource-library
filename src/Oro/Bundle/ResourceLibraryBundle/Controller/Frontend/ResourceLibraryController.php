@@ -34,7 +34,7 @@ class ResourceLibraryController extends AbstractController
             if ($node->getResolvedContentVariant()->getType() === NewsAnnouncementsContentVariantType::TYPE) {
                 $latestNews = $this->getArticleRepository()->findLatest(
                     $node->getId(),
-                    $this->get(ScopeManager::class)->getCriteria('web_content')
+                    $this->container->get(ScopeManager::class)->getCriteria('web_content')
                 );
 
                 break;
@@ -52,6 +52,6 @@ class ResourceLibraryController extends AbstractController
 
     private function getArticleRepository(): NewsAnnouncementsArticleRepository
     {
-        return $this->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);
+        return $this->container->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);
     }
 }
