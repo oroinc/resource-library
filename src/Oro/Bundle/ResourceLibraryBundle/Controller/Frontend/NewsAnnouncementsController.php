@@ -2,6 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Oro\Bundle\LayoutBundle\Annotation\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType;
@@ -74,6 +75,7 @@ class NewsAnnouncementsController extends AbstractController
     {
         return array_merge(parent::getSubscribedServices(), [
             ScopeManager::class,
+            'doctrine' => ManagerRegistry::class,
         ]);
     }
 }
