@@ -4,7 +4,7 @@ namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Persistence\ManagerRegistry;
-use Oro\Bundle\LayoutBundle\Annotation\Layout;
+use Oro\Bundle\LayoutBundle\Attribute\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\ResourceLibraryContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle;
@@ -23,10 +23,8 @@ class ResourceLibraryController extends AbstractController
 {
     use ContentNodeAwareControllerTrait;
 
-    /**
-     * @Route("/", name="oro_resource_library_index", requirements={"id"="\d+"})
-     * @Layout()
-     */
+    #[Route(path: '/', name: 'oro_resource_library_index', requirements: ['id' => '\d+'])]
+    #[Layout]
     public function listAction(ContentVariant $contentVariant = null): array
     {
         $resolvedContentNode = $this->resolveTree($contentVariant, ResourceLibraryContentVariantType::TYPE);
