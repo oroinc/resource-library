@@ -1,0 +1,18 @@
+"Default Web Catalog":
+    setReference: "web_catalog_node"
+    defaultTitle: "Default Web Catalog"
+    defaultSlugPrototype: ""
+    contentVariants:
+        -
+            type: system_page
+            params:
+                route: "oro_frontend_root"
+            isDefault: true
+    parentScopeUsed: false
+    scopes:
+        -
+            localization: null
+            website: null
+            webCatalog: "Default Web Catalog"
+            customer: null
+            customerGroup: null

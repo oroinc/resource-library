@@ -1,0 +1,10 @@
+'Safety Specifications':
+    defaultTitle: 'Safety Specifications'
+    defaultSlugPrototype: safety-specifications
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: safety_specification_page
+            params:
+                description: 'A collection of downloadable PDF documents, organized by topic'
+            isDefault: true

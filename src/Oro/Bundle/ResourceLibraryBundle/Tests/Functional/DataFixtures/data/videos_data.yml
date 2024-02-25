@@ -1,0 +1,33 @@
+'Video List':
+    defaultTitle: Video List
+    defaultSlugPrototype: video-list
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: video_list
+            params:
+                description: 'A collection of videos, organized by topic'
+            isDefault: true
+    children:
+        'How-To OroCommerce Video Tutorials':
+            defaultTitle: 'How-To OroCommerce Video Tutorials'
+            defaultSlugPrototype: 'tutorials'
+            contentVariants:
+                -
+                    type: video_list_section
+                    params: []
+                    isDefault: true
+            parentScopeUsed: true
+            children:
+                'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce':
+                    defaultTitle: 'Shipping Tutorial Part 1: How to Create Shipping Integrations in OroCommerce'
+                    defaultSlugPrototype: 'shipping-tutorial-part-1'
+                    parentScopeUsed: true
+                    contentVariants:
+                        -
+                            type: video_list_section_item
+                            params:
+                                shortDescription: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
+                                description: 'To offer customers different shipping methods, vendors can integrate UPS, DPD, and Flat Rate shipping functionalities in their OroCommerce stores. Once a buyer provides their address when submitting an order or a quote in the front end, this data is matched against shipping rules to display only shipping methods available for a given location. This video shows how to create shipping method integrations for buyers with different address details. Watch more training videos at <a href="https://www.orocommerce.com/media-library">https://www.orocommerce.com/media-library</a>.'
+                                link: 'https://oro_resource_library_videos_test_url'
+                            isDefault: true
