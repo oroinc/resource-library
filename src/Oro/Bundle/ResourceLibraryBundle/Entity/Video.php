@@ -2,70 +2,49 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
-use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\Config;
 use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 
 /**
  * Contains video information.
- *
- * @ORM\Table(name="oro_rl_video")
- * @ORM\Entity
- * @Config(
- *      routeName="oro_resource_library_videos_index",
- *      defaultValues={
- *          "entity"={
- *              "icon"="fa-blog"
- *          },
- *          "ownership"={
- *              "owner_type"="ORGANIZATION",
- *              "owner_field_name"="organization",
- *              "owner_column_name"="organization_id"
- *          },
- *          "security"={
- *              "type"="ACL",
- *              "group_name"=""
- *          }
- *      }
- * )
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'oro_rl_video')]
+#[Config(
+    routeName: 'oro_resource_library_videos_index',
+    defaultValues: [
+        'entity' => ['icon' => 'fa-blog'],
+        'ownership' => [
+            'owner_type' => 'ORGANIZATION',
+            'owner_field_name' => 'organization',
+            'owner_column_name' => 'organization_id'
+        ],
+        'security' => ['type' => 'ACL', 'group_name' => '']
+    ]
+)]
 class Video implements DatesAwareInterface, OrganizationAwareInterface
 {
     use DatesAwareTrait;
     use OrganizationAwareTrait;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
+    #[ORM\Column(name: 'id', type: Types::INTEGER)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    protected ?int $id = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="short_description", type="text", nullable=false)
-     */
-    protected $shortDescription;
+    #[ORM\Column(name: 'short_description', type: Types::TEXT, nullable: false)]
+    protected ?string $shortDescription = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="text", nullable=false)
-     */
-    protected $description;
+    #[ORM\Column(type: Types::TEXT, nullable: false)]
+    protected ?string $description = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, nullable=false)
-     */
-    protected $link;
+    #[ORM\Column(type: Types::STRING, length: 255, nullable: false)]
+    protected ?string $link = null;
 
     public function getId(): ?int
     {

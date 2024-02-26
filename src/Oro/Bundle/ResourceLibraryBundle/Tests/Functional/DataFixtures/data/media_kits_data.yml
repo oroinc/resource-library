@@ -1,0 +1,50 @@
+'Media Kits':
+    defaultTitle: 'Media Kits'
+    defaultSlugPrototype: media-kits
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: media_kit_list
+            params:
+                description: 'A page with a few links to downloadable archives'
+            isDefault: true
+    children:
+        'OroCommerce':
+            defaultTitle: 'OroCommerce'
+            defaultSlugPrototype: orocommerce
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: media_kit_list_item
+                    params:
+                        bannerTitle: 'OroCommerce'
+                        banner: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/media_kits_banners/orocommerce.png'
+                        description: 'OroCommerce, a pioneering eCommerce platform made for B2B businesses, redefines the benchmarks for best-in-class customer experience. By providing a diverse range of B2B features and capabilities, such as personalization, localization, intelligent marketing tools, powerful reporting, and ground breaking segmentation, OroCommerce is the only true B2B eCommerce platform made for manufacturers, distributors, wholesalers, retailers, and brands.'
+                        link: 'https://oroinc.com/b2b-ecommerce/'
+                    isDefault: true
+        'OroCRM':
+            defaultTitle: 'OroCRM'
+            defaultSlugPrototype: orocommerce-1
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: media_kit_list_item
+                    params:
+                        bannerTitle: 'OroCRM'
+                        banner: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/media_kits_banners/orocrm.png'
+                        description: 'OroCRM has rapidly established itself as a disruptive force in the CRM market. The platform’s open-source nature gives multi-channel businesses the flexibility to tailor our product to their specific business requirements. This helps companies get a true 360-degree view of the customer. OroCRM offers robust customer management tools, detailed analytics and a broad spectrum of third party software integrations for all types of businesses, from retail conglomerates to marketing and customer service organizations.'
+                        link: 'https://oroinc.com/orocrm/'
+                    isDefault: true
+        'OroPlatform':
+            defaultTitle: 'OroPlatform'
+            defaultSlugPrototype: orocommerce-2
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: media_kit_list_item
+                    params:
+                        bannerTitle: 'OroPlatform'
+                        banner: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/media_kits_banners/oroplatform.png'
+                        description: 'OroPlatform is an open-source rapid application development platform (RAD) built using PHP - the popular Symfony framework. OroPlatform gives developers and businesses a jump-start for building responsive web applications that solve specific business problems.'
+                        link: 'https://oroinc.com/oroplatform/'
+                    isDefault: true

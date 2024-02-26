@@ -2,6 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
 use Oro\Bundle\WebCatalogBundle\Cache\ResolvedData\ResolvedContentNode;
 use Oro\Bundle\WebCatalogBundle\ContentNodeUtils\ContentNodeTreeResolverInterface;
@@ -20,6 +21,7 @@ trait ContentNodeAwareControllerTrait
         return \array_merge(parent::getSubscribedServices(), [
             ContentNodeTreeResolverInterface::class,
             ScopeManager::class,
+            'doctrine' => ManagerRegistry::class,
         ]);
     }
 

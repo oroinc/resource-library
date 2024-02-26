@@ -2,7 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
-use Oro\Bundle\LayoutBundle\Annotation\Layout;
+use Oro\Bundle\LayoutBundle\Attribute\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNoteContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
@@ -14,10 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class LiteratureApplicationNoteController extends AbstractController
 {
-    /**
-     * @Route("/", name="oro_resource_library_literature_application_note_index", requirements={"id"="\d+"})
-     * @Layout()
-     */
+    #[Route(path: '/', name: 'oro_resource_library_literature_application_note_index', requirements: ['id' => '\d+'])]
+    #[Layout]
     public function indexAction(ContentVariant $contentVariant = null): array
     {
         // If ContentVariant has no appropriate literature type we consider it is not valid

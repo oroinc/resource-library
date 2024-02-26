@@ -1,0 +1,30 @@
+'Literature & Application Notes':
+    defaultTitle: 'Literature & Application Notes'
+    defaultSlugPrototype: literature-application-notes
+    parentScopeUsed: true
+    contentVariants:
+        -
+            type: literature_application_note
+            params:
+                description: 'A collection of downloadable PDF documents organized by topic'
+            isDefault: true
+    children:
+        'English':
+            defaultTitle: 'English'
+            defaultSlugPrototype: english
+            parentScopeUsed: true
+            contentVariants:
+                -
+                    type: literature_application_note_file_collection
+                    params:
+                        files:
+                            -
+                                file: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/dummy.pdf'
+                                title: '220 Lumen Rechargeable Headlamp'
+                            -
+                                file: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/dummy.pdf'
+                                title: 'Credit Card Pin Pad Reader'
+                            -
+                                file: '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/dummy.pdf'
+                                title: 'Women’s Slip-On Clog'
+                    isDefault: true

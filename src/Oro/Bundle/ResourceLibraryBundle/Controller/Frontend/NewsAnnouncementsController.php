@@ -3,7 +3,7 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
 use Doctrine\Persistence\ManagerRegistry;
-use Oro\Bundle\LayoutBundle\Annotation\Layout;
+use Oro\Bundle\LayoutBundle\Attribute\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle;
@@ -18,10 +18,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class NewsAnnouncementsController extends AbstractController
 {
-    /**
-     * @Route("/", name="oro_resource_library_news_announcements_index", requirements={"id"="\d+"})
-     * @Layout()
-     */
+    #[Route(path: '/', name: 'oro_resource_library_news_announcements_index', requirements: ['id' => '\d+'])]
+    #[Layout]
     public function indexAction(ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant || $contentVariant->getType() !== NewsAnnouncementsContentVariantType::TYPE) {
@@ -39,10 +37,12 @@ class NewsAnnouncementsController extends AbstractController
         ];
     }
 
-    /**
-     * @Route("/article/{id}", name="oro_resource_library_news_announcements_article", requirements={"id"="\d+"})
-     * @Layout()
-     */
+    #[Route(
+        path: '/article/{id}',
+        name: 'oro_resource_library_news_announcements_article',
+        requirements: ['id' => '\d+']
+    )]
+    #[Layout]
     public function articleAction(ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant

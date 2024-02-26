@@ -2,7 +2,7 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Controller\Frontend;
 
-use Oro\Bundle\LayoutBundle\Annotation\Layout;
+use Oro\Bundle\LayoutBundle\Attribute\Layout;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\MediaKitListContentVariantType;
 use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\ScopeBundle\Manager\ScopeManager;
@@ -16,10 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MediaKitController extends AbstractController
 {
-    /**
-     * @Route("/", name="oro_resource_library_media_kit_list", requirements={"id"="\d+"})
-     * @Layout()
-     */
+    #[Route(path: '/', name: 'oro_resource_library_media_kit_list', requirements: ['id' => '\d+'])]
+    #[Layout]
     public function listAction(ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant) {
