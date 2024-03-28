@@ -9,6 +9,7 @@
         margin-right: $resource-library-article-video-offset-right;
         flex-shrink: $resource-library-article-video-flex-shrink;
         flex-grow: $resource-library-article-video-flex-grow;
+        position: $resource-library-article-video-position;
         aspect-ratio: 16 / 9;
     }
 
