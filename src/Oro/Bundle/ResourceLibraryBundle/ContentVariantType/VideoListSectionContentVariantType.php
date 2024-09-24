@@ -14,57 +14,43 @@ class VideoListSectionContentVariantType implements ContentVariantTypeInterface
 {
     public const TYPE = 'video_list_section';
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getName(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getTitle(): string
     {
         return 'oro.resourcelibrary.video.content_variant_type.list_section.label';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getFormType(): string
     {
         return VideoListSectionType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function isAllowed(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getRouteData(ContentVariantInterface $contentVariant)
     {
         return new RouteData('oro_resource_library_videos_section', ['id' => $contentVariant->getId()]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceClassName(): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';

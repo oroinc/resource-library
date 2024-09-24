@@ -26,9 +26,7 @@ class LiteratureApplicationNoteController extends AbstractController
         return $this->container->get(LiteratureNoteContentProvider::class)->getContent($contentVariant);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [

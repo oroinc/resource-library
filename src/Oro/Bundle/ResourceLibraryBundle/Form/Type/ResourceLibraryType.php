@@ -14,9 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class ResourceLibraryType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
@@ -29,17 +27,13 @@ class ResourceLibraryType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): ?string
     {
         return PageVariantType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['content_variant_type' => ResourceLibraryContentVariantType::TYPE]);

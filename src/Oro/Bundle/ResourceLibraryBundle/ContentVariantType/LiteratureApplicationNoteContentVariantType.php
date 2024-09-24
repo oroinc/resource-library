@@ -14,41 +14,31 @@ class LiteratureApplicationNoteContentVariantType implements ContentVariantTypeI
 {
     public const TYPE = 'literature_application_note';
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getName(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getTitle(): string
     {
         return 'oro.resourcelibrary.literature_application_note.content_variant_type.label';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getFormType(): string
     {
         return LiteratureApplicationNoteType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function isAllowed(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getRouteData(ContentVariantInterface $contentVariant): RouteData
     {
         return new RouteData(
@@ -57,17 +47,13 @@ class LiteratureApplicationNoteContentVariantType implements ContentVariantTypeI
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceClassName(): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';

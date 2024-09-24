@@ -14,57 +14,43 @@ class SafetySpecificationSectionContentVariantType implements ContentVariantType
 {
     public const TYPE = 'safety_specification_section';
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getName(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getTitle(): string
     {
         return 'oro.resourcelibrary.safety_specification.content_variant_type_section.label';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getFormType(): string
     {
         return SafetySpecificationSectionType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function isAllowed(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getRouteData(ContentVariantInterface $contentVariant): RouteData
     {
         return new RouteData('oro_resource_library_safety_specification_index');
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceClassName(): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';

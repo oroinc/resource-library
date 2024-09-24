@@ -15,65 +15,49 @@ class MediaKitListItemContentVariantType implements ContentVariantTypeInterface,
 {
     public const TYPE = 'media_kit_list_item';
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getName(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getTitle(): string
     {
         return 'oro.resourcelibrary.mediakit.content_variant_type.list_item.label';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getFormType(): string
     {
         return MediaKitListItemType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function isAllowed(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getRouteData(ContentVariantInterface $contentVariant)
     {
         return new RouteData('oro_resource_library_media_kit_list');
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceClassName(): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getAttachedEntity(ContentVariantInterface $contentVariant)
     {
         return $contentVariant->getMediaKit();

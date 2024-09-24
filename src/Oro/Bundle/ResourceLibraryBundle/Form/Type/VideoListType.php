@@ -14,9 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class VideoListType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
@@ -29,17 +27,13 @@ class VideoListType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['content_variant_type' => VideoListContentVariantType::TYPE]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): ?string
     {
         return PageVariantType::class;

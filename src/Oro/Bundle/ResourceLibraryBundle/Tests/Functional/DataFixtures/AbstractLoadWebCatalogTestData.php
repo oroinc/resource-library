@@ -30,6 +30,7 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
 {
     protected ContainerInterface $container;
 
+    #[\Override]
     public function setContainer(ContainerInterface $container = null): void
     {
         $this->container = $container;

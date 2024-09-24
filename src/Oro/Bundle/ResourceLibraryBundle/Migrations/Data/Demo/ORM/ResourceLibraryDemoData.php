@@ -19,9 +19,7 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
 {
     use UserUtilityTrait;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -29,9 +27,7 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function load(ObjectManager $manager)
     {
         $webCatalog = $this->getWebCatalog($manager);
@@ -74,9 +70,7 @@ class ResourceLibraryDemoData extends AbstractLoadWebCatalogDemoData implements 
             ->findOneBy(['parentNode' => null, 'webCatalog' => $webCatalog]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     protected function getContentVariant($type, array $params)
     {
         $variant = new ContentVariant();

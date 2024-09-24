@@ -12,17 +12,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class SafetySpecificationSectionType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): ?string
     {
         return PageVariantType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

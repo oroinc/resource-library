@@ -19,9 +19,7 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
 {
     use UserUtilityTrait;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -29,9 +27,7 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function load(ObjectManager $manager)
     {
         $webCatalog = $this->getWebCatalog($manager);
@@ -60,9 +56,7 @@ class LoadVideosDemoData extends AbstractLoadWebCatalogDemoData implements Depen
             ->findOneBy(['name' => self::DEFAULT_WEB_CATALOG_NAME]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     protected function getContentVariant($type, array $params)
     {
         $variant = new ContentVariant();

@@ -28,9 +28,7 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
     /** @var \DirectoryIterator */
     private $images;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -38,9 +36,7 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
@@ -72,9 +68,7 @@ class LoadNewsAnnouncementsDemoData extends AbstractLoadWebCatalogDemoData imple
             ->findOneBy(['name' => self::DEFAULT_WEB_CATALOG_NAME]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     protected function getContentVariant($type, array $params)
     {
         $variant = new ContentVariant();

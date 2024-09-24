@@ -17,65 +17,49 @@ class NewsAnnouncementsArticleContentVariantType implements
 {
     public const TYPE = 'oro_news_announcements_article';
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getName(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getTitle(): string
     {
         return 'oro.resourcelibrary.newsannouncementsarticle.content_variant_type.label';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getFormType(): string
     {
         return NewsAnnouncementsArticleVariantType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function isAllowed(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getRouteData(ContentVariantInterface $contentVariant): RouteData
     {
         return new RouteData('oro_resource_library_news_announcements_article', ['id' => $contentVariant->getId()]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceClassName(): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getApiResourceIdentifierDqlExpression($alias): string
     {
         return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getAttachedEntity(ContentVariantInterface $contentVariant)
     {
         return $contentVariant->getNewsAnnouncementsArticle();

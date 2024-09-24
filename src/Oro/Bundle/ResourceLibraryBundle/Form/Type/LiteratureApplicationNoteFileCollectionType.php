@@ -14,9 +14,7 @@ use Symfony\Component\Validator\Constraints\Count;
  */
 class LiteratureApplicationNoteFileCollectionType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
@@ -31,9 +29,7 @@ class LiteratureApplicationNoteFileCollectionType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -41,9 +37,7 @@ class LiteratureApplicationNoteFileCollectionType extends AbstractType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): string
     {
         return PageVariantType::class;

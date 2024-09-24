@@ -13,9 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class LiteratureApplicationNoteFileType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
@@ -30,9 +28,7 @@ class LiteratureApplicationNoteFileType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(['data_class' => LiteratureApplicationNoteFile::class]);

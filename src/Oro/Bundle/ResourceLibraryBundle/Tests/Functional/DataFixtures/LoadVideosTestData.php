@@ -11,6 +11,7 @@ use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 
 class LoadVideosTestData extends AbstractLoadWebCatalogTestData implements DependentFixtureInterface
 {
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -18,6 +19,7 @@ class LoadVideosTestData extends AbstractLoadWebCatalogTestData implements Depen
         ];
     }
 
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         $webCatalog = $this->getReference(LoadWebCatalogTestData::WEB_CATALOG_REFERENCE_NAME);
@@ -34,6 +36,7 @@ class LoadVideosTestData extends AbstractLoadWebCatalogTestData implements Depen
         $this->generateCache($webCatalog);
     }
 
+    #[\Override]
     protected function getContentVariant($type, array $params): ContentVariant
     {
         $variant = new ContentVariant();

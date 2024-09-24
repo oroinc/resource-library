@@ -15,6 +15,7 @@ class LoadLiteratureApplicationNoteTestData extends AbstractLoadWebCatalogTestDa
 
     private ObjectManager $manager;
 
+    #[\Override]
     public function getDependencies(): array
     {
         return [
@@ -22,6 +23,7 @@ class LoadLiteratureApplicationNoteTestData extends AbstractLoadWebCatalogTestDa
         ];
     }
 
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
@@ -40,6 +42,7 @@ class LoadLiteratureApplicationNoteTestData extends AbstractLoadWebCatalogTestDa
         $this->generateCache($webCatalog);
     }
 
+    #[\Override]
     protected function getContentVariant($type, array $params): ContentVariant
     {
         $variant = new ContentVariant();

@@ -68,9 +68,7 @@ class NewsAnnouncementsController extends AbstractController
         return $this->container->get('doctrine')->getRepository(NewsAnnouncementsArticle::class);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [

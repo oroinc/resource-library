@@ -15,6 +15,7 @@ class LoadMediaKitTestData extends AbstractLoadWebCatalogTestData implements Dep
 
     private ObjectManager $manager;
 
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -22,6 +23,7 @@ class LoadMediaKitTestData extends AbstractLoadWebCatalogTestData implements Dep
         ];
     }
 
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
@@ -39,6 +41,7 @@ class LoadMediaKitTestData extends AbstractLoadWebCatalogTestData implements Dep
         $this->generateCache($webCatalog);
     }
 
+    #[\Override]
     protected function getContentVariant($type, array $params): ContentVariant
     {
         $variant = new ContentVariant();

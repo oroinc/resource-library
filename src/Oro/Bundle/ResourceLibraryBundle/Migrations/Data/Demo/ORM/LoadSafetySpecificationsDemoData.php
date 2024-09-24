@@ -20,9 +20,7 @@ class LoadSafetySpecificationsDemoData extends AbstractLoadWebCatalogDemoData im
     /** @var ObjectManager */
     private $manager;
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getDependencies()
     {
         return [
@@ -30,9 +28,7 @@ class LoadSafetySpecificationsDemoData extends AbstractLoadWebCatalogDemoData im
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
@@ -62,9 +58,7 @@ class LoadSafetySpecificationsDemoData extends AbstractLoadWebCatalogDemoData im
             ->findOneBy(['name' => self::DEFAULT_WEB_CATALOG_NAME]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     protected function getContentVariant($type, array $params)
     {
         $variant = new ContentVariant();

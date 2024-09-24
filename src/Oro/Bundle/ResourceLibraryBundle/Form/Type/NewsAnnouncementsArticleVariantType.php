@@ -14,9 +14,7 @@ use Symfony\Component\Validator\Constraints\Valid;
  */
 class NewsAnnouncementsArticleVariantType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
@@ -28,9 +26,7 @@ class NewsAnnouncementsArticleVariantType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -38,17 +34,13 @@ class NewsAnnouncementsArticleVariantType extends AbstractType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): string
     {
         return PageVariantType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getBlockPrefix(): string
     {
         return 'oro_news_announcements_article';

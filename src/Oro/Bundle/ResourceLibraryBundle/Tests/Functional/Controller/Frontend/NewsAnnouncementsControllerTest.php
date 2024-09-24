@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class NewsAnnouncementsControllerTest extends WebTestCase
 {
+    #[\Override]
     protected function setUp(): void
     {
         $this->initClient();

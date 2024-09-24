@@ -10,9 +10,7 @@ use Symfony\Component\Form\AbstractType;
  */
 class LiteratureApplicationNoteFilesType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): string
     {
         return CollectionType::class;

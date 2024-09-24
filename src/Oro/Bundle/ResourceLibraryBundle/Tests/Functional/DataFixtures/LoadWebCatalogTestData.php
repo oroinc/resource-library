@@ -11,6 +11,7 @@ class LoadWebCatalogTestData extends AbstractLoadWebCatalogTestData
     public const WEB_CATALOG_REFERENCE_NAME = 'web_catalog';
     public const WEB_CATALOG_NODE_REFERENCE_NAME = 'web_catalog_node';
 
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         $webCatalog = $this->createCatalog($manager);

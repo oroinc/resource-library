@@ -16,9 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class MediaKitType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
@@ -64,9 +62,7 @@ class MediaKitType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['data_class' => MediaKit::class]);

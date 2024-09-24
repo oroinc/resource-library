@@ -22,6 +22,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
     private ObjectManager $manager;
     private DirectoryIterator $images;
 
+    #[\Override]
     public function getDependencies(): array
     {
         return [
@@ -29,6 +30,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
         ];
     }
 
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
@@ -47,6 +49,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
         $this->generateCache($webCatalog);
     }
 
+    #[\Override]
     protected function getContentVariant($type, array $params): ContentVariant
     {
         $variant = new ContentVariant();

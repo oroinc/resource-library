@@ -14,9 +14,7 @@ use Symfony\Component\Validator\Constraints\Valid;
  */
 class VideoListSectionItemType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
@@ -30,17 +28,13 @@ class VideoListSectionItemType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['content_variant_type' => VideoListSectionItemContentVariantType::TYPE]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function getParent(): ?string
     {
         return PageVariantType::class;
