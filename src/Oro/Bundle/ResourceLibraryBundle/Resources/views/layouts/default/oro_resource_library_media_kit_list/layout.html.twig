@@ -122,6 +122,7 @@
 {% endblock %}
 
 {% block _media_kit_list_item_media_kit_file_widget %}
+    {% import '@OroUI/layouts/renderIcon.html.twig' as renderIcon %}
     {% set attr = layout_attr_defaults(attr, {
         '~class': ' btn btn--outlined resource-library-kits__btn'
     }) %}
@@ -135,13 +136,14 @@
             )
         }) %}
         <a {{ block('block_attributes') }}>
-            <span class="fa-download" aria-hidden="true"></span>
+            {{ renderIcon.icon({name: 'download'}) }}
             {{ 'oro.resourcelibrary.mediakit.download_media_kit.label'|trans }}
         </a>
     {% endif %}
 {% endblock %}
 
 {% block _media_kit_list_item_logo_package_file_widget %}
+    {% import '@OroUI/layouts/renderIcon.html.twig' as renderIcon %}
     {% set attr = layout_attr_defaults(attr, {
         '~class': ' btn btn--outlined resource-library-kits__btn'
     }) %}
@@ -155,7 +157,7 @@
             )
         }) %}
         <a {{ block('block_attributes') }}>
-            <span class="fa-download" aria-hidden="true"></span>
+            {{ renderIcon.icon({name: 'download'}) }}
             {{ 'oro.resourcelibrary.mediakit.download_logo_package.label'|trans }}
         </a>
     {% endif %}

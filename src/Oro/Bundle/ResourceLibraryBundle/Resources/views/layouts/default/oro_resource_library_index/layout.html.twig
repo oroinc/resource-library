@@ -35,6 +35,7 @@
 {% endblock %}
 
 {% block content_variant_typed_child_widget %}
+    {% import '@OroUI/layouts/renderIcon.html.twig' as renderIcon %}
     {% set rendered = false %}
     {% for contentNode in items %}
         {% if not rendered and contentNode.resolvedContentVariant.type == requiredType %}
@@ -45,7 +46,7 @@
         <div {{ block('block_attributes') }}>
             <div class="featured-menu-content resource-library__menu-content">
                 <div class="featured-menu-content__img-wrap">
-                    <span class="{{ icon }} featured-menu-content__icon"></span>
+                    {{ renderIcon.icon({name: icon, extraClass: 'featured-menu-content__icon'}) }}
                 </div>
                 <h4 class="featured-menu-content__title">{{- contentNode.titles|localized_value|e -}}</h4>
                 <div class="featured-menu-content__description line-clamp">

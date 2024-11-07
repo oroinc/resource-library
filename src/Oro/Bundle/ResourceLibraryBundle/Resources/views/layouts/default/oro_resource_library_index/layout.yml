@@ -71,7 +71,7 @@ layout:
                         items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\LiteratureApplicationNoteContentVariantType::TYPE")'
                         vars:
-                            icon: 'fa-book'
+                            icon: 'book-open'
 
                 resource_library_page_category_news_and_announcements:
                     blockType: content_variant_typed_child
@@ -79,7 +79,7 @@ layout:
                         items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\NewsAnnouncementsContentVariantType::TYPE")'
                         vars:
-                            icon: 'fa-list-alt'
+                            icon: 'grid'
 
                 resource_library_page_category_videos:
                     blockType: content_variant_typed_child
@@ -87,7 +87,7 @@ layout:
                         items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\VideoListContentVariantType::TYPE")'
                         vars:
-                            icon: 'fa-play-circle'
+                            icon: 'play-circle'
 
                 resource_library_page_category_safety_specifications:
                     blockType: content_variant_typed_child
@@ -95,7 +95,7 @@ layout:
                         items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\SafetySpecificationPageContentVariantType::TYPE")'
                         vars:
-                            icon: 'fa-file-text-o'
+                            icon: 'file-text'
 
                 resource_library_page_category_media_kits:
                     blockType: content_variant_typed_child
@@ -103,7 +103,7 @@ layout:
                         items: '=data["resolvedContentNode"].getChildNodes()'
                         requiredType: '=constant("Oro\\Bundle\\ResourceLibraryBundle\\ContentVariantType\\MediaKitListContentVariantType::TYPE")'
                         vars:
-                            icon: 'fa-archive'
+                            icon: 'archive'
 
                 resource_library_page_news_and_announcements_container:
                     blockType: container

@@ -56,14 +56,6 @@
         }
     }
 
-    &__goto {
-        @include fa-icon(var(--fa-var-angle-right), after, true, true) {
-            margin-left: $resource-library-article-goto-offset-left;
-            display: $resource-library-article-goto-display;
-            vertical-align: $resource-library-article-goto-vertical-align;
-        }
-    }
-
     &__image {
         float: $resource-library-article-image-float;
         margin: $resource-library-article-image-offset;
