@@ -3,7 +3,6 @@
 namespace Oro\Bundle\ResourceLibraryBundle\Tests\Functional\DataFixtures;
 
 use Doctrine\Persistence\ObjectManager;
-use LogicException;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\DigitalAssetBundle\Entity\DigitalAsset;
 use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
@@ -22,16 +21,19 @@ trait LoadTestFileTrait
             return $this->container->get('file_locator');
         }
 
-        throw new LogicException(sprintf('For use %s declare method %s', self::class, __METHOD__));
+        throw new \LogicException(sprintf('For use %s declare method %s', self::class, __METHOD__));
     }
 
-    private function createFileFile(ObjectManager $manager, string $pathname, string $title, bool $useDam = true): File
-    {
-        $user = $this->getFirstUser($manager);
-
+    private function createFileFile(
+        ObjectManager $manager,
+        User $owner,
+        string $pathname,
+        string $title,
+        bool $useDam = true
+    ): File {
         $fileManager = $this->container->get('oro_attachment.file_manager');
         $file = $fileManager->createFileEntity($pathname);
-        $file->setOwner($user);
+        $file->setOwner($owner);
         $manager->persist($file);
 
         if ($useDam) {
@@ -42,8 +44,8 @@ trait LoadTestFileTrait
             $digitalAsset = new DigitalAsset();
             $digitalAsset->addTitle($localizedFallbackValue)
                 ->setSourceFile($file)
-                ->setOwner($user)
-                ->setOrganization($user->getOrganization());
+                ->setOwner($owner)
+                ->setOrganization($owner->getOrganization());
             $manager->persist($digitalAsset);
             $manager->persist($file);
 
@@ -53,6 +55,4 @@ trait LoadTestFileTrait
 
         return $file;
     }
-
-    abstract protected function getFirstUser(ObjectManager $manager): User;
 }

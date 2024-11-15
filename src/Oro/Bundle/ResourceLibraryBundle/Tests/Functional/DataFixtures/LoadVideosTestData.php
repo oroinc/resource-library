@@ -15,7 +15,7 @@ class LoadVideosTestData extends AbstractLoadWebCatalogTestData implements Depen
     public function getDependencies()
     {
         return [
-            LoadResourceLibraryTestData::class,
+            LoadResourceLibraryTestData::class
         ];
     }
 
@@ -37,7 +37,7 @@ class LoadVideosTestData extends AbstractLoadWebCatalogTestData implements Depen
     }
 
     #[\Override]
-    protected function getContentVariant($type, array $params): ContentVariant
+    protected function getContentVariant(ObjectManager $manager, string $type, array $params): ContentVariant
     {
         $variant = new ContentVariant();
         $variant->setType($type);

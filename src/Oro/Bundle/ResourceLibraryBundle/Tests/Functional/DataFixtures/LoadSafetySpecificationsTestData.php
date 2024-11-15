@@ -13,7 +13,7 @@ class LoadSafetySpecificationsTestData extends AbstractLoadWebCatalogTestData im
     public function getDependencies(): array
     {
         return [
-            LoadResourceLibraryTestData::class,
+            LoadResourceLibraryTestData::class
         ];
     }
 
@@ -35,7 +35,7 @@ class LoadSafetySpecificationsTestData extends AbstractLoadWebCatalogTestData im
     }
 
     #[\Override]
-    protected function getContentVariant($type, array $params): ContentVariant
+    protected function getContentVariant(ObjectManager $manager, string $type, array $params): ContentVariant
     {
         $variant = new ContentVariant();
         $variant->setType($type);

@@ -2,41 +2,37 @@
 
 namespace Oro\Bundle\ResourceLibraryBundle\Tests\Functional\DataFixtures;
 
-use DateTime;
-use DateTimeZone;
-use DirectoryIterator;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use LogicException;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsArticleContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\NewsAnnouncementsContentVariantType;
 use Oro\Bundle\ResourceLibraryBundle\Entity\NewsAnnouncementsArticle;
+use Oro\Bundle\TestFrameworkBundle\Tests\Functional\DataFixtures\LoadUser;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 
 class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData implements DependentFixtureInterface
 {
     use LoadTestFileTrait;
 
-    private DateTime $createdAt;
-    private ObjectManager $manager;
-    private DirectoryIterator $images;
+    private \DateTime $createdAt;
+    private \DirectoryIterator $images;
 
     #[\Override]
     public function getDependencies(): array
     {
         return [
-            LoadResourceLibraryTestData::class,
+            LoadUser::class,
+            LoadResourceLibraryTestData::class
         ];
     }
 
     #[\Override]
     public function load(ObjectManager $manager): void
     {
-        $this->manager = $manager;
         $webCatalog = $this->getReference(LoadWebCatalogTestData::WEB_CATALOG_REFERENCE_NAME);
 
-        $this->createdAt = new DateTime('now', new DateTimeZone('UTC'));
+        $this->createdAt = new \DateTime('now', new \DateTimeZone('UTC'));
         $this->loadContentNodes(
             $manager,
             $webCatalog,
@@ -50,7 +46,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
     }
 
     #[\Override]
-    protected function getContentVariant($type, array $params): ContentVariant
+    protected function getContentVariant(ObjectManager $manager, string $type, array $params): ContentVariant
     {
         $variant = new ContentVariant();
         $variant->setType($type);
@@ -63,7 +59,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
 
                 $this->createdAt->modify('-' . rand(180, 360) . ' minutes');
                 $article->setCreatedAt(clone $this->createdAt);
-                $article->setImage($this->getNextImage($this->manager));
+                $article->setImage($this->getNextImage($manager));
 
                 $variant->setNewsAnnouncementsArticle($article);
                 break;
@@ -77,7 +73,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
     private function getNextImage(ObjectManager $manager, bool $useDam = true): File
     {
         if (!isset($this->images)) {
-            $this->images = new DirectoryIterator(
+            $this->images = new \DirectoryIterator(
                 $this->getFileLocator()->locate(
                     '@OroResourceLibraryBundle/Tests/Functional/DataFixtures/data/demo_picts/'
                 )
@@ -91,7 +87,7 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
             $this->images->next();
             if (!$this->images->valid()) {
                 if ($rewound) {
-                    throw new LogicException(
+                    throw new \LogicException(
                         sprintf('Directory "%s" not has readable image files', $this->images->getPath())
                     );
                 }
@@ -103,6 +99,12 @@ class LoadNewsAnnouncementsTestData extends AbstractLoadWebCatalogTestData imple
             $current = $this->images->current();
         } while (!$current->isFile() || $current->getExtension() !== 'jpg' || !$current->isReadable());
 
-        return $this->createFileFile($manager, $current->getPathname(), \basename($current->getPathname()), $useDam);
+        return $this->createFileFile(
+            $manager,
+            $this->getReference(LoadUser::USER),
+            $current->getPathname(),
+            \basename($current->getPathname()),
+            $useDam
+        );
     }
 }

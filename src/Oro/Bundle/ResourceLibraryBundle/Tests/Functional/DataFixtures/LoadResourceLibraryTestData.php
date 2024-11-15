@@ -10,11 +10,12 @@ use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 class LoadResourceLibraryTestData extends AbstractLoadWebCatalogTestData implements DependentFixtureInterface
 {
     public const RESOURCE_LIBRARY_NODE_REFERENCE_NAME = 'resource_library_node';
+
     #[\Override]
     public function getDependencies(): array
     {
         return [
-            LoadWebCatalogTestData::class,
+            LoadWebCatalogTestData::class
         ];
     }
 
@@ -36,7 +37,7 @@ class LoadResourceLibraryTestData extends AbstractLoadWebCatalogTestData impleme
     }
 
     #[\Override]
-    protected function getContentVariant($type, array $params): ContentVariant
+    protected function getContentVariant(ObjectManager $manager, string $type, array $params): ContentVariant
     {
         $variant = new ContentVariant();
         $variant->setType($type);

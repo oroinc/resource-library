@@ -4,7 +4,6 @@ namespace Oro\Bundle\ResourceLibraryBundle\Tests\Functional\DataFixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Persistence\ObjectManager;
-use LogicException;
 use Oro\Bundle\CatalogBundle\ContentVariantType\CategoryPageContentVariantType;
 use Oro\Bundle\CatalogBundle\Entity\Category;
 use Oro\Bundle\CMSBundle\ContentVariantType\CmsPageContentVariantType;
@@ -16,25 +15,18 @@ use Oro\Bundle\OrganizationBundle\Entity\Organization;
 use Oro\Bundle\ProductBundle\ContentVariantType\ProductCollectionContentVariantType;
 use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\SegmentBundle\Entity\Segment;
-use Oro\Bundle\UserBundle\Entity\User;
 use Oro\Bundle\WebCatalogBundle\Cache\ContentNodeTreeCacheDumper;
 use Oro\Bundle\WebCatalogBundle\ContentVariantType\SystemPageContentVariantType;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\Yaml\Yaml;
 
 abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements ContainerAwareInterface
 {
-    protected ContainerInterface $container;
-
-    #[\Override]
-    public function setContainer(ContainerInterface $container = null): void
-    {
-        $this->container = $container;
-    }
+    use ContainerAwareTrait;
 
     protected function loadContentNodes(
         ObjectManager $manager,
@@ -69,7 +61,7 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
                     $node->addScope($scope);
                 }
             }
-            $this->addContentVariants($webCatalog, $contentNode['contentVariants'], $node);
+            $this->addContentVariants($manager, $webCatalog, $contentNode['contentVariants'], $node);
 
             $manager->persist($node);
             $manager->flush($node);
@@ -121,7 +113,7 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
         return $this->container->get('oro_scope.scope_manager')->findOrCreate('base_scope', $scopeCriteria);
     }
 
-    protected function getContentVariant($type, array $params): ContentVariant
+    protected function getContentVariant(ObjectManager $manager, string $type, array $params): ContentVariant
     {
         $variant = new ContentVariant();
 
@@ -179,10 +171,14 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
             ->resolve($contentNode);
     }
 
-    protected function addContentVariants(WebCatalog $webCatalog, array $contentVariantsData, ContentNode $node): void
-    {
+    protected function addContentVariants(
+        ObjectManager $manager,
+        WebCatalog $webCatalog,
+        array $contentVariantsData,
+        ContentNode $node
+    ): void {
         foreach ($contentVariantsData as $contentVariant) {
-            $variant = $this->getContentVariant($contentVariant['type'], $contentVariant['params']);
+            $variant = $this->getContentVariant($manager, $contentVariant['type'], $contentVariant['params']);
             $isDefault = !empty($contentVariant['isDefault']);
             $variant->setDefault($isDefault);
             if (!$isDefault) {
@@ -200,15 +196,5 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
         /** @var ContentNodeTreeCacheDumper $dumper */
         $dumper = $this->container->get('oro_web_catalog.content_node_tree_cache_dumper');
         $dumper->dumpForAllScopes($webCatalog);
-    }
-
-    protected function getFirstUser(ObjectManager $manager): User
-    {
-        $users = $manager->getRepository(User::class)->findBy([], ['id' => 'ASC'], 1);
-        if (!$users) {
-            throw new LogicException('There are no users in system');
-        }
-
-        return reset($users);
     }
 }
