@@ -83,8 +83,7 @@
             sources: oro_filtered_picture_sources(item.newsAnnouncementsArticle.image, 'news_announcements_today') ?: asset('bundles/ororesourcelibrary/images/no_image.png'),
             img_attrs: {
                 alt: oro_file_title(item.newsAnnouncementsArticle.image)|default(item.node.titles|localized_value)
-            },
-            picture_attrs: { 'data-object-fit': '' }
+            }
         } %}
     </a>
 {% endblock %}
