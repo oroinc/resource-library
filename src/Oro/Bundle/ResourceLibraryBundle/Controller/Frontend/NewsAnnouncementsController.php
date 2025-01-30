@@ -20,7 +20,7 @@ class NewsAnnouncementsController extends AbstractController
 {
     #[Route(path: '/', name: 'oro_resource_library_news_announcements_index', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function indexAction(ContentVariant $contentVariant = null): array
+    public function indexAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant || $contentVariant->getType() !== NewsAnnouncementsContentVariantType::TYPE) {
             throw $this->createNotFoundException();
@@ -43,7 +43,7 @@ class NewsAnnouncementsController extends AbstractController
         requirements: ['id' => '\d+']
     )]
     #[Layout]
-    public function articleAction(ContentVariant $contentVariant = null): array
+    public function articleAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant
             || $contentVariant->getType() !== NewsAnnouncementsArticleContentVariantType::TYPE

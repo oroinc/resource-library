@@ -16,7 +16,7 @@ class LiteratureApplicationNoteController extends AbstractController
 {
     #[Route(path: '/', name: 'oro_resource_library_literature_application_note_index', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function indexAction(ContentVariant $contentVariant = null): array
+    public function indexAction(?ContentVariant $contentVariant = null): array
     {
         // If ContentVariant has no appropriate literature type we consider it is not valid
         if (!$contentVariant || $contentVariant->getType() !== LiteratureApplicationNoteContentVariantType::TYPE) {

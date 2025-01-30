@@ -23,7 +23,7 @@ class VideosController extends AbstractController
 {
     #[Route(path: '/', name: 'oro_resource_library_videos_list', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function listAction(ContentVariant $contentVariant = null): array
+    public function listAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant) {
             throw $this->createNotFoundException();
@@ -79,7 +79,7 @@ class VideosController extends AbstractController
 
     #[Route(path: '/section', name: 'oro_resource_library_videos_section', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function sectionAction(ContentVariant $contentVariant = null): array
+    public function sectionAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant) {
             throw $this->createNotFoundException();
@@ -109,7 +109,7 @@ class VideosController extends AbstractController
 
     #[Route(path: '/item', name: 'oro_resource_library_videos_item', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function itemAction(ContentVariant $contentVariant = null): array
+    public function itemAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant) {
             throw $this->createNotFoundException();

@@ -32,7 +32,7 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
         ObjectManager $manager,
         WebCatalog $webCatalog,
         array $nodes,
-        ContentNode $parent = null
+        ?ContentNode $parent = null
     ): void {
         foreach ($nodes as $name => $contentNode) {
             $node = new ContentNode();

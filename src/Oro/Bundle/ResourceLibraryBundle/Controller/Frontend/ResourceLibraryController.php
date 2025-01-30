@@ -25,7 +25,7 @@ class ResourceLibraryController extends AbstractController
 
     #[Route(path: '/', name: 'oro_resource_library_index', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function listAction(ContentVariant $contentVariant = null): array
+    public function listAction(?ContentVariant $contentVariant = null): array
     {
         $resolvedContentNode = $this->resolveTree($contentVariant, ResourceLibraryContentVariantType::TYPE);
 

@@ -18,7 +18,7 @@ class MediaKitController extends AbstractController
 {
     #[Route(path: '/', name: 'oro_resource_library_media_kit_list', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function listAction(ContentVariant $contentVariant = null): array
+    public function listAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant) {
             throw $this->createNotFoundException();

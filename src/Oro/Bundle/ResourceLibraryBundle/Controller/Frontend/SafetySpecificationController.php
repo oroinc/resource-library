@@ -17,7 +17,7 @@ class SafetySpecificationController extends AbstractController
 
     #[Route(path: '/', name: 'oro_resource_library_safety_specification_index', requirements: ['id' => '\d+'])]
     #[Layout]
-    public function indexAction(ContentVariant $contentVariant = null): array
+    public function indexAction(?ContentVariant $contentVariant = null): array
     {
         if (!$contentVariant || $contentVariant->getType() !== SafetySpecificationPageContentVariantType::TYPE) {
             throw $this->createNotFoundException();
