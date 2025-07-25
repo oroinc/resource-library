@@ -1,41 +1,41 @@
 oro_resource_library:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/ResourceLibraryController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/resource-library
     options:
         frontend: true
 
 oro_resource_library_literature_application_note:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/LiteratureApplicationNoteController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/literature-application-note
     options:
         frontend: true
 
 oro_resource_library_media_kit:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/MediaKitController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/media-kit
     options:
         frontend: true
 
 oro_resource_library_safety_specification:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/SafetySpecificationController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/safety-specifications
     options:
         frontend: true
 
 oro_resource_library_videos:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/VideosController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/videos
     options:
         frontend: true
 
 oro_resource_library_news_announcements:
     resource: "@OroResourceLibraryBundle/Controller/Frontend/NewsAnnouncementsController.php"
-    type: annotation
+    type: attribute
     prefix: /rl/news-announcements
     options:
         frontend: true

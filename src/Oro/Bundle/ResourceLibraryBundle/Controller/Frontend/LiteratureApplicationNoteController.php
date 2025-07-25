@@ -7,7 +7,7 @@ use Oro\Bundle\ResourceLibraryBundle\ContentVariantType\LiteratureApplicationNot
 use Oro\Bundle\ResourceLibraryBundle\Provider\LiteratureNoteContentProvider;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Provides action for Literature & Application Notes pages
