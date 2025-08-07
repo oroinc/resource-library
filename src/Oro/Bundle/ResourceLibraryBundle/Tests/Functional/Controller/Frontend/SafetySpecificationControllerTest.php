@@ -4,30 +4,30 @@ namespace Oro\Bundle\ResourceLibraryBundle\Tests\Functional\Controller\Frontend;
 
 use Oro\Bundle\RedirectBundle\Entity\Repository\SlugRepository;
 use Oro\Bundle\ResourceLibraryBundle\Tests\Functional\DataFixtures\LoadSafetySpecificationsTestData;
-use Oro\Bundle\TestFrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SafetySpecificationControllerTest extends WebTestCase
+/**
+ * @dbIsolationPerTest
+ */
+class SafetySpecificationControllerTest extends FrontendControllerTestCase
 {
     #[\Override]
     protected function setUp(): void
     {
-        $this->initClient();
-        $this->loadFixtures([
-            LoadSafetySpecificationsTestData::class,
-        ]);
+        parent::setUp();
+        $this->loadFixtures([LoadSafetySpecificationsTestData::class]);
     }
 
-    public function testIndexActionReturnsSuccessfulResponse()
+    public function testIndexActionReturnsSuccessfulResponse(): void
     {
-        $slug = static::getContainer()->get(SlugRepository::class)->findOneBy([
-            'routeName' => 'oro_resource_library_safety_specification_index',
+        $slug = self::getContainer()->get(SlugRepository::class)->findOneBy([
+            'routeName' => 'oro_resource_library_safety_specification_index'
         ]);
 
         $this->client->request(Request::METHOD_GET, $slug->getUrl());
         $response = $this->client->getResponse();
 
-        static::assertResponseStatusCodeEquals($response, Response::HTTP_OK);
+        self::assertResponseStatusCodeEquals($response, Response::HTTP_OK);
     }
 }
