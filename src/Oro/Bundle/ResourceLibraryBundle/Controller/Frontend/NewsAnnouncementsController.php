@@ -45,7 +45,8 @@ class NewsAnnouncementsController extends AbstractController
     #[Layout]
     public function articleAction(?ContentVariant $contentVariant = null): array
     {
-        if (!$contentVariant
+        if (
+            !$contentVariant
             || $contentVariant->getType() !== NewsAnnouncementsArticleContentVariantType::TYPE
             || !$contentVariant->getNewsAnnouncementsArticle()
         ) {

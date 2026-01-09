@@ -37,7 +37,8 @@ class VideosController extends AbstractController
         $resolvedContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
-        if (!$resolvedContentNode ||
+        if (
+            !$resolvedContentNode ||
             $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
@@ -93,7 +94,8 @@ class VideosController extends AbstractController
         $resolvedContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
-        if (!$resolvedContentNode ||
+        if (
+            !$resolvedContentNode ||
             $resolvedContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
@@ -123,7 +125,8 @@ class VideosController extends AbstractController
         $itemContentNode = $this->container->get(ContentNodeTreeResolverInterface::class)
             ->getResolvedContentNode($contentVariant->getNode(), $scope);
 
-        if (!$itemContentNode ||
+        if (
+            !$itemContentNode ||
             $itemContentNode->getResolvedContentVariant()->getType() !== VideoListSectionItemContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();
@@ -134,7 +137,8 @@ class VideosController extends AbstractController
 
         $this->sortChildNodesByVideoDate($parentContentNode);
 
-        if (!$parentContentNode ||
+        if (
+            !$parentContentNode ||
             $parentContentNode->getResolvedContentVariant()->getType() !== VideoListSectionContentVariantType::TYPE
         ) {
             throw $this->createNotFoundException();

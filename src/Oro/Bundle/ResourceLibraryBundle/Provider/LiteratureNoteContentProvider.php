@@ -53,7 +53,8 @@ class LiteratureNoteContentProvider
                 /** @var ResolvedContentVariant $resolvedContentVariant */
                 $resolvedContentVariant = $childNode->getResolvedContentVariant();
 
-                if ($resolvedContentVariant->getType() !==
+                if (
+                    $resolvedContentVariant->getType() !==
                     LiteratureApplicationNoteFileCollectionContentVariantType::TYPE
                 ) {
                     continue;
