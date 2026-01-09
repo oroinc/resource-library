@@ -80,7 +80,7 @@ class LoadLiteratureApplicationNotesDemoData extends AbstractLoadWebCatalogDemoD
                             $file['title']
                         )
                     );
-                    $variant->addLiteratureNoteFil($note);
+                    $variant->addLiteratureNoteFile($note);
                 }
                 break;
         }

@@ -20,8 +20,8 @@ use Oro\Bundle\WebCatalogBundle\ContentVariantType\SystemPageContentVariantType;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentNode;
 use Oro\Bundle\WebCatalogBundle\Entity\ContentVariant;
 use Oro\Bundle\WebCatalogBundle\Entity\WebCatalog;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Oro\Component\DependencyInjection\ContainerAwareInterface;
+use Oro\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\Yaml\Yaml;
 
 abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements ContainerAwareInterface
@@ -122,7 +122,8 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
         $accessor = PropertyAccess::createPropertyAccessor();
         $doctrine = $this->container->get('doctrine');
         if ($type === CategoryPageContentVariantType::TYPE
-            && $accessor->isWritable($variant, 'category_page_category')) {
+            && $accessor->isWritable($variant, 'category_page_category')
+        ) {
             $category = $this->getCategory($params['title']);
             $accessor->setValue($variant, 'category_page_category', $category);
             $variant->setExcludeSubcategories($params['excludeSubcategories'] ?? true);
@@ -145,7 +146,7 @@ abstract class AbstractLoadWebCatalogTestData extends AbstractFixture implements
         return $variant;
     }
 
-    private function getCategory(string  $title): Category
+    private function getCategory(string $title): Category
     {
         $doctrine = $this->container->get('doctrine');
         $organization = $doctrine->getRepository(Organization::class)->getFirst();
