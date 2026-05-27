@@ -62,7 +62,7 @@ class LoadLiteratureApplicationNoteTestData extends AbstractLoadWebCatalogTestDa
                             $file['title']
                         )
                     );
-                    $variant->addLiteratureNoteFil($note);
+                    $variant->addLiteratureNoteFile($note);
                 }
                 break;
         }
