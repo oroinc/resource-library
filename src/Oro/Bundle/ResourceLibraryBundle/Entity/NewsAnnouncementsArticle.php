@@ -9,6 +9,7 @@ use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\CreatedAtAwareTrait;
 use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\ConfigField;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 use Oro\Bundle\ResourceLibraryBundle\Entity\Repository\NewsAnnouncementsArticleRepository;
@@ -23,7 +24,11 @@ use Oro\Bundle\ResourceLibraryBundle\Entity\Repository\NewsAnnouncementsArticleR
  */
 #[ORM\Entity(repositoryClass: NewsAnnouncementsArticleRepository::class)]
 #[ORM\Table(name: 'oro_news_announce_article')]
-#[Config]
+#[Config(
+    defaultValues: [
+        'email' => ['available_in_template' => true],
+    ]
+)]
 class NewsAnnouncementsArticle implements CreatedAtAwareInterface, ExtendEntityInterface
 {
     use CreatedAtAwareTrait;
@@ -32,12 +37,15 @@ class NewsAnnouncementsArticle implements CreatedAtAwareInterface, ExtendEntityI
     #[ORM\Id]
     #[ORM\Column(type: Types::INTEGER)]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     private ?int $id = null;
 
     #[ORM\Column(name: 'description', type: Types::TEXT)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     private ?string $description = null;
 
     #[ORM\Column(name: 'short_description', type: Types::TEXT)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     private ?string $shortDescription = null;
 
     public function getId(): ?int
