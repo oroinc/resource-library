@@ -9,6 +9,7 @@ use Oro\Bundle\AttachmentBundle\Entity\File;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
 use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\ConfigField;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
@@ -35,7 +36,8 @@ use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
             'owner_field_name' => 'organization',
             'owner_column_name' => 'organization_id'
         ],
-        'security' => ['type' => 'ACL', 'group_name' => '']
+        'security' => ['type' => 'ACL', 'group_name' => ''],
+        'email' => ['available_in_template' => true],
     ]
 )]
 class MediaKit implements DatesAwareInterface, OrganizationAwareInterface, ExtendEntityInterface
@@ -47,12 +49,15 @@ class MediaKit implements DatesAwareInterface, OrganizationAwareInterface, Exten
     #[ORM\Column(name: 'id', type: Types::INTEGER)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: false)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?string $description = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, nullable: false)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?string $link = null;
 
     public function getId(): ?int
