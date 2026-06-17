@@ -13,7 +13,13 @@ use Oro\Bundle\ResourceLibraryBundle\Model\ExtendNewsAnnouncementsArticle;
  *
  * @ORM\Entity(repositoryClass="Oro\Bundle\ResourceLibraryBundle\Entity\Repository\NewsAnnouncementsArticleRepository")
  * @ORM\Table(name="oro_news_announce_article")
- * @Config()
+ * @Config(
+ *      defaultValues={
+ *          "email"={
+ *              "available_in_template"=true
+ *          }
+ *      }
+ * )
  */
 class NewsAnnouncementsArticle extends ExtendNewsAnnouncementsArticle implements CreatedAtAwareInterface
 {

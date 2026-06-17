@@ -28,6 +28,9 @@ use Oro\Bundle\ResourceLibraryBundle\Model\ExtendMediaKit;
  *          "security"={
  *              "type"="ACL",
  *              "group_name"=""
+ *          },
+ *          "email"={
+ *              "available_in_template"=true
  *          }
  *      }
  * )
