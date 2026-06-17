@@ -30,6 +30,9 @@ use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
  *          "security"={
  *              "type"="ACL",
  *              "group_name"=""
+ *          },
+ *          "email"={
+ *              "available_in_template"=true
  *          }
  *      }
  * )
