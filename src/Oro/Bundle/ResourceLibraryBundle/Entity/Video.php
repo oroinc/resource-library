@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
 use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\ConfigField;
 use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 
@@ -24,7 +25,8 @@ use Oro\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
             'owner_field_name' => 'organization',
             'owner_column_name' => 'organization_id'
         ],
-        'security' => ['type' => 'ACL', 'group_name' => '']
+        'security' => ['type' => 'ACL', 'group_name' => ''],
+        'email' => ['available_in_template' => true],
     ]
 )]
 class Video implements DatesAwareInterface, OrganizationAwareInterface
@@ -35,15 +37,19 @@ class Video implements DatesAwareInterface, OrganizationAwareInterface
     #[ORM\Column(name: 'id', type: Types::INTEGER)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?int $id = null;
 
     #[ORM\Column(name: 'short_description', type: Types::TEXT, nullable: false)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?string $shortDescription = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: false)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?string $description = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, nullable: false)]
+    #[ConfigField(defaultValues: ['email' => ['available_in_template' => true]])]
     protected ?string $link = null;
 
     public function getId(): ?int
