@@ -13,6 +13,8 @@ class LoadMediaKitTestData extends AbstractLoadWebCatalogTestData implements Dep
 {
     use LoadTestFileTrait;
 
+    public const MEDIA_KIT_LIST_NODE_REFERENCE_NAME = 'media_kit_list_node';
+
     private ObjectManager $manager;
 
     public function getDependencies()

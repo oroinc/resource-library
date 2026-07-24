@@ -1,4 +1,5 @@
 'Media Kits':
+    setReference: 'media_kit_list_node'
     defaultTitle: 'Media Kits'
     defaultSlugPrototype: media-kits
     parentScopeUsed: true
