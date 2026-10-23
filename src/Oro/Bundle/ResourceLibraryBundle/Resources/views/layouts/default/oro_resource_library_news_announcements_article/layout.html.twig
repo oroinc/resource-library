@@ -144,7 +144,7 @@
             {% set sources = sources|merge(oro_filtered_picture_sources(item.newsAnnouncementsArticle.image, 'news_announcements_lists_middle', { media: '(max-width: 767px)' })) %}
             {% set sources = sources|merge(oro_filtered_picture_sources(item.newsAnnouncementsArticle.image, 'news_announcements_lists')) %}
 
-            {% set img_attrs = { alt: oro_file_title(item.newsAnnouncementsArticle.image) } %}
+            {% set img_attrs = { alt: item.node.titles|localized_value } %}
         {% else %}
             {% set img_attrs = {
                 src: asset('bundles/ororesourcelibrary/images/no_image.png'),
