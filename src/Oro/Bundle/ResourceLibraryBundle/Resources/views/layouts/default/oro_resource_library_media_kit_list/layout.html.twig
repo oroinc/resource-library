@@ -59,7 +59,7 @@
         {% set attr = layout_attr_defaults(attr, {
             '~class': ' resource-library-kits__image',
             loading: 'lazy',
-            alt: item.resolvedContentVariant.media_kit.alt|default('oro.resourcelibrary.mediakit.content_variant_type.banner.alt'|trans)
+            alt: item.resolvedContentVariant.media_kit.alt|default(item.titles|localized_value)
         }) %}
 
         {% include '@OroAttachment/Twig/picture.html.twig' with {
