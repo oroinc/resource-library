@@ -11,6 +11,7 @@ oro:
 
         literature_application_note:
             content_variant_type.label: 'Literature & Application Notes'
+            file_link.aria_label: '%file%, %section%'
             files.content_variant_type.label: 'Literature & Application Notes (Section)'
             form:
                 attachment.label: 'Attachment'

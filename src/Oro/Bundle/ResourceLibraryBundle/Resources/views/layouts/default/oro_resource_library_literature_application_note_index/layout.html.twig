@@ -84,7 +84,12 @@
     }) %}
 
     <div {{ block('block_attributes') }}>
-        <a href="{{ file_url(file, 'download') }}">
+        <a href="{{ file_url(file, 'download') }}"
+           aria-label="{{ 'oro.resourcelibrary.literature_application_note.file_link.aria_label'|trans({
+               '%file%': oro_file_title(file),
+               '%section%': section.childNode.titles|localized_value
+           }) }}"
+        >
             <span class="{{ oro_attachment_icon(file) }}" aria-hidden="true"></span>
             {{- oro_file_title(file) -}}
         </a>
